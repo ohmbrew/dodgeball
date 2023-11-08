@@ -1,0 +1,121 @@
+HW: LattePanda Delta, 
+Create USB startup disk on a diff host using Ubuntu 22.04 LTS
+
+Install Ubuntu 22.04 onto Lattepanda Delta
+
+Install fuse for >= Ubuntu 22.04 to run AppImages: sudo apt install libfuse2
+
+Install Arudino IDE
+
+Install git
+
+Add user to dialout so we can access /dev/ttyACM* : sudo usermod -a -G dialout ohm
+
+Add user to i2c so we can access /dev/i2c-*: sudo usermod -a -G i2c ohm
+
+Clone pimoroni ioe-python: https://github.com/pimoroni/ioe-python
+
+install i2ctools for linux in case we can't get the ioe-python library to work without raspi: sudo apt install i2c-tools
+
+
+install pip3 so we can ./install.sh ioe-python: sudo apt install python3-pip
+install smbus2: pip3 install smbus2
+install ioe-python by running ./install.sh in dir
+
+Install TigerVNC -
+
+$ sudo apt install tigervnc-standalone-server
+
+Configure VNC Server by running
+
+$ vncserver
+
+This will setup a password to access the server through a remote session.
+
+Create new /etc/vnc directory:
+
+$ sudo mkdir /etc/vnc
+
+Create a new file /etc/vnc/startup with these lines:
+
+#!/bin/sh
+
+test x"$SHELL" = x"" && SHELL=/bin/bash
+test x"$1"     = x"" && set -- default
+
+unset SESSION_MANAGER
+unset DBUS_SESSION_BUS_ADDRESS
+
+vncconfig -iconic &
+"$SHELL" -l << EOF
+export XDG_SESSION_TYPE=x11
+export GNOME_SHELL_SESSION_MODE=ubuntu
+dbus-launch --exit-with-session gnome-session --session=ubuntu
+EOF
+vncserver -kill $DISPLAY
+
+Make the /etc/vnc/xstartup file executable:
+
+$ sudo chmod +x /etc/vnc/xstartup
+
+Create/add this file ~/.vnc/xstartup with the following contents:
+
+#!/bin/sh
+[ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
+[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
+
+Make the file executable:
+
+$ chmod +x ~/.vnc/xstartup
+
+Create a new service file to configure VNC Server to startup as a service on boot:
+
+$ sudo vi /etc/systemd/system/vncserver@.service
+
+Add the following to the contents of the newly created file -
+
+[Unit]
+Description=Start TigerVNC server at startup
+After=syslog.target network.target
+
+[Service]
+Type=forking
+User=ohm
+Group=ohm
+PAMName=login
+WorkingDirectory=/home/ohm
+
+PIDFile=/home/ohm/.vnc/%H:590%i.pid
+ExecStartPre=-/bin/sh -c "/usr/bin/vncserver -kill :%i > /dev/null 2>&1"
+ExecStart=/usr/bin/vncserver -fg -depth 24 -geometry 1280x800 -localhost no :%i
+ExecStop=/usr/bin/vncserver -kill :%i
+
+[Install]
+WantedBy=multi-user.target
+
+Update the permissions of the newly created file with
+
+$ sudo chmod +x /etc/systemd/system/vncserver@.service
+
+Reload the daemons so that it can load the new VNC service -
+
+$ sudo systemctl deamon-reload
+
+Enable the VNC service so that it loads on boot -
+
+sudo systemctl enable vncserver@.service
+
+Kill any existing VNC servers and start the service -
+
+$ vncserver -kill :*
+$ sudo systemctl start vncserver@1
+
+Check the status of the service with -
+
+$ sudo systemctl status vncserver@1
+
+
+
+
+Install Visual Studio Code from Ubuntu Application Manager
+
