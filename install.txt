@@ -8,6 +8,7 @@ Install fuse for >= Ubuntu 22.04 to run AppImages: sudo apt install libfuse2
 Install Arudino IDE
 
 Install git
+  - set user/email: $ git 
 
 Add user to dialout so we can access /dev/ttyACM* : sudo usermod -a -G dialout ohm
 
