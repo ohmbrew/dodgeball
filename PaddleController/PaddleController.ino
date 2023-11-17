@@ -2,7 +2,7 @@
   Dodgeball Motor Controller
 
   LattePanda Arduino pinout
-   B   C   E   F           D   A                   <- All these are P1 signals
+   B   C   E   F   G       D   A                   <- All these are P1 signals
   D0  D1  D2  D3  D4  D5  D6  A0  A1  A2  5V  5V
    |   |   |   |   |   |   |   |   |   |   |   | 
 
@@ -12,12 +12,13 @@
 
   Player 1 signals:
   A: Pot P1
-  B: Limit Switch P1
+  B: Limit Switch Left P1
   C: Motor Direction P1
   D: Motor PWM P1
   E: Motor Encoder A P1
   F: Motor Encoder B P1
-
+  G: Limit Switch Right P1
+  
   Player 2 signals:
   G: Pot P2
   H: Limit Switch P2
@@ -56,40 +57,43 @@
 #define SET_DIR_P2_LEFT digitalWrite(dirPinP2, LOW)
 #define SET_DIR_P2_RIGHT digitalWrite(dirPinP2, HIGH)
 
-#define DEAD_ZONE     100      // TODO: tune this empirically
+#define DEAD_ZONE     100     // TODO: 100 now is no oscillation. Try 50 and go lower til we oscillate with belted system. 16 Nov (100) - didn't oscillate on belted system like it did when I had geared system. So, I think this is a good value. Maybe make lower to see where lowest limit is
 #define DECEL_RANGE   250     // TODO: tune this empirically. Distance to start deceleration mapping. Otherwise, full speed ahead!
-#define MIN_MOTOR_POS 100     // TODO: tune this empirically
-#define HOMING_SPEED  25      // TODO: tune this empirically
+#define EDGE_OFFSET   100     // TODO: tune this empirically
+#define HOMING_SPEED  35      // TODO: tune this empirically. 25 was a bit too weak for belted system. Trying this.
+#define HOMING_SPEED_FAST 100
+#define HOMING_FAST_TIME  2000
 
 // Player 1 signal pins
-int potPinP1 = A0;      // pot connected to A0 on LattePanda board (Arduino section)
-int pwmPinP1 = 6;       // motor PWM (connects to H-Bridge motor driver boards I bought)
-int dirPinP1 = 1;       // motor direction signal (connects to H-Bridge motor driver boards I bought)
-int limitSwitchP1 = 0;  // limit switch
-int motorEncP1A = 2;    // motor encoder A
-int motorEncP1B = 3;    // motor encoder B
+int potPinP1 = A0;        // pot connected to A0 on LattePanda board (Arduino section)
+int pwmPinP1 = 6;         // motor PWM (connects to H-Bridge motor driver boards I bought)
+int dirPinP1 = 1;         // motor direction signal (connects to H-Bridge motor driver boards I bought)
+int limitSwitchP1L = 0;   // limit switch left
+int limitSwitchP1R = 4;   // limit switch right
+int motorEncP1A = 2;      // motor encoder A
+int motorEncP1B = 3;      // motor encoder B
+
 
 // Player 2 signal pins
-int potPinP2 = A3;      // pot connected to A3 on LattePanda board (Arduino section)
-int pwmPinP2 = 13;      // motor PWM (connects to H-Bridge motor driver boards I bought)
-int dirPinP2 = 8;       // motor direction signal (connects to H-Bridge motor driver boards I bought)
-int limitSwitchP2 = 7;  // limit switch
-int motorEncP2A = 9;    // motor encoder A
-int motorEncP2B = 10;   // motor encoder B
+int potPinP2 = A3;        // pot connected to A3 on LattePanda board (Arduino section)
+int pwmPinP2 = 13;        // motor PWM (connects to H-Bridge motor driver boards I bought)
+int dirPinP2 = 8;         // motor direction signal (connects to H-Bridge motor driver boards I bought)
+int limitSwitchP2L = 7;   // limit switch left
+int limitSwitchP2R = 11;  // limit switch right
+int motorEncP2A = 9;      // motor encoder A
+int motorEncP2B = 10;     // motor encoder B
 
 int ledPin = 13;        // default red led. Will place blinks in certain parts of code
 
 int potP1 = 0;          // player 1's pot A/D value (0-1023)
 int potP2 = 0;          // player 2's pot A/D value (0-1023)
 
-int speed = 40;
-
 Encoder MotorP1(motorEncP1A, motorEncP1B);      // set to input...tho I think Encoder() does it too
 Encoder MotorP2(motorEncP2A, motorEncP2B);      // set to input...tho I think Encoder() does it too
 
 // these are configured during calcMaxTicks() and should only change when re-calibrating, or after a limit switch crash
-const long settingsPosMinMotorP1 = MIN_MOTOR_POS; // hard set from empirical testing
-const long settingsPosMinMotorP2 = MIN_MOTOR_POS;
+const long settingsPosMinMotorP1 = EDGE_OFFSET;   // hard set from empirical testing
+const long settingsPosMinMotorP2 = EDGE_OFFSET;
 long settingsPosCenterMotorP1 = 0;
 long settingsPosCenterMotorP2 = 0;
 long settingsPosMaxMotorP1 = -1;    // saved during calcMaxTicks()
@@ -107,7 +111,8 @@ void setup() {
 
   // Player 1 signals I/O configure
   pinMode(potPinP1, INPUT);       // Player 1 Pot Analog
-  pinMode(limitSwitchP1, INPUT_PULLUP);  // Player 1 Limit Switch
+  pinMode(limitSwitchP1L, INPUT_PULLUP);  // Player 1 Limit Switch Left input with pullup
+  pinMode(limitSwitchP1R, INPUT_PULLUP);  // Player 1 Limit Switch Right input with pullup
   pinMode(dirPinP1, OUTPUT);      // Player 1 Motor Direction
   pinMode(2, INPUT);              // Player 1 Motor Encoder A
   pinMode(3, INPUT);              // Player 1 Motor Encoder B
@@ -115,17 +120,14 @@ void setup() {
 
   // Player 2 signals I/O configure
   pinMode(potPinP2, INPUT);       // Player 2 Pot Analog
-  pinMode(limitSwitchP2, INPUT_PULLUP);  // Player 2 Limit Switch
+  pinMode(limitSwitchP2L, INPUT_PULLUP);  // Player 2 Limit Switch Left input with pullup
+  pinMode(limitSwitchP2R, INPUT_PULLUP);  // Player 2 Limit Switch Right input with pullup
   pinMode(dirPinP2, OUTPUT);      // Player 2 Motor Direction
   pinMode(2, INPUT);              // Player 2 Motor Encoder A
   pinMode(3, INPUT);              // Player 2 Motor Encoder B
   analogWrite(pwmPinP1, 0);       // init Player 2 Motor PWM to 0
 
   Serial.begin(9600);             // initialize serial communication at 9600 bits per second
-  //delay(1000);
-  //Serial.println("Connected.");
-  //homePaddle();
-  //calcMaxTicks();
 }
 
 /*
@@ -145,26 +147,26 @@ void homePaddle() {
   Serial.print("P1 Motor going left at HOMING_SPEED ");
   Serial.print(HOMING_SPEED);
   Serial.println(". Waiting for P1 limit switch.");
-  while (digitalRead(limitSwitchP1) == 1);  // loop until limit switch is hit
+  while (digitalRead(limitSwitchP1L) == 1);  // loop until left limit switch is hit
   analogWrite(pwmPinP1, 0);   // stop motor
   Serial.println("Stopped P1 Motor.");
   SET_DIR_P1_RIGHT;
   analogWrite(pwmPinP1, HOMING_SPEED);  // start moving right for 1 sec. Want to back it off if limit switch was down when started
   Serial.println("Backing off P1 motor.");
-  delay(1000);  // give motor time to back off
+  delay(750);  // give motor time to back off
   SET_DIR_P1_LEFT;
   analogWrite(pwmPinP1, HOMING_SPEED);  // start moving motor at specified homing speed again. This time we know we were off limit switch
   Serial.print("P1 Motor going left at HOMING_SPEED ");
   Serial.print(HOMING_SPEED);
   Serial.println(". Waiting for P1 limit switch.");
-  while (digitalRead(limitSwitchP1) == 1);  // loop until limit switch is hit
+  while (digitalRead(limitSwitchP1L) == 1);  // loop until limit switch is hit
   analogWrite(pwmPinP1, 0); // stop motor
   Serial.println("Stopped P1 Motor.");
-  delay(1000);  // wait for any decel
+  delay(500);  // wait for any decel
   posMotorP1 = 0; // reset motor position to 0
   MotorP1.write(0);   // reset encoder position to 0
-  settingsPosCenterMotorP1 = posMotorP1 + 100;   // just something farther out. Will be updated on calcMaxTix()
-  settingsPosMaxMotorP1 = MIN_MOTOR_POS;  // setting these equal will flag other routines
+  settingsPosCenterMotorP1 = EDGE_OFFSET;   // just something farther out. Will be updated on calcMaxTix()
+  settingsPosMaxMotorP1 = EDGE_OFFSET;  // setting these equal will flag other routines
   Serial.println("P1 Motor Homed.");
   isHomed = 1;
 }
@@ -179,21 +181,26 @@ void homePaddle() {
  // TODO: design in a limit switch on the right side so we can fully automate homing/max tick calculation
 void calcMaxTicks() {
   homePaddle();
-  Serial.println("Waiting for pot left.");
-  while (analogRead(potPinP1) > 512); // wait for user to rotate to left half
-  delay(500);
-  Serial.println("Waiting for pot right.");
-  while (analogRead(potPinP1) < 512); // wait for user to rotate to right half
-  delay(500);
+  //Serial.println("Waiting for pot left.");
+  //while (analogRead(potPinP1) > 512); // wait for user to rotate to left half
+  //delay(500);
+  //Serial.println("Waiting for pot right.");
+  //while (analogRead(potPinP1) < 512); // wait for user to rotate to right half
+  //delay(500);
   SET_DIR_P1_RIGHT;
-  analogWrite(pwmPinP1, HOMING_SPEED);  // start moving right
-  Serial.print("P1 Motor going right at HOMING_SPEED ");
-  Serial.print(HOMING_SPEED);
-  Serial.println(". Waiting for pot left to stop motor at right end.");
-  while (analogRead(potPinP1) > 512); // wait for user to rotate to left half - this signifies the end value
+  analogWrite(pwmPinP1, HOMING_SPEED_FAST);  // start moving right fast
+  delay(HOMING_FAST_TIME);
+  analogWrite(pwmPinP1, HOMING_SPEED);  // slow down after HOMING_FAST_TIME time
+  
+  //Serial.print("P1 Motor going right at HOMING_SPEED ");
+  //Serial.print(HOMING_SPEED);
+  //Serial.println(". Waiting for pot left to stop motor at right end.");
+  //while (analogRead(potPinP1) > 512); // wait for user to rotate to left half - this signifies the end value
+  while (digitalRead(limitSwitchP1R) == 1); // loop until right limit switch is hit
   analogWrite(pwmPinP1, 0); // stop motor
-  delay(1000);  // wait for any decel
-  settingsPosMaxMotorP1 = MotorP1.read();   // save # ticks it took to get to user-specified right end position
+  delay(500);  // wait for any decel
+  settingsPosMaxMotorP1 = MotorP1.read() - EDGE_OFFSET;   // save # ticks it took minus some edge padding
+  settingsPosCenterMotorP1 = (settingsPosMaxMotorP1 - EDGE_OFFSET) / 2; // save our center position including EDGE_OFFSETs
   Serial.print("Calculated settingsPosMaxMotorP1: ");
   Serial.print(settingsPosMaxMotorP1);
   Serial.println("\n");
