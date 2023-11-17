@@ -40,7 +40,7 @@
 
   created by Greg Brault (Ohmbrew) for use in Dodge (pin) Ball game
   modified 5 Nov 2023
-
+  modified 16 Nov - tested out with belted drive system. Uploading to 
   Notes:
   Using example Analog Serial Monitoring, pot currently reports 0 for full turned one way, 1023 for full turned other way. So use that as scale for
     PWM motor control
@@ -51,12 +51,12 @@
 
 #include <Encoder.h>
 
-#define SET_DIR_P1_LEFT digitalWrite(dirPinP1, HIGH)
-#define SET_DIR_P1_RIGHT digitalWrite(dirPinP1, LOW)
-#define SET_DIR_P2_LEFT digitalWrite(dirPinP2, HIGH)
-#define SET_DIR_P2_RIGHT digitalWrite(dirPinP2, LOW)
+#define SET_DIR_P1_LEFT digitalWrite(dirPinP1, LOW)
+#define SET_DIR_P1_RIGHT digitalWrite(dirPinP1, HIGH)
+#define SET_DIR_P2_LEFT digitalWrite(dirPinP2, LOW)
+#define SET_DIR_P2_RIGHT digitalWrite(dirPinP2, HIGH)
 
-#define DEAD_ZONE     25      // TODO: tune this empirically
+#define DEAD_ZONE     100      // TODO: tune this empirically
 #define DECEL_RANGE   250     // TODO: tune this empirically. Distance to start deceleration mapping. Otherwise, full speed ahead!
 #define MIN_MOTOR_POS 100     // TODO: tune this empirically
 #define HOMING_SPEED  25      // TODO: tune this empirically
@@ -100,6 +100,7 @@ long posMotorP1 = 0;
 long posMotorP2 = 0;
 long setPointMotorP1 = 0;
 long setPointMotorP2 = 0;
+int isHomed = 0;
 
 void setup() {
   pinMode(ledPin, OUTPUT);  // make LED output
@@ -121,9 +122,10 @@ void setup() {
   analogWrite(pwmPinP1, 0);       // init Player 2 Motor PWM to 0
 
   Serial.begin(9600);             // initialize serial communication at 9600 bits per second
-
-  homePaddle();
-  calcMaxTicks();
+  //delay(1000);
+  //Serial.println("Connected.");
+  //homePaddle();
+  //calcMaxTicks();
 }
 
 /*
@@ -164,6 +166,7 @@ void homePaddle() {
   settingsPosCenterMotorP1 = posMotorP1 + 100;   // just something farther out. Will be updated on calcMaxTix()
   settingsPosMaxMotorP1 = MIN_MOTOR_POS;  // setting these equal will flag other routines
   Serial.println("P1 Motor Homed.");
+  isHomed = 1;
 }
 
 /*
@@ -178,8 +181,10 @@ void calcMaxTicks() {
   homePaddle();
   Serial.println("Waiting for pot left.");
   while (analogRead(potPinP1) > 512); // wait for user to rotate to left half
+  delay(500);
   Serial.println("Waiting for pot right.");
   while (analogRead(potPinP1) < 512); // wait for user to rotate to right half
+  delay(500);
   SET_DIR_P1_RIGHT;
   analogWrite(pwmPinP1, HOMING_SPEED);  // start moving right
   Serial.print("P1 Motor going right at HOMING_SPEED ");
@@ -221,6 +226,16 @@ void move() {
 }
 
 void loop() {
+  if (isHomed == 0) {
+    delay(2000);
+    Serial.println("");
+    Serial.println("Connected to Dodgeball.\n");
+    homePaddle();
+    calcMaxTicks();
+  }
+  // get current motor encoder values to update posMotorP1
+  posMotorP1 = MotorP1.read();
+  move();
 //  long newPosMotorP1, newPosMotorP2;
 //
 //  
@@ -259,9 +274,3 @@ void loop() {
   //}
 }
   
-
-  
-  
-
-  //Serial.println(val);
-  //delay(1);  // delay in between reads for stability
