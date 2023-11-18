@@ -58,17 +58,22 @@
 #define SET_DIR_P2_LEFT digitalWrite(dirPinP2, LOW)
 #define SET_DIR_P2_RIGHT digitalWrite(dirPinP2, HIGH)
 
+// These values were all tested empirically and they work well together
 #define DEAD_ZONE     350     // 17 Nov. 350 is lowest we can go with no minute oscillations (with .5 pot filter).
-#define DECEL_RANGE   250     // TODO: tune this empirically. Distance to start deceleration mapping. Otherwise, full speed ahead!
+#define DECEL_RANGE   2000     // TODO: tune this empirically. Distance to start deceleration mapping. Otherwise, full speed ahead!
 #define EDGE_OFFSET   100     // 17 Nov. This seems good.
-#define BACKOFF_TIME  500
-#define HOMING_SPEED_SLOW 40
-#define HOMING_SPEED  80      // TODO: tune this empirically. 25 was a bit too weak for belted system. Trying this.
+#define BACKOFF_TIME  500     // 18 Nov. This is good
+#define HOMING_SPEED_SLOW 40  // 18 Nov this is good
 #define HOMING_SPEED_FAST 200
 #define HOMING_FAST_TIME  1800
+#define INITIAL_PWM   40
+#define ACCELERATION_INIT 5
+#define DECELERATION_INIT 10
+#define DECELERATION_VAL 1
+#define ACCELERATION_VAL 4
+#define ACCELERATION_UPDATES_PER_SECOND 30
 
-#define ACCELERATION 25
-#define ACCELERATION_UPDATES_PER_SECOND 5
+
 #define STATE_M1_STOPPED  0
 #define STATE_M1_TRACKING 1
 #define STATE_M2_STOPPED  0
@@ -120,6 +125,8 @@ long posMotorP1 = 0;
 long posMotorP2 = 0;
 long setPointMotorP1 = 0;
 long setPointMotorP2 = 0;
+int pwmSpeedMotorP1 = 0;
+int pwmSpeedMotorP2 = 0;
 int isHomed = 0;
 
 int is_accelerating = 0;  // used to set initial acceleration
@@ -166,10 +173,10 @@ void setup() {
 void homePaddle() {
   // zero our position
   SET_DIR_P1_LEFT;
-  if (IS_DEBUG) Serial.print("P1 Motor tracking left until limit switch hit. HOMING_SPEED: ");
-  if (IS_DEBUG) Serial.print(HOMING_SPEED);
+  if (IS_DEBUG) Serial.print("P1 Motor tracking left until limit switch hit. HOMING_SPEED_SLOW: ");
+  if (IS_DEBUG) Serial.print(HOMING_SPEED_SLOW);
   if (IS_DEBUG) Serial.println("");
-  analogWrite(pwmPinP1, HOMING_SPEED);  // start moving motor aleft
+  analogWrite(pwmPinP1, HOMING_SPEED_SLOW);  // start moving motor aleft
   while (digitalRead(limitSwitchP1L) == 1);  // loop until left limit switch is hit
   analogWrite(pwmPinP1, 0);   // stop motor
   if (IS_DEBUG) Serial.println("Stopped P1 Motor. Backing it off.");
@@ -195,10 +202,10 @@ void homePaddle() {
   if (IS_DEBUG) Serial.println("");
   analogWrite(pwmPinP1, HOMING_SPEED_FAST);  // start moving right fast
   delay(HOMING_FAST_TIME);
-  if (IS_DEBUG) Serial.print("P1 Motor tracking right until limit switch hit. HOMING_SPEED: ");
-  if (IS_DEBUG) Serial.print(HOMING_SPEED);
+  if (IS_DEBUG) Serial.print("P1 Motor tracking right until limit switch hit. HOMING_SPEED_SLOW: ");
+  if (IS_DEBUG) Serial.print(HOMING_SPEED_SLOW);
   if (IS_DEBUG) Serial.println("");
-  analogWrite(pwmPinP1, HOMING_SPEED);  // slow down after HOMING_FAST_TIME time
+  analogWrite(pwmPinP1, HOMING_SPEED_SLOW);  // slow down after HOMING_FAST_TIME time
   //Serial.print("P1 Motor going right at HOMING_SPEED ");
   //Serial.print(HOMING_SPEED);
   //Serial.println(". Waiting for pot left to stop motor at right end.");
@@ -236,22 +243,24 @@ void move() {
       Serial.println("");
     }
   }
-  
-  // TODO...acceleration somehow.
+
+  // TODO: Acceleration is solved. But on stop, it should decelerate
   if (stateM1 == STATE_M1_STOPPED) {
     // set point needs to be > 1/2 length of dead zone. i.e., we track until we hit the set point exactly, and now to start moving again we need to be outside of dead zone range
     if (setPointMotorP1 - posMotorP1 < (-1*DEAD_ZONE/2)) {
       // need to move left from a stopped position. set our acceleration and direction
       SET_DIR_P1_LEFT;
-      analogWrite(pwmPinP1, 50);  // set initial speed to 50. _TRACKING will take care of acceleration
-      acceleration = 50;
+      pwmSpeedMotorP1 = INITIAL_PWM;
+      acceleration = ACCELERATION_INIT;
+      analogWrite(pwmPinP1, pwmSpeedMotorP1);  // set initial speed to 50 and acceleration to 5. TRACKING will take care of adding 5 to acceleration at specified rate, and add to pwmSpeedMotorP1
       update_acceleration = millis();
       stateM1 = STATE_M1_TRACKING;
     } else if (setPointMotorP1 - posMotorP1 > (DEAD_ZONE/2)) {
       // need to move right from a stopped position. set our acceleration and direction
       SET_DIR_P1_RIGHT;
-      analogWrite(pwmPinP1, 50); // set initial speed to 50. _TRACKING will take care of acceleration
-      acceleration = 50;
+      pwmSpeedMotorP1 = INITIAL_PWM;
+      acceleration = ACCELERATION_INIT;
+      analogWrite(pwmPinP1, pwmSpeedMotorP1);  // set initial speed to 50 and acceleration to 5. TRACKING will take care of adding 5 to acceleration at specified rate, and add to pwmSpeedMotorP1
       update_acceleration = millis();
       stateM1 = STATE_M1_TRACKING;
     }
@@ -260,12 +269,31 @@ void move() {
     if (setPointMotorP1 - posMotorP1 < (-1 * DEAD_ZONE/8)) {  // -1 because we are checking if we are within 1/4 dead zone on left
       // need to move left
       SET_DIR_P1_LEFT;
-      // check if it's time to accelerate
-      if (millis() - update_acceleration > (1000/ACCELERATION_UPDATES_PER_SECOND)) {
-        update_acceleration = millis();
-        acceleration += ACCELERATION;
-        if (acceleration > 255) acceleration = 255; // limit to 255
-        analogWrite(pwmPinP1, acceleration); // set to whatever our current acceleration value is
+      // how far are we? If far, full acceleration as below. If "near", let's decelerate
+      if (abs(setPointMotorP1 - posMotorP1) > DECEL_RANGE) {
+        // we are far away...proceed with acceleration. but first check if it's time to accelerate
+        if (millis() - update_acceleration > (1000/ACCELERATION_UPDATES_PER_SECOND)) {
+          update_acceleration = millis();
+          pwmSpeedMotorP1 += acceleration;
+          if (pwmSpeedMotorP1 > 255) {
+            pwmSpeedMotorP1 = 255;
+            acceleration = DECELERATION_INIT;
+          }
+          acceleration += ACCELERATION_VAL;
+          analogWrite(pwmPinP1, pwmSpeedMotorP1); // set to whatever our current pwm speed value is
+        }
+      } else {
+        // we are near...proceed with deceleration, but first check if it's time to decelerate
+        if (millis() - update_acceleration > (1000/ACCELERATION_UPDATES_PER_SECOND)) {
+          update_acceleration = millis();
+          pwmSpeedMotorP1 -= acceleration;
+          if (pwmSpeedMotorP1 < HOMING_SPEED_SLOW) {
+            pwmSpeedMotorP1 = HOMING_SPEED_SLOW;
+            acceleration = 255;
+          }
+          acceleration -= DECELERATION_VAL;
+          analogWrite(pwmPinP1, pwmSpeedMotorP1); // set to whatever our current pwm speed value is
+        }
       }
     } else if (setPointMotorP1 - posMotorP1 > (DEAD_ZONE/8)) {
       // need to move right
@@ -273,9 +301,14 @@ void move() {
       // check if it's time to accelerate
       if (millis() - update_acceleration > (1000/ACCELERATION_UPDATES_PER_SECOND)) {
         update_acceleration = millis();
-        acceleration += ACCELERATION;
-        if (acceleration > 255) acceleration = 255; // limit to 255
-        analogWrite(pwmPinP1, acceleration); // set to whatever our current acceleration value is
+        pwmSpeedMotorP1 += acceleration;
+        if (pwmSpeedMotorP1 > 255) {
+          pwmSpeedMotorP1 = 255;
+          acceleration = 255;
+        }
+        acceleration += ACCELERATION_VAL;
+        analogWrite(pwmPinP1, pwmSpeedMotorP1); // set to whatever our current pwm speed value is
+      }
     } else {
       // we are within 1/4 of center of dead zone on both sides. Stop motor and move state to stopped
       analogWrite(pwmPinP1, 0);
