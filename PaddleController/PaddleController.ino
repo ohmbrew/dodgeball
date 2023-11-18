@@ -52,6 +52,7 @@
 
 #include <Encoder.h>
 
+#define IS_DEBUG 1
 #define SET_DIR_P1_LEFT digitalWrite(dirPinP1, LOW)
 #define SET_DIR_P1_RIGHT digitalWrite(dirPinP1, HIGH)
 #define SET_DIR_P2_LEFT digitalWrite(dirPinP2, LOW)
@@ -60,7 +61,9 @@
 #define DEAD_ZONE     350     // 17 Nov. 350 is lowest we can go with no minute oscillations (with .5 pot filter).
 #define DECEL_RANGE   250     // TODO: tune this empirically. Distance to start deceleration mapping. Otherwise, full speed ahead!
 #define EDGE_OFFSET   100     // 17 Nov. This seems good.
-#define HOMING_SPEED  35      // TODO: tune this empirically. 25 was a bit too weak for belted system. Trying this.
+#define BACKOFF_TIME  500
+#define HOMING_SPEED_SLOW 40
+#define HOMING_SPEED  80      // TODO: tune this empirically. 25 was a bit too weak for belted system. Trying this.
 #define HOMING_SPEED_FAST 200
 #define HOMING_FAST_TIME  1800
 
@@ -155,75 +158,54 @@ void setup() {
   - move to minPosMotorP1. This is as far left as we should go in our drive() algorithm!
 */
 void homePaddle() {
+  // zero our position
   SET_DIR_P1_LEFT;
-  analogWrite(pwmPinP1, HOMING_SPEED);  // start moving motor at specified homing speed
-  Serial.print("P1 Motor going left at HOMING_SPEED ");
-  Serial.print(HOMING_SPEED);
-  Serial.println(". Waiting for P1 left limit switch.");
+  if (IS_DEBUG) Serial.print("P1 Motor tracking left until limit switch hit. HOMING_SPEED: ");
+  if (IS_DEBUG) Serial.print(HOMING_SPEED);
+  if (IS_DEBUG) Serial.println("");
+  analogWrite(pwmPinP1, HOMING_SPEED);  // start moving motor aleft
   while (digitalRead(limitSwitchP1L) == 1);  // loop until left limit switch is hit
   analogWrite(pwmPinP1, 0);   // stop motor
-  Serial.println("Stopped P1 Motor.");
+  if (IS_DEBUG) Serial.println("Stopped P1 Motor. Backing it off.");
   SET_DIR_P1_RIGHT;
-  analogWrite(pwmPinP1, HOMING_SPEED);  // start moving right for 1 sec. Want to back it off if limit switch was down when started
-  Serial.println("Backing off P1 motor.");
-  delay(750);  // give motor time to back off
+  analogWrite(pwmPinP1, HOMING_SPEED_SLOW);  // start moving right for 1 sec. Want to back it off if limit switch was down when started
+  delay(BACKOFF_TIME);  // give motor time to back off
   SET_DIR_P1_LEFT;
-  analogWrite(pwmPinP1, HOMING_SPEED);  // start moving motor at specified homing speed again. This time we know we were off limit switch
-  Serial.print("P1 Motor going left at HOMING_SPEED ");
-  Serial.print(HOMING_SPEED);
-  Serial.println(". Waiting for P1 left limit switch.");
+  if (IS_DEBUG) Serial.print("P1 Motor tracking left until limit switch hit. HOMING_SPEED_SLOW: ");
+  if (IS_DEBUG) Serial.print(HOMING_SPEED_SLOW);
+  if (IS_DEBUG) Serial.println("");
+  analogWrite(pwmPinP1, HOMING_SPEED_SLOW);  // start moving motor at specified homing speed again. This time we know we were off limit switch
   while (digitalRead(limitSwitchP1L) == 1);  // loop until limit switch is hit
   analogWrite(pwmPinP1, 0); // stop motor
-  Serial.println("Stopped P1 Motor.");
+  if (IS_DEBUG) Serial.println("Stopped P1 Motor. Resetting position to 0.");
   delay(500);  // wait for any decel
   posMotorP1 = 0; // reset motor position to 0
   MotorP1.write(0);   // reset encoder position to 0
-  settingsPosCenterMotorP1 = EDGE_OFFSET;   // just something farther out. Will be updated on calcMaxTix()
-  settingsPosMaxMotorP1 = EDGE_OFFSET;  // setting these equal will flag other routines
-  Serial.println("P1 Motor Homed.");
-  isHomed = 1;
-}
 
-/*
- Calculate # of ticks from home position to specified right end of playfield area (controlled via pot/button)
- - Home motor
- - while pot is > 512 (halfway), move motor right fast enough (similar to homing speed) to get it moving at constant speed
- - when pot goes < 512, stop motor
- - save # encoder ticks from home to opposite side as maxPosMotorP1
- */
- // TODO: design in a limit switch on the right side so we can fully automate homing/max tick calculation
-void calcMaxTicks() {
-  homePaddle();
-  //Serial.println("Waiting for pot left.");
-  //while (analogRead(potPinP1) > 512); // wait for user to rotate to left half
-  //delay(500);
-  //Serial.println("Waiting for pot right.");
-  //while (analogRead(potPinP1) < 512); // wait for user to rotate to right half
-  //delay(500);
+  // calculate max ticks. We are homed, so starting at 0.
   SET_DIR_P1_RIGHT;
-  Serial.print("P1 Motor going right at HOMING_SPEED_FAST: ");
-  Serial.print(HOMING_SPEED_FAST);
-  Serial.println("");
+  if (IS_DEBUG) Serial.print("P1 Motor tracking right. HOMING_SPEED_FAST: ");
+  if (IS_DEBUG) Serial.print(HOMING_SPEED_FAST);
+  if (IS_DEBUG) Serial.println("");
   analogWrite(pwmPinP1, HOMING_SPEED_FAST);  // start moving right fast
   delay(HOMING_FAST_TIME);
-  Serial.print("P1 Motor going right at HOMING_SPEED: ");
-  Serial.print(HOMING_SPEED);
-  Serial.println("");
+  if (IS_DEBUG) Serial.print("P1 Motor tracking right until limit switch hit. HOMING_SPEED: ");
+  if (IS_DEBUG) Serial.print(HOMING_SPEED);
+  if (IS_DEBUG) Serial.println("");
   analogWrite(pwmPinP1, HOMING_SPEED);  // slow down after HOMING_FAST_TIME time
-  Serial.println("Waiting for P1 right limit switch.");
   //Serial.print("P1 Motor going right at HOMING_SPEED ");
   //Serial.print(HOMING_SPEED);
   //Serial.println(". Waiting for pot left to stop motor at right end.");
   //while (analogRead(potPinP1) > 512); // wait for user to rotate to left half - this signifies the end value
   while (digitalRead(limitSwitchP1R) == 1); // loop until right limit switch is hit
   analogWrite(pwmPinP1, 0); // stop motor
-  Serial.println("Stopped P1 Motor.");
+  if (IS_DEBUG) Serial.println("Stopped P1 Motor. Setting max position to # total ticks - EDGE_OFFSET: ");
   delay(500);  // wait for any decel
   settingsPosMaxMotorP1 = MotorP1.read() - EDGE_OFFSET;   // save # ticks it took minus some edge padding
-  settingsPosCenterMotorP1 = (settingsPosMaxMotorP1 - EDGE_OFFSET) / 2; // save our center position including EDGE_OFFSETs
-  Serial.print("Calculated settingsPosMaxMotorP1: ");
-  Serial.print(settingsPosMaxMotorP1);
-  Serial.println("\n");
+  settingsPosCenterMotorP1 = (settingsPosMaxMotorP1 + settingsPosMinMotorP1) / 2 ; // save our center position
+  if (IS_DEBUG) Serial.print(settingsPosMaxMotorP1);
+  if (IS_DEBUG) Serial.println("\nP1 Motor Homed.");
+  isHomed = 1;
 }
 
 // compare analog value of pot (0-1023)to min/max range of motor. This is our set point
@@ -283,7 +265,6 @@ void loop() {
     delay(2000);
     Serial.println("");
     Serial.println("Connected to Dodgeball.\n");
-    homePaddle();
     calcMaxTicks();
     update_time = millis();
   }
