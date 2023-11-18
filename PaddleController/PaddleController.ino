@@ -57,12 +57,17 @@
 #define SET_DIR_P2_LEFT digitalWrite(dirPinP2, LOW)
 #define SET_DIR_P2_RIGHT digitalWrite(dirPinP2, HIGH)
 
-#define DEAD_ZONE     100     // TODO: 100 now is no oscillation. Try 50 and go lower til we oscillate with belted system. 16 Nov (100) - didn't oscillate on belted system like it did when I had geared system. So, I think this is a good value. Maybe make lower to see where lowest limit is
+#define DEAD_ZONE     350     // 17 Nov. 350 is lowest we can go with no minute oscillations (with .5 pot filter).
 #define DECEL_RANGE   250     // TODO: tune this empirically. Distance to start deceleration mapping. Otherwise, full speed ahead!
-#define EDGE_OFFSET   100     // TODO: tune this empirically
+#define EDGE_OFFSET   100     // 17 Nov. This seems good.
 #define HOMING_SPEED  35      // TODO: tune this empirically. 25 was a bit too weak for belted system. Trying this.
-#define HOMING_SPEED_FAST 100
-#define HOMING_FAST_TIME  2000
+#define HOMING_SPEED_FAST 200
+#define HOMING_FAST_TIME  1800
+
+#define STATE_M1_STOPPED  0
+#define STATE_M1_TRACKING 1
+#define STATE_M2_STOPPED  0
+#define STATE_M2_TRACKING 1
 
 // Player 1 signal pins
 int potPinP1 = A0;        // pot connected to A0 on LattePanda board (Arduino section)
@@ -86,7 +91,13 @@ int motorEncP2B = 10;     // motor encoder B
 int ledPin = 13;        // default red led. Will place blinks in certain parts of code
 
 int potP1 = 0;          // player 1's pot A/D value (0-1023)
+float potFilterParam = 0.5;
+int potP1_smoothed = 0; // moving average low pass filter for PotP1
+int stateM1 = STATE_M1_STOPPED;
+
 int potP2 = 0;          // player 2's pot A/D value (0-1023)
+int potP2_smoothed = 0; // moving average low pass filter for PotP2
+int stateM2 = STATE_M2_STOPPED;
 
 Encoder MotorP1(motorEncP1A, motorEncP1B);      // set to input...tho I think Encoder() does it too
 Encoder MotorP2(motorEncP2A, motorEncP2B);      // set to input...tho I think Encoder() does it too
@@ -105,6 +116,8 @@ long posMotorP2 = 0;
 long setPointMotorP1 = 0;
 long setPointMotorP2 = 0;
 int isHomed = 0;
+
+long update_time = 0;
 
 void setup() {
   pinMode(ledPin, OUTPUT);  // make LED output
@@ -146,7 +159,7 @@ void homePaddle() {
   analogWrite(pwmPinP1, HOMING_SPEED);  // start moving motor at specified homing speed
   Serial.print("P1 Motor going left at HOMING_SPEED ");
   Serial.print(HOMING_SPEED);
-  Serial.println(". Waiting for P1 limit switch.");
+  Serial.println(". Waiting for P1 left limit switch.");
   while (digitalRead(limitSwitchP1L) == 1);  // loop until left limit switch is hit
   analogWrite(pwmPinP1, 0);   // stop motor
   Serial.println("Stopped P1 Motor.");
@@ -158,7 +171,7 @@ void homePaddle() {
   analogWrite(pwmPinP1, HOMING_SPEED);  // start moving motor at specified homing speed again. This time we know we were off limit switch
   Serial.print("P1 Motor going left at HOMING_SPEED ");
   Serial.print(HOMING_SPEED);
-  Serial.println(". Waiting for P1 limit switch.");
+  Serial.println(". Waiting for P1 left limit switch.");
   while (digitalRead(limitSwitchP1L) == 1);  // loop until limit switch is hit
   analogWrite(pwmPinP1, 0); // stop motor
   Serial.println("Stopped P1 Motor.");
@@ -188,16 +201,23 @@ void calcMaxTicks() {
   //while (analogRead(potPinP1) < 512); // wait for user to rotate to right half
   //delay(500);
   SET_DIR_P1_RIGHT;
+  Serial.print("P1 Motor going right at HOMING_SPEED_FAST: ");
+  Serial.print(HOMING_SPEED_FAST);
+  Serial.println("");
   analogWrite(pwmPinP1, HOMING_SPEED_FAST);  // start moving right fast
   delay(HOMING_FAST_TIME);
+  Serial.print("P1 Motor going right at HOMING_SPEED: ");
+  Serial.print(HOMING_SPEED);
+  Serial.println("");
   analogWrite(pwmPinP1, HOMING_SPEED);  // slow down after HOMING_FAST_TIME time
-  
+  Serial.println("Waiting for P1 right limit switch.");
   //Serial.print("P1 Motor going right at HOMING_SPEED ");
   //Serial.print(HOMING_SPEED);
   //Serial.println(". Waiting for pot left to stop motor at right end.");
   //while (analogRead(potPinP1) > 512); // wait for user to rotate to left half - this signifies the end value
   while (digitalRead(limitSwitchP1R) == 1); // loop until right limit switch is hit
   analogWrite(pwmPinP1, 0); // stop motor
+  Serial.println("Stopped P1 Motor.");
   delay(500);  // wait for any decel
   settingsPosMaxMotorP1 = MotorP1.read() - EDGE_OFFSET;   // save # ticks it took minus some edge padding
   settingsPosCenterMotorP1 = (settingsPosMaxMotorP1 - EDGE_OFFSET) / 2; // save our center position including EDGE_OFFSETs
@@ -209,27 +229,53 @@ void calcMaxTicks() {
 // compare analog value of pot (0-1023)to min/max range of motor. This is our set point
 void move() {
   potP1 = analogRead(potPinP1);   // read player 1 pot analog value - this is our set point
-  setPointMotorP1 = map(potP1, 0, 1023, settingsPosMinMotorP1, settingsPosMaxMotorP1);   // calculate where pot is wrt motor min and max
-  if (abs(setPointMotorP1 - posMotorP1) <  DEAD_ZONE) {
-    analogWrite(pwmPinP1, 0);   // we are within dead zone of motor encoder reading vs set point - stop motor!
-    return;   // we are done
-  } else if (setPointMotorP1 - posMotorP1 < 0) {
-    // need to move left
-    SET_DIR_P1_LEFT;
-  } else if (setPointMotorP1 - posMotorP1 > 0) {
-    // need to move right
-    SET_DIR_P1_RIGHT;
-  }
-  // if we got here, we are NOT in the dead zone and we've set our P1 motor direction
-  // Now set PWM for P1 motor based on how far we are from set point
-  // first check if we need to scale deceleration
-  if (abs(setPointMotorP1 - posMotorP1) < DECEL_RANGE) {
-    analogWrite(pwmPinP1, map(abs(setPointMotorP1 - posMotorP1), 0, DECEL_RANGE, HOMING_SPEED, 255)); // maps abs difference of our set point and motor position
-                                                                            // to scaled PWM (min: HOMING_SPEED, max: 255). Larger difference = more power
-  } else {
-    analogWrite(pwmPinP1, 255); // not within decel range. Full steam ahead!
+  potP1_smoothed = (potFilterParam * potP1) + ((1 - potFilterParam) * potP1_smoothed);
+  setPointMotorP1 = map(potP1_smoothed, 0, 1023, settingsPosMinMotorP1, settingsPosMaxMotorP1);   // calculate where pot is wrt motor min and max
+  if (millis() - update_time > 250) {
+    update_time = millis();
+    Serial.print("M1 state: ");
+    if (stateM1 == STATE_M1_STOPPED) Serial.print("stopped. ");
+    else if (stateM1 == STATE_M1_TRACKING) Serial.print("tracking. ");
+    Serial.print(" M1 set point: ");
+    Serial.print(setPointMotorP1);
+    Serial.print(". M1 position: ");
+    Serial.print(posMotorP1);
+    Serial.print(". Smoothed pot val: ");
+    Serial.print(potP1_smoothed);
+    Serial.println("");
   }
   
+  if (stateM1 == STATE_M1_STOPPED) {
+    // set point needs to be > 1/2 length of dead zone. i.e., we track until we hit the set point exactly, and now to start moving again we need to be outside of dead zone range
+    if (setPointMotorP1 - posMotorP1 < (-1*DEAD_ZONE/2)) {
+      // need to move left
+      SET_DIR_P1_LEFT;
+      analogWrite(pwmPinP1, 255); // not within decel range. Full steam ahead!
+      stateM1 = STATE_M1_TRACKING;
+    } else if (setPointMotorP1 - posMotorP1 > (DEAD_ZONE/2)) {
+      // need to move right
+      SET_DIR_P1_RIGHT;
+      analogWrite(pwmPinP1, 255); // not within decel range. Full steam ahead!
+      stateM1 = STATE_M1_TRACKING;
+    }
+  } else if (stateM1 == STATE_M1_TRACKING) {
+    // move until our motor position equals set point. Once it does, we stop motor and move to STATE_M1_STOPPED. Then it takes us getting more then 1/2 of dead zone away before moving again
+    if (setPointMotorP1 - posMotorP1 < (-1 * DEAD_ZONE/8)) {  // -1 because we are checking if we are within 1/4 dead zone on left
+      // need to move left
+      SET_DIR_P1_LEFT;
+      analogWrite(pwmPinP1, 255); // not within decel range. Full steam ahead!
+      stateM1 = STATE_M1_TRACKING;
+    } else if (setPointMotorP1 - posMotorP1 > (DEAD_ZONE/8)) {
+      // need to move right
+      SET_DIR_P1_RIGHT;
+      analogWrite(pwmPinP1, 255); // not within decel range. Full steam ahead!
+      stateM1 = STATE_M1_TRACKING;
+    } else {
+      // we are within 1/4 of center of dead zone on both sides. Stop motor and move state to stopped
+      analogWrite(pwmPinP1, 0);
+      stateM1 = STATE_M1_STOPPED;
+    }
+  } 
 }
 
 void loop() {
@@ -239,6 +285,7 @@ void loop() {
     Serial.println("Connected to Dodgeball.\n");
     homePaddle();
     calcMaxTicks();
+    update_time = millis();
   }
   // get current motor encoder values to update posMotorP1
   posMotorP1 = MotorP1.read();
