@@ -67,6 +67,8 @@
 #define HOMING_SPEED_FAST 200
 #define HOMING_FAST_TIME  1800
 
+#define ACCELERATION 25
+#define ACCELERATION_UPDATES_PER_SECOND 5
 #define STATE_M1_STOPPED  0
 #define STATE_M1_TRACKING 1
 #define STATE_M2_STOPPED  0
@@ -120,7 +122,11 @@ long setPointMotorP1 = 0;
 long setPointMotorP2 = 0;
 int isHomed = 0;
 
+int is_accelerating = 0;  // used to set initial acceleration
+int acceleration = 0;   // set this to whatever min speed you want to start at. It will increase it each move() until 255.
+
 long update_time = 0;
+long update_acceleration = 0;
 
 void setup() {
   pinMode(ledPin, OUTPUT);  // make LED output
@@ -208,50 +214,68 @@ void homePaddle() {
   isHomed = 1;
 }
 
+// This routine must be called quite periodically for good response!
 // compare analog value of pot (0-1023)to min/max range of motor. This is our set point
 void move() {
+  posMotorP1 = MotorP1.read();  // get current motor encoder values to update posMotorP1
   potP1 = analogRead(potPinP1);   // read player 1 pot analog value - this is our set point
   potP1_smoothed = (potFilterParam * potP1) + ((1 - potFilterParam) * potP1_smoothed);
   setPointMotorP1 = map(potP1_smoothed, 0, 1023, settingsPosMinMotorP1, settingsPosMaxMotorP1);   // calculate where pot is wrt motor min and max
-  if (millis() - update_time > 250) {
-    update_time = millis();
-    Serial.print("M1 state: ");
-    if (stateM1 == STATE_M1_STOPPED) Serial.print("stopped. ");
-    else if (stateM1 == STATE_M1_TRACKING) Serial.print("tracking. ");
-    Serial.print(" M1 set point: ");
-    Serial.print(setPointMotorP1);
-    Serial.print(". M1 position: ");
-    Serial.print(posMotorP1);
-    Serial.print(". Smoothed pot val: ");
-    Serial.print(potP1_smoothed);
-    Serial.println("");
+  if (IS_DEBUG) {
+    if (millis() - update_time > 250) {
+      update_time = millis();
+      Serial.print("M1 state: ");
+      if (stateM1 == STATE_M1_STOPPED) Serial.print("stopped. ");
+      else if (stateM1 == STATE_M1_TRACKING) Serial.print("tracking. ");
+      Serial.print(" M1 set point: ");
+      Serial.print(setPointMotorP1);
+      Serial.print(". M1 position: ");
+      Serial.print(posMotorP1);
+      Serial.print(". Smoothed pot val: ");
+      Serial.print(potP1_smoothed);
+      Serial.println("");
+    }
   }
   
+  // TODO...acceleration somehow.
   if (stateM1 == STATE_M1_STOPPED) {
     // set point needs to be > 1/2 length of dead zone. i.e., we track until we hit the set point exactly, and now to start moving again we need to be outside of dead zone range
     if (setPointMotorP1 - posMotorP1 < (-1*DEAD_ZONE/2)) {
-      // need to move left
+      // need to move left from a stopped position. set our acceleration and direction
       SET_DIR_P1_LEFT;
-      analogWrite(pwmPinP1, 255); // not within decel range. Full steam ahead!
+      analogWrite(pwmPinP1, 50);  // set initial speed to 50. _TRACKING will take care of acceleration
+      acceleration = 50;
+      update_acceleration = millis();
       stateM1 = STATE_M1_TRACKING;
     } else if (setPointMotorP1 - posMotorP1 > (DEAD_ZONE/2)) {
-      // need to move right
+      // need to move right from a stopped position. set our acceleration and direction
       SET_DIR_P1_RIGHT;
-      analogWrite(pwmPinP1, 255); // not within decel range. Full steam ahead!
+      analogWrite(pwmPinP1, 50); // set initial speed to 50. _TRACKING will take care of acceleration
+      acceleration = 50;
+      update_acceleration = millis();
       stateM1 = STATE_M1_TRACKING;
     }
   } else if (stateM1 == STATE_M1_TRACKING) {
-    // move until our motor position equals set point. Once it does, we stop motor and move to STATE_M1_STOPPED. Then it takes us getting more then 1/2 of dead zone away before moving again
+    // check if we need to go left, right, or stop
     if (setPointMotorP1 - posMotorP1 < (-1 * DEAD_ZONE/8)) {  // -1 because we are checking if we are within 1/4 dead zone on left
       // need to move left
       SET_DIR_P1_LEFT;
-      analogWrite(pwmPinP1, 255); // not within decel range. Full steam ahead!
-      stateM1 = STATE_M1_TRACKING;
+      // check if it's time to accelerate
+      if (millis() - update_acceleration > (1000/ACCELERATION_UPDATES_PER_SECOND)) {
+        update_acceleration = millis();
+        acceleration += ACCELERATION;
+        if (acceleration > 255) acceleration = 255; // limit to 255
+        analogWrite(pwmPinP1, acceleration); // set to whatever our current acceleration value is
+      }
     } else if (setPointMotorP1 - posMotorP1 > (DEAD_ZONE/8)) {
       // need to move right
       SET_DIR_P1_RIGHT;
-      analogWrite(pwmPinP1, 255); // not within decel range. Full steam ahead!
-      stateM1 = STATE_M1_TRACKING;
+      // check if it's time to accelerate
+      if (millis() - update_acceleration > (1000/ACCELERATION_UPDATES_PER_SECOND)) {
+        update_acceleration = millis();
+        acceleration += ACCELERATION;
+        if (acceleration > 255) acceleration = 255; // limit to 255
+        analogWrite(pwmPinP1, acceleration); // set to whatever our current acceleration value is
     } else {
       // we are within 1/4 of center of dead zone on both sides. Stop motor and move state to stopped
       analogWrite(pwmPinP1, 0);
@@ -265,11 +289,10 @@ void loop() {
     delay(2000);
     Serial.println("");
     Serial.println("Connected to Dodgeball.\n");
-    calcMaxTicks();
+    homePaddle();
     update_time = millis();
   }
-  // get current motor encoder values to update posMotorP1
-  posMotorP1 = MotorP1.read();
+  
   move();
 //  long newPosMotorP1, newPosMotorP2;
 //
