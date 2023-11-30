@@ -1,0 +1,11 @@
+#config_version=5
+
+lights:
+  start_p1:
+    start_channel: 1-100
+    type: grb
+    tags: start
+  start_p2:
+    previous: start_p1
+    type: grb
+    tags: start

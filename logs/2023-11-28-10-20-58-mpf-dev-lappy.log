@@ -1,0 +1,181 @@
+2023-11-28 10:20:58,376 : INFO : root : Loading config.
+2023-11-28 10:20:58,381 : INFO : YamlMultifileConfigLoader : Machine config file #1: config.yaml
+2023-11-28 10:20:58,381 : WARNING : ConfigProcessor : Config file in cache changed: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/config.yaml
+2023-11-28 10:20:58,381 : INFO : ConfigProcessor : Loading config from file /usr/local/lib/python3.8/dist-packages/mpf/mpfconfig.yaml.
+2023-11-28 10:20:58,382 : DEBUG : YAML File Interface : Loading file: /usr/local/lib/python3.8/dist-packages/mpf/mpfconfig.yaml
+2023-11-28 10:20:58,505 : INFO : ConfigProcessor : Loading config: /usr/local/lib/python3.8/dist-packages/mpf/mpfconfig.yaml
+2023-11-28 10:20:58,506 : INFO : ConfigProcessor : Loading config from file /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/config.yaml.
+2023-11-28 10:20:58,506 : DEBUG : YAML File Interface : Loading file: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/config.yaml
+2023-11-28 10:20:58,556 : INFO : ConfigProcessor : Loading config: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/config.yaml
+2023-11-28 10:20:58,557 : DEBUG : YAML File Interface : Loading file: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/lights.yaml
+2023-11-28 10:20:58,559 : INFO : ConfigProcessor : Loading config: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/lights.yaml
+2023-11-28 10:20:58,560 : DEBUG : YAML File Interface : Loading file: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/coils.yaml
+2023-11-28 10:20:58,567 : INFO : ConfigProcessor : Loading config: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/coils.yaml
+2023-11-28 10:20:58,568 : DEBUG : YAML File Interface : Loading file: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/switches.yaml
+2023-11-28 10:20:58,575 : INFO : ConfigProcessor : Loading config: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/switches.yaml
+2023-11-28 10:20:58,576 : DEBUG : YAML File Interface : Loading file: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/playervars.yaml
+2023-11-28 10:20:58,579 : INFO : ConfigProcessor : Loading config: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/playervars.yaml
+2023-11-28 10:20:58,582 : INFO : ConfigProcessor : Config file cache created: /tmp/5a3923a48fe959299dd7a8425fffc094.mpf_cache
+2023-11-28 10:20:58,629 : DEBUG : YamlMultifileConfigLoader : Loading mode attract from /usr/local/lib/python3.8/dist-packages/mpf/modes/attract/config/attract.yaml
+2023-11-28 10:20:58,630 : DEBUG : YamlMultifileConfigLoader : Loading mode attract from /usr/local/lib/python3.8/dist-packages/mpf/modes/attract/config/attract.yaml
+2023-11-28 10:20:58,630 : INFO : ConfigProcessor : Loading config from cache: /tmp/edc4d190d9d8f70bc3743826a8ccf986.mpf_cache
+2023-11-28 10:20:58,631 : DEBUG : YamlMultifileConfigLoader : Loading mode game from /usr/local/lib/python3.8/dist-packages/mpf/modes/game/config/game.yaml
+2023-11-28 10:20:58,631 : INFO : ConfigProcessor : Loading config from cache: /tmp/973d4e7a920ce70e84cdae92155661d2.mpf_cache
+2023-11-28 10:20:58,632 : INFO : ConfigProcessor : Loading config from cache: /tmp/5299295c59b14f05553870a7d57af12a.mpf_cache
+2023-11-28 10:20:58,632 : INFO : ConfigProcessor : Loading config from cache: /tmp/b0d3946a34349e9ef011d59f6cde61ba.mpf_cache
+2023-11-28 10:20:58,632 : INFO : ConfigProcessor : Loading config from cache: /tmp/7591f257767870d2d547dc387fe71ea7.mpf_cache
+2023-11-28 10:20:58,633 : INFO : ConfigProcessor : Loading config from cache: /tmp/f00444fae27e6c8382adb19672f80003.mpf_cache
+2023-11-28 10:20:58,634 : INFO : ConfigProcessor : Loading config from cache: /tmp/54f3b8c80434a4355dc945b317f244a8.mpf_cache
+2023-11-28 10:20:58,635 : INFO : ConfigProcessor : Loading config from cache: /tmp/97672a2843a63a36fb88a5b212ac381e.mpf_cache
+2023-11-28 10:20:58,635 : INFO : ConfigProcessor : Loading config from cache: /tmp/7e847900d30f18bf7c378bcbecf331e4.mpf_cache
+2023-11-28 10:20:58,636 : INFO : ConfigProcessor : Loading config from cache: /tmp/71962c51c58544a063b8fb42ff926409.mpf_cache
+2023-11-28 10:20:58,636 : INFO : ConfigProcessor : Loading config from cache: /tmp/b119b0e7f1c02a63ec4d83182eb14967.mpf_cache
+2023-11-28 10:20:58,637 : INFO : ConfigProcessor : Loading config from cache: /tmp/fff02ebfdf39ee12d617312878557368.mpf_cache
+2023-11-28 10:20:58,637 : INFO : ConfigProcessor : Loading config from cache: /tmp/c4f3e785d81dfed5177b015774cd1251.mpf_cache
+2023-11-28 10:20:58,638 : INFO : ConfigProcessor : Loading config from cache: /tmp/7fc337ba5ee88c85b8c58cb3f10cbef9.mpf_cache
+2023-11-28 10:20:58,638 : INFO : ConfigProcessor : Loading config from cache: /tmp/355f5ee9fcf920d5e552ac4a709c8627.mpf_cache
+2023-11-28 10:20:58,639 : INFO : ConfigProcessor : Loading config from cache: /tmp/b6d04797b2589dbec818f39b3377332a.mpf_cache
+2023-11-28 10:20:58,639 : INFO : ConfigProcessor : Loading config from cache: /tmp/396f33914490ec5954cd48a7f4a67a48.mpf_cache
+2023-11-28 10:20:58,639 : INFO : ConfigProcessor : Loading config from cache: /tmp/a6b505505ec2f3abce890c9878b0652f.mpf_cache
+2023-11-28 10:20:58,640 : INFO : ConfigProcessor : Loading config from cache: /tmp/fb67fbb4280fe4b3a809cb8520610244.mpf_cache
+2023-11-28 10:20:58,640 : INFO : Machine : Mission Pinball Framework Core Engine v0.55.0
+2023-11-28 10:20:58,641 : INFO : Machine : Command line arguments: {'no_load_cache': False, 'create_config_cache': True, 'bcp': True, 'configfile': ['config.yaml'], 'force_assets_load': False, 'jsonlogging': False, 'logfile': 'logs/2023-11-28-10-20-58-mpf-dev-lappy.log', 'pause': False, 'production': False, 'text_ui': False, 'loglevel': 10, 'consoleloglevel': 20, 'force_platform': 'virtual', 'syslog_address': None, 'mc_file_name': None, 'no_sound': False}
+2023-11-28 10:20:58,641 : INFO : Machine : MPF path: /usr/local/lib/python3.8/dist-packages/mpf
+2023-11-28 10:20:58,641 : INFO : Machine : Machine path: /home/ohm/projects/embedded/59-Dodgeball/dodgeball
+2023-11-28 10:20:58,641 : INFO : Machine : Platform: linux
+2023-11-28 10:20:58,641 : INFO : Machine : Python executable location: /usr/bin/python3
+2023-11-28 10:20:58,641 : INFO : Machine : Python version: 3.8.10 (64-bit)
+2023-11-28 10:20:58,643 : DEBUG : asyncio : Using selector: EpollSelector
+2023-11-28 10:20:58,644 : INFO : Machine : Initialise MPF.
+2023-11-28 10:20:58,647 : DEBUG : Virtual Platform : Configuring virtual hardware interface.
+2023-11-28 10:20:58,682 : INFO : EventManager : Event: ======'machine_var_credits_string'====== Args={'value': 'FREE PLAY', 'prev_value': None, 'change': True}
+2023-11-28 10:20:58,716 : INFO : EventManager : Event: ======'machine_var_master_volume'====== Args={'value': 0.5, 'prev_value': None, 'change': True}
+2023-11-28 10:20:58,716 : INFO : EventManager : Event: ======'machine_var_mpf_version'====== Args={'value': 'MPF v0.55.0', 'prev_value': None, 'change': True}
+2023-11-28 10:20:58,716 : INFO : EventManager : Event: ======'machine_var_mpf_extended_version'====== Args={'value': 'MPF v0.55.0, Config version:5, Show version: 5, BCP version:1.1', 'prev_value': None, 'change': True}
+2023-11-28 10:20:58,717 : INFO : EventManager : Event: ======'machine_var_python_version'====== Args={'value': '3.8.10', 'prev_value': None, 'change': True}
+2023-11-28 10:20:58,736 : INFO : EventManager : Event: ======'machine_var_platform'====== Args={'value': 'Linux-5.15.0-89-generic-x86_64-with-glibc2.29', 'prev_value': None, 'change': True}
+2023-11-28 10:20:58,736 : INFO : EventManager : Event: ======'machine_var_platform_system'====== Args={'value': 'Linux', 'prev_value': None, 'change': True}
+2023-11-28 10:20:58,736 : INFO : EventManager : Event: ======'machine_var_platform_release'====== Args={'value': '5.15.0-89-generic', 'prev_value': None, 'change': True}
+2023-11-28 10:20:58,736 : INFO : EventManager : Event: ======'machine_var_platform_version'====== Args={'value': '#99~20.04.1-Ubuntu SMP Thu Nov 2 15:16:47 UTC 2023', 'prev_value': None, 'change': True}
+2023-11-28 10:20:58,736 : INFO : EventManager : Event: ======'machine_var_platform_machine'====== Args={'value': 'x86_64', 'prev_value': None, 'change': True}
+2023-11-28 10:20:58,736 : INFO : EventManager : Event: ======'init_phase_1'====== Args={}
+2023-11-28 10:20:58,740 : DEBUG : ModeController : Loaded mode attract
+2023-11-28 10:20:58,742 : DEBUG : ModeController : Loaded mode game
+2023-11-28 10:20:58,749 : DEBUG : ball_device.bd_trough : Configuring device with settings: '{'ball_switches': 's_trougheject_p1', 'eject_coil': 'c_trougheject_p1', 'eject_targets': [<playfield.playfield>], 'tags': ['home', 'trough'], 'eject_timeouts': [2000], 'debug': True, 'label': '%', 'console_log': 'full', 'file_log': 'full', 'entrance_events': {}, 'idle_missing_ball_timeout': 5.0, 'confirm_eject_type': 'target', 'captures_from': <playfield.playfield>, 'ball_missing_timeouts': [], 'ball_missing_target': <playfield.playfield>, 'confirm_eject_switch': None, 'confirm_eject_event': None, 'max_eject_attempts': 0, 'request_ball_events': {}, 'eject_events': {}, 'eject_all_events': {}, 'mechanical_eject': False, 'player_controlled_eject_event': None, 'ball_search_order': 200, 'auto_fire_on_unexpected_ball': True, 'target_on_unexpected_ball': None}'
+2023-11-28 10:20:58,753 : DEBUG : servo.servo_release : Configuring device with settings: '{'number': '3', 'servo_min': 0.35, 'servo_max': 0.55, 'positions': {1.0: 'release_left', 0.0: 'release_right'}, 'reset_position': 0.0, 'reset_events': {'mode_attract_started': 0}, 'debug': True, 'label': '%', 'tags': [], 'console_log': 'full', 'file_log': 'full', 'ball_search_min': 0.0, 'ball_search_max': 1.0, 'speed_limit': -1.0, 'acceleration_limit': -1.0, 'ball_search_wait': 5000, 'include_in_ball_search': True, 'stop_events': {}, 'stop_timeout_after_last_move': None, 'platform': None}'
+2023-11-28 10:20:58,756 : INFO : EventManager : Event: ======'logicblock_has_highscore_updated'====== Args={'value': 0, 'enabled': True}
+2023-11-28 10:20:58,756 : INFO : EventManager : Event: ======'logicblock_has_highscore_updated'====== Args={'value': 0, 'enabled': True}
+2023-11-28 10:20:58,765 : INFO : EventManager : Event: ======'init_phase_2'====== Args={}
+2023-11-28 10:20:58,766 : INFO : SwitchController : Found active switch: ('A0-B0-3', <Platform.Virtual>) <switch.s_trougheject_p1>
+2023-11-28 10:20:58,766 : INFO : SwitchController : Found active switch: ('A0-B1-3', <Platform.Virtual>) <switch.s_trougheject_p2>
+2023-11-28 10:20:58,771 : INFO : EventManager : Event: ======'bcp_connection_attempt'====== Args={'name': 'local_display', 'host': 'localhost', 'port': 5050}
+2023-11-28 10:20:58,773 : INFO : BCPClientSocket : Connecting BCP to 'local_display' at localhost:5050...
+2023-11-28 10:20:59,991 : INFO : BCPClientSocket : Connected BCP to 'local_display' localhost:5050
+2023-11-28 10:20:59,992 : INFO : EventManager : Event: ======'bcp_clients_connected'====== Args={}
+2023-11-28 10:20:59,993 : DEBUG : ball_device.bd_trough : SC: Counted 1 balls. Active switches: [<switch.s_trougheject_p1>]. Old: None
+2023-11-28 10:20:59,993 : DEBUG : ball_device.bd_trough : SC: New count 1 last: None
+2023-11-28 10:20:59,994 : INFO : ball_device.bd_trough : BCH: Initial count: 1
+2023-11-28 10:20:59,995 : INFO : ball_device.bd_trough : State: idle
+2023-11-28 10:20:59,996 : DEBUG : ball_device.bd_trough : Waiting for eject request.
+2023-11-28 10:20:59,998 : INFO : ball_device.bd_catch_p1 : BCH: Initial count: 0
+2023-11-28 10:21:00,000 : INFO : ball_device.bd_catch_p1 : State: idle
+2023-11-28 10:21:00,002 : INFO : ball_device.bd_catch_p2 : BCH: Initial count: 0
+2023-11-28 10:21:00,004 : INFO : ball_device.bd_catch_p2 : State: idle
+2023-11-28 10:21:00,007 : DEBUG : Machine : "info_lights:" section not found in machine configuration, so the Info Lights plugin will not be used.
+2023-11-28 10:21:00,008 : DEBUG : Machine : "switch_player:" section not found in machine configuration, so the Switch Playerplugin will not be used.
+2023-11-28 10:21:00,042 : DEBUG : twitch_client : "twitch_client:" section not found in machine configuration, so the Twitch Clientplugin will not be used.
+2023-11-28 10:21:00,042 : DEBUG : virtual_segment_display_connector : "virtual_segment_display_connector:" section not found in machine configuration, so the Virtual Segment Display Connector plugin will not be used.
+2023-11-28 10:21:00,043 : INFO : EventManager : Event: ======'init_phase_3'====== Args={}
+2023-11-28 10:21:00,045 : INFO : EventManager : Event: ======'machine_var_mc_version'====== Args={'value': 'MPF-MC v0.55.0', 'prev_value': None, 'change': True}
+2023-11-28 10:21:00,046 : INFO : EventManager : Event: ======'machine_var_mc_extended_version'====== Args={'value': 'MPF-MC v0.55.0 (config_version=5, BCP v1.1, Requires MPF v0.55.0-dev.49)', 'prev_value': None, 'change': True}
+2023-11-28 10:21:00,048 : ERROR : asyncio : Exception in callback EventManager._queue_task_done(<Task finishe...drinko_d\']')>)
+handle: <Handle EventManager._queue_task_done(<Task finishe...drinko_d\']')>)>
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/asyncio/events.py", line 81, in _run
+    self._context.run(self._callback, *self._args)
+  File "/usr/local/lib/python3.8/dist-packages/mpf/core/events.py", line 728, in _queue_task_done
+    future.result()
+  File "/usr/local/lib/python3.8/dist-packages/mpf/core/events.py", line 645, in _run_handlers_sequential
+    handler.callback(queue=queue, **merged_kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/mpf/core/show_controller.py", line 52, in _load_shows
+    self.machine.shows[show_name].load(show_config)
+  File "/usr/local/lib/python3.8/dist-packages/mpf/assets/show.py", line 171, in load
+    self._process_step_actions(step, actions)
+  File "/usr/local/lib/python3.8/dist-packages/mpf/assets/show.py", line 202, in _process_step_actions
+    raise e
+  File "/usr/local/lib/python3.8/dist-packages/mpf/assets/show.py", line 198, in _process_step_actions
+    self.machine.show_controller.show_players[key].validate_config_entry(value, self.name)
+  File "/usr/local/lib/python3.8/dist-packages/mpf/config_players/device_config_player.py", line 56, in validate_config_entry
+    raise e
+  File "/usr/local/lib/python3.8/dist-packages/mpf/config_players/device_config_player.py", line 52, in validate_config_entry
+    self._validate_config_item(device, device_settings))
+  File "/usr/local/lib/python3.8/dist-packages/mpf/config_players/device_config_player.py", line 86, in _validate_config_item
+    devices = self._expand_device(device)
+  File "/usr/local/lib/python3.8/dist-packages/mpf/config_players/device_config_player.py", line 115, in _expand_device
+    return self.raise_config_error(
+  File "/usr/local/lib/python3.8/dist-packages/mpf/core/logging.py", line 172, in raise_config_error
+    raise ConfigFileError(msg, error_no, self.log.name if self.log else "", context, self._url_base) \
+mpf.exceptions.config_file_error.ConfigFileError: Config File Error in light_player: Show "attract_drinko" >> Failed to load config player attract_drinko:lights with settings {'drinko_d': {'color': <RGBColor (255, 0, 0) (red)>, 'fade': 250, 'priority': 0}} >> Could not find a lights device with name or tag drinko_d, from list ['drinko_d'] Error Code: CFE-light_player-101 (https://docs.missionpinball.org/en/0.55/logs/CFE-light_player-101.html)
+2023-11-28 10:21:00,050 : INFO : Machine : Starting the main run loop.
+2023-11-28 10:21:00,050 : INFO : Machine : Shutting down...
+2023-11-28 10:21:00,050 : INFO : EventManager : Event: ======'shutdown'====== Args={}
+2023-11-28 10:21:00,050 : DEBUG : servo.servo_release : Stopping servo
+2023-11-28 10:21:00,051 : DEBUG : ball_device.bd_trough : Stopping ball device
+2023-11-28 10:21:00,053 : ERROR : Machine : Runtime Exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/mpf/core/machine.py", line 769, in _run_loop
+    raise self._exception['exception']
+  File "/usr/lib/python3.8/asyncio/events.py", line 81, in _run
+    self._context.run(self._callback, *self._args)
+  File "/usr/local/lib/python3.8/dist-packages/mpf/core/events.py", line 728, in _queue_task_done
+    future.result()
+  File "/usr/local/lib/python3.8/dist-packages/mpf/core/events.py", line 645, in _run_handlers_sequential
+    handler.callback(queue=queue, **merged_kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/mpf/core/show_controller.py", line 52, in _load_shows
+    self.machine.shows[show_name].load(show_config)
+  File "/usr/local/lib/python3.8/dist-packages/mpf/assets/show.py", line 171, in load
+    self._process_step_actions(step, actions)
+  File "/usr/local/lib/python3.8/dist-packages/mpf/assets/show.py", line 202, in _process_step_actions
+    raise e
+  File "/usr/local/lib/python3.8/dist-packages/mpf/assets/show.py", line 198, in _process_step_actions
+    self.machine.show_controller.show_players[key].validate_config_entry(value, self.name)
+  File "/usr/local/lib/python3.8/dist-packages/mpf/config_players/device_config_player.py", line 56, in validate_config_entry
+    raise e
+  File "/usr/local/lib/python3.8/dist-packages/mpf/config_players/device_config_player.py", line 52, in validate_config_entry
+    self._validate_config_item(device, device_settings))
+  File "/usr/local/lib/python3.8/dist-packages/mpf/config_players/device_config_player.py", line 86, in _validate_config_item
+    devices = self._expand_device(device)
+  File "/usr/local/lib/python3.8/dist-packages/mpf/config_players/device_config_player.py", line 115, in _expand_device
+    return self.raise_config_error(
+  File "/usr/local/lib/python3.8/dist-packages/mpf/core/logging.py", line 172, in raise_config_error
+    raise ConfigFileError(msg, error_no, self.log.name if self.log else "", context, self._url_base) \
+mpf.exceptions.config_file_error.ConfigFileError: Config File Error in light_player: Show "attract_drinko" >> Failed to load config player attract_drinko:lights with settings {'drinko_d': {'color': <RGBColor (255, 0, 0) (red)>, 'fade': 250, 'priority': 0}} >> Could not find a lights device with name or tag drinko_d, from list ['drinko_d'] Error Code: CFE-light_player-101 (https://docs.missionpinball.org/en/0.55/logs/CFE-light_player-101.html)
+2023-11-28 10:22:25,958 : ERROR : root : Received second SIGINT. Will exit ungracefully!
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/mpf/core/machine.py", line 769, in _run_loop
+    raise self._exception['exception']
+  File "/usr/lib/python3.8/asyncio/events.py", line 81, in _run
+    self._context.run(self._callback, *self._args)
+  File "/usr/local/lib/python3.8/dist-packages/mpf/core/events.py", line 728, in _queue_task_done
+    future.result()
+  File "/usr/local/lib/python3.8/dist-packages/mpf/core/events.py", line 645, in _run_handlers_sequential
+    handler.callback(queue=queue, **merged_kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/mpf/core/show_controller.py", line 52, in _load_shows
+    self.machine.shows[show_name].load(show_config)
+  File "/usr/local/lib/python3.8/dist-packages/mpf/assets/show.py", line 171, in load
+    self._process_step_actions(step, actions)
+  File "/usr/local/lib/python3.8/dist-packages/mpf/assets/show.py", line 202, in _process_step_actions
+    raise e
+  File "/usr/local/lib/python3.8/dist-packages/mpf/assets/show.py", line 198, in _process_step_actions
+    self.machine.show_controller.show_players[key].validate_config_entry(value, self.name)
+  File "/usr/local/lib/python3.8/dist-packages/mpf/config_players/device_config_player.py", line 56, in validate_config_entry
+    raise e
+  File "/usr/local/lib/python3.8/dist-packages/mpf/config_players/device_config_player.py", line 52, in validate_config_entry
+    self._validate_config_item(device, device_settings))
+  File "/usr/local/lib/python3.8/dist-packages/mpf/config_players/device_config_player.py", line 86, in _validate_config_item
+    devices = self._expand_device(device)
+  File "/usr/local/lib/python3.8/dist-packages/mpf/config_players/device_config_player.py", line 115, in _expand_device
+    return self.raise_config_error(
+  File "/usr/local/lib/python3.8/dist-packages/mpf/core/logging.py", line 172, in raise_config_error
+    raise ConfigFileError(msg, error_no, self.log.name if self.log else "", context, self._url_base) \
+mpf.exceptions.config_file_error.ConfigFileError: Config File Error in light_player: Show "attract_drinko" >> Failed to load config player attract_drinko:lights with settings {'drinko_d': {'color': <RGBColor (255, 0, 0) (red)>, 'fade': 250, 'priority': 0}} >> Could not find a lights device with name or tag drinko_d, from list ['drinko_d'] Error Code: CFE-light_player-101 (https://docs.missionpinball.org/en/0.55/logs/CFE-light_player-101.html)

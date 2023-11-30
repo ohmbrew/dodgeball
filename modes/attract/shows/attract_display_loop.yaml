@@ -1,0 +1,129 @@
+#show_version=5
+# - duration: 15s
+#   slides:
+#     beerfest_intro:
+#       widgets:
+#       - type: video
+#         video: BeerfestIntro
+- duration: 3s
+  slides:
+    press_start:
+      widgets:
+      - type: Text
+        text: Press Start!
+        style: bf_blue
+        font_size: 100
+        y: top - 250
+        animations:
+          pre_show_slide:
+          - property: opacity
+            value: 0
+            duration: .5s
+          - property: opacity
+            value: 1
+            duration: .5s
+            repeat: false
+      - type: Text
+        text: Free Play
+        font_size: 75
+        style: bf_blue
+        y: top - 550
+      # - type: video
+      #   video: bubbles
+
+      transition:
+        type: move_in
+        duration: 1s
+        direction: right
+      
+# - duration: 5s
+#   slides:
+#     ohmbrew_slide:
+#       widgets:
+#       - type: image
+#         image: createdby
+# - duration: 5s
+#   slides:
+#     thanks_slide:
+#       widgets:
+#       - type: image
+#         image: thanks
+# - duration: 8s
+#   slides:
+#     show_high_scores:
+#       widgets:
+#       # Grand Champion - larger and formatted differently
+#       - type: Text
+#         text: (machine|score1_label)
+#         style: bf_blue
+#         font_size: 100
+#         bold: true
+#         y: top - 25
+#       - type: Text
+#         text: (machine|score1_name)
+#         style: bf_blue
+#         font_size: 100
+#         anchor_x: center
+#         x: center
+#         y: top - 150
+#       - type: Text
+#         text: (machine|score1_value)
+#         style: bf_blue
+#         font_size: 100
+#         anchor_x: center
+#         x: center
+#         y: top - 275
+#       - type: Text
+#         text: (machine|score2_label)
+#         style: attract_mode_high_score_display_label
+#         y: top - 400
+#       - type: Text
+#         text: (machine|score2_name)
+#         style: attract_mode_high_score_display_name
+#         y: top - 400
+#       - type: Text
+#         text: (machine|score2_value)
+#         style: attract_mode_high_score_display_score
+#         y: top - 400
+#       - type: Text
+#         text: (machine|score3_label)
+#         style: attract_mode_high_score_display_label
+#         y: top - 485
+#       - type: Text
+#         text: (machine|score3_name)
+#         style: attract_mode_high_score_display_name
+#         y: top - 485
+#       - type: Text
+#         text: (machine|score3_value)
+#         style: attract_mode_high_score_display_score
+#         y: top - 485
+#       - type: Text
+#         text: (machine|score4_label)
+#         style: attract_mode_high_score_display_label
+#         y: top - 570
+#       - type: Text
+#         text: (machine|score4_name)
+#         style: attract_mode_high_score_display_name
+#         y: top - 570
+#       - type: Text
+#         text: (machine|score4_value)
+#         style: attract_mode_high_score_display_score
+#         y: top - 570
+#       - type: Text
+#         text: (machine|score5_label)
+#         style: attract_mode_high_score_display_label
+#         y: top - 655
+#       - type: Text
+#         text: (machine|score5_name)
+#         style: attract_mode_high_score_display_name
+#         y: top - 655
+#       - type: Text
+#         text: (machine|score5_value)
+#         style: attract_mode_high_score_display_score
+#         y: top - 655
+#       - type: video
+#         video: bubbles
+
+
+
+

@@ -1,0 +1,171 @@
+2023-11-28 10:24:01,566 : kivy : Factory: 186 symbols loaded
+2023-11-28 10:24:01,567 : kivy : Cache: register <kv.lang> with limit=None, timeout=None
+2023-11-28 10:24:01,690 : kivy : Cache: register <kv.image> with limit=None, timeout=60
+2023-11-28 10:24:01,690 : kivy : Cache: register <kv.atlas> with limit=None, timeout=None
+2023-11-28 10:24:01,719 : kivy : ImageLoaderFFPy: Using ffpyplayer 4.3.2
+2023-11-28 10:24:01,719 : kivy : Image: Providers: img_tex, img_dds, img_sdl2, img_pil, img_ffpyplayer 
+2023-11-28 10:24:01,719 : kivy : Cache: register <kv.texture> with limit=1000, timeout=60
+2023-11-28 10:24:01,719 : kivy : Cache: register <kv.shader> with limit=1000, timeout=3600
+2023-11-28 10:24:01,737 : kivy : Video: Ignored <ffmpeg> (import error)
+2023-11-28 10:24:01,741 : kivy : VideoFFPy: Using ffpyplayer 4.3.2
+2023-11-28 10:24:01,741 : kivy : Video: Provider: ffpyplayer(['video_ffmpeg'] ignored)
+2023-11-28 10:24:01,961 : kivy : Loading MPF-MC controller
+2023-11-28 10:24:01,966 : YamlMultifileConfigLoader : Machine config file #1: config
+2023-11-28 10:24:01,966 : ConfigProcessor : Config file in cache changed: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/config
+2023-11-28 10:24:01,967 : ConfigProcessor : Loading config from file /usr/local/lib/python3.8/dist-packages/mpfmc/mcconfig.yaml.
+2023-11-28 10:24:01,967 : YAML File Interface : Loading file: /usr/local/lib/python3.8/dist-packages/mpfmc/mcconfig.yaml
+2023-11-28 10:24:02,017 : ConfigProcessor : Loading config: /usr/local/lib/python3.8/dist-packages/mpfmc/mcconfig.yaml
+2023-11-28 10:24:02,018 : ConfigProcessor : Loading config from file /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/config.
+2023-11-28 10:24:02,018 : YAML File Interface : Loading file: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/config.yaml
+2023-11-28 10:24:02,050 : ConfigProcessor : Loading config: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/config
+2023-11-28 10:24:02,050 : YAML File Interface : Loading file: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/lights.yaml
+2023-11-28 10:24:02,053 : ConfigProcessor : Loading config: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/lights.yaml
+2023-11-28 10:24:02,053 : YAML File Interface : Loading file: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/coils.yaml
+2023-11-28 10:24:02,058 : ConfigProcessor : Loading config: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/coils.yaml
+2023-11-28 10:24:02,059 : YAML File Interface : Loading file: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/switches.yaml
+2023-11-28 10:24:02,064 : ConfigProcessor : Loading config: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/switches.yaml
+2023-11-28 10:24:02,064 : YAML File Interface : Loading file: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/playervars.yaml
+2023-11-28 10:24:02,066 : ConfigProcessor : Loading config: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/playervars.yaml
+2023-11-28 10:24:02,067 : ConfigProcessor : Config file cache created: /tmp/1c6947f3bf649506cc20b67c9bc404eb.mpf_cache
+2023-11-28 10:24:02,068 : YamlMultifileConfigLoader : Loading mode attract from /usr/local/lib/python3.8/dist-packages/mpf/modes/attract/config/attract.yaml
+2023-11-28 10:24:02,068 : YamlMultifileConfigLoader : Loading mode attract from /usr/local/lib/python3.8/dist-packages/mpf/modes/attract/config/attract.yaml
+2023-11-28 10:24:02,068 : ConfigProcessor : Loading config from cache: /tmp/edc4d190d9d8f70bc3743826a8ccf986.mpf_cache
+2023-11-28 10:24:02,068 : YamlMultifileConfigLoader : Loading mode game from /usr/local/lib/python3.8/dist-packages/mpf/modes/game/config/game.yaml
+2023-11-28 10:24:02,068 : ConfigProcessor : Loading config from cache: /tmp/973d4e7a920ce70e84cdae92155661d2.mpf_cache
+2023-11-28 10:24:02,068 : YamlMultifileConfigLoader : Loading mode base from /usr/local/lib/python3.8/dist-packages/mpf/modes/base/config/base.yaml
+2023-11-28 10:24:02,068 : ConfigProcessor : Loading config from cache: /tmp/08246c3708ae4e12eaf85abdc426b6fd.mpf_cache
+2023-11-28 10:24:02,069 : mpfmc : Mission Pinball Framework Media Controller v0.55.0
+2023-11-28 10:24:02,069 : mpfmc : Mission Pinball Framework Game Engine v0.55.0
+2023-11-28 10:24:02,069 : mpfmc : Machine path: /home/ohm/projects/embedded/59-Dodgeball/dodgeball
+2023-11-28 10:24:02,069 : mpfmc : Starting clock at 60.0Hz
+2023-11-28 10:24:02,077 : kivy : Text: Provider: sdl2
+2023-11-28 10:24:02,103 : kivy : Window: Provider: sdl2
+2023-11-28 10:24:02,394 : kivy : GL: Using the "OpenGL" graphics system
+2023-11-28 10:24:02,396 : kivy : GL: Backend used <sdl2>
+2023-11-28 10:24:02,396 : kivy : GL: OpenGL version <b'4.6 (Compatibility Profile) Mesa 21.2.6'>
+2023-11-28 10:24:02,396 : kivy : GL: OpenGL vendor <b'Intel'>
+2023-11-28 10:24:02,396 : kivy : GL: OpenGL renderer <b'Mesa Intel(R) HD Graphics 520 (SKL GT2)'>
+2023-11-28 10:24:02,396 : kivy : GL: OpenGL parsed version: 4, 6
+2023-11-28 10:24:02,396 : kivy : GL: Shading version <b'4.60'>
+2023-11-28 10:24:02,396 : kivy : GL: Texture max size <16384>
+2023-11-28 10:24:02,396 : kivy : GL: Texture max units <32>
+2023-11-28 10:24:02,442 : kivy : Shader: Fragment compiled successfully
+2023-11-28 10:24:02,442 : kivy : Shader: Vertex compiled successfully
+2023-11-28 10:24:02,444 : kivy : ImageSDL2: Load </usr/local/lib/python3.8/dist-packages/kivy/data/glsl/default.png>
+2023-11-28 10:24:02,448 : kivy : Window: auto add sdl2 input provider
+2023-11-28 10:24:02,449 : kivy : Window: virtual keyboard not allowed, single mode, not docked
+2023-11-28 10:24:02,454 : mpfmc : Machine path: /home/ohm/projects/embedded/59-Dodgeball/dodgeball
+2023-11-28 10:24:02,455 : kivy : Resource: add </home/ohm/projects/embedded/59-Dodgeball/dodgeball/fonts> in path list
+2023-11-28 10:24:02,455 : kivy : Resource: add </usr/local/lib/python3.8/dist-packages/mpfmc/fonts> in path list
+2023-11-28 10:24:02,455 : SoundSystem : Loading the Sound System
+2023-11-28 10:24:02,523 : AudioInterface : Initialized
+2023-11-28 10:24:02,523 : AudioInterface : Loaded SDL 2.0.10
+2023-11-28 10:24:02,523 : AudioInterface : Loaded SDL_Mixer 2.0.4
+2023-11-28 10:24:02,524 : AudioInterface : Loaded GStreamer 1.16.3.0
+2023-11-28 10:24:02,524 : AudioInterface : Loaded GLib 2.64.6
+2023-11-28 10:24:02,524 : AudioInterface : Settings requested - rate: 44100, channels: 1, buffer: 2048 samples
+2023-11-28 10:24:02,524 : AudioInterface : Settings in use - rate: 44100, channels: 1, buffer: 2048 samples (4096 bytes @ 2 bytes per sample)
+2023-11-28 10:24:02,524 : Track : Allocated track audio buffer (4096 bytes)
+2023-11-28 10:24:02,525 : Track.0.TrackStandard.music : Created Track 0 music with the following settings: simultaneous_sounds = 3, volume = 1.000000
+2023-11-28 10:24:02,525 : AudioInterface : The 'music' standard track has successfully been created.
+2023-11-28 10:24:02,525 : Track : Allocated track audio buffer (4096 bytes)
+2023-11-28 10:24:02,525 : Track.1.TrackStandard.voice : Created Track 1 voice with the following settings: simultaneous_sounds = 3, volume = 1.000000
+2023-11-28 10:24:02,525 : AudioInterface : The 'voice' standard track has successfully been created.
+2023-11-28 10:24:02,526 : Track : Allocated track audio buffer (4096 bytes)
+2023-11-28 10:24:02,526 : Track.2.TrackStandard.sfx : Created Track 2 sfx with the following settings: simultaneous_sounds = 8, volume = 1.000000
+2023-11-28 10:24:02,526 : AudioInterface : The 'sfx' standard track has successfully been created.
+2023-11-28 10:24:02,526 : SoundSystem : Setting master volume to 0.0
+2023-11-28 10:24:02,527 : SoundSystem : master_volume in sound_system is deprecated and will be removed in the future.
+2023-11-28 10:24:02,527 : AudioInterface : Enabling audio playback
+2023-11-28 10:24:02,531 : kivy : App: Loading kv </usr/local/lib/python3.8/dist-packages/mpfmc/core/mpfmc.kv>
+2023-11-28 10:24:02,532 : kivy : App: kv </usr/local/lib/python3.8/dist-packages/mpfmc/core/mpfmc.kv> not found
+2023-11-28 10:24:02,532 : kivy : Base: Create provider from mouse,multitouch_on_demand
+2023-11-28 10:24:02,532 : kivy : Base: Create provider from probesysfs
+2023-11-28 10:24:02,805 : kivy : ProbeSysfs: using probesysfs!
+2023-11-28 10:24:02,807 : kivy : ProbeSysfs: found device: ELAN Touchscreen at /dev/input/event11
+2023-11-28 10:24:02,807 : kivy : ProbeSysfs: device match: /dev/input/event11
+2023-11-28 10:24:02,807 : kivy : MTD: Read event from </dev/input/event11>
+2023-11-28 10:24:02,808 : kivy : ProbeSysfs: found device: SynPS/2 Synaptics TouchPad at /dev/input/event4
+2023-11-28 10:24:02,808 : kivy : ProbeSysfs: device match: /dev/input/event4
+2023-11-28 10:24:02,808 : kivy : MTD: Read event from </dev/input/event4>
+2023-11-28 10:24:02,808 : kivy : Base: Start application main loop
+2023-11-28 10:24:02,809 : kivy : MTD: Unable to open device "/dev/input/event11". Please ensure you have the appropriate permissions.
+2023-11-28 10:24:02,810 : EventManager : Event: ======'display_window_initialized'====== Args={}
+2023-11-28 10:24:02,810 : kivy : MTD: Unable to open device "/dev/input/event4". Please ensure you have the appropriate permissions.
+2023-11-28 10:24:02,843 : mpfmc : Display: Setting 'window' as default display
+2023-11-28 10:24:02,855 : mpfmc : ASPECT RATIO MISMATCH: The on-screen window is not the same aspect ratio as the display called 'window'. The logical display will be scaled from 3840x2160 to the window size 2560x1403, and a black bar will make up the difference
+2023-11-28 10:24:02,856 : EventManager : Event: ======'displays_initialized'====== Args={}
+2023-11-28 10:24:02,858 : EventManager : Event: ======'slide_window_blank_created'====== Args={}
+2023-11-28 10:24:02,859 : EventManager : Event: ======'display_window_ready'====== Args={}
+2023-11-28 10:24:02,868 : EventManager : Event: ======'init_phase_1'====== Args={}
+2023-11-28 10:24:02,872 : EventManager : Event: ======'mc_ready'====== Args={}
+2023-11-28 10:24:02,872 : EventManager : Event: ======'init_phase_2'====== Args={}
+2023-11-28 10:24:02,872 : ModeController : Found MPF Mode folders: {'service': 'service', 'high_score': 'high_score', 'game': 'game', 'tilt': 'tilt', 'carousel': 'carousel', 'match': 'match', 'attract': 'attract', 'bonus': 'bonus', 'credits': 'credits'}
+2023-11-28 10:24:02,872 : ModeController : Found Machine-specific Mode folders: {'base': 'base', 'attract': 'attract'}
+2023-11-28 10:24:02,873 : EventManager : Event: ======'init_phase_3'====== Args={}
+2023-11-28 10:24:02,874 : mpfmc : Clearing boot hold assets. Holds remaining: {'init'}
+2023-11-28 10:24:02,874 : EventManager : Event: ======'init_phase_4'====== Args={}
+2023-11-28 10:24:02,874 : EventManager : Event: ======'init_phase_5'====== Args={}
+2023-11-28 10:24:02,874 : mpfmc : Clearing boot hold init. Holds remaining: set()
+2023-11-28 10:24:02,874 : EventManager : Event: ======'init_done'====== Args={}
+2023-11-28 10:24:02,874 : MPF-MC BCP Server : Starting up on localhost port 5050
+2023-11-28 10:24:02,875 : MPF-MC BCP Server : Waiting for a connection...
+2023-11-28 10:24:02,878 : MPF-MC BCP Server : Received connection from: 127.0.0.1:44418
+2023-11-28 10:24:02,887 : MPF-MC BCP Server : Received "hello?version=1.1&controller_name=Mission%20Pinball%20Framework&controller_version=0.55.0"
+2023-11-28 10:24:02,901 : EventManager : Event: ======'client_disconnected'====== Args={'host': '127.0.0.1', 'port': 5050}
+2023-11-28 10:24:02,901 : EventManager : Event: ======'client_connected'====== Args={'host': '127.0.0.1', 'port': 44418}
+2023-11-28 10:24:02,944 : MPF-MC BCP Server : Received "settings?json={"settings": [["brightness", "Brightness", 100, "brightness", 1.0, {"0.25": "25%", "0.5": "50%", "0.75": "75%", "1.0": "100% (default)"}, "standard"], ["flipper_power", "Flipper power", 1000, "flipper_power", 1.0, {"0.8": "Weak", "1.0": "Normal (default)", "1.2": "Strong"}, "standard"]]}"
+2023-11-28 10:24:02,944 : MPF-MC BCP Server : Received "machine_variable?name=credits_string&value=FREE%20PLAY"
+2023-11-28 10:24:02,944 : MPF-MC BCP Server : Received "machine_variable?name=master_volume&value=float:0.5"
+2023-11-28 10:24:02,944 : MPF-MC BCP Server : Received "machine_variable?name=mpf_version&value=MPF%20v0.55.0"
+2023-11-28 10:24:02,945 : MPF-MC BCP Server : Received "machine_variable?name=mpf_extended_version&value=MPF%20v0.55.0%2C%20Config%20version%3A5%2C%20Show%20version%3A%205%2C%20BCP%20version%3A1.1"
+2023-11-28 10:24:02,945 : MPF-MC BCP Server : Received "machine_variable?name=python_version&value=3.8.10"
+2023-11-28 10:24:02,945 : MPF-MC BCP Server : Received "machine_variable?name=platform&value=Linux-5.15.0-89-generic-x86_64-with-glibc2.29"
+2023-11-28 10:24:02,945 : MPF-MC BCP Server : Received "machine_variable?name=platform_system&value=Linux"
+2023-11-28 10:24:02,945 : MPF-MC BCP Server : Received "machine_variable?name=platform_release&value=5.15.0-89-generic"
+2023-11-28 10:24:02,945 : MPF-MC BCP Server : Received "machine_variable?name=platform_version&value=%2399~20.04.1-Ubuntu%20SMP%20Thu%20Nov%202%2015%3A16%3A47%20UTC%202023"
+2023-11-28 10:24:02,945 : MPF-MC BCP Server : Received "machine_variable?name=platform_machine&value=x86_64"
+2023-11-28 10:24:02,946 : MPF-MC BCP Server : Received "machine_variable?name=mc_version&value=MPF-MC%20v0.55.0"
+2023-11-28 10:24:02,946 : MPF-MC BCP Server : Received "machine_variable?name=mc_extended_version&value=MPF-MC%20v0.55.0%20%28config_version%3D5%2C%20BCP%20v1.1%2C%20Requires%20MPF%20v0.55.0-dev.49%29"
+2023-11-28 10:24:02,946 : MPF-MC BCP Server : Received "mode_list?json={"running_modes": []}"
+2023-11-28 10:24:02,947 : mpfmc : Setting machine_var 'credits_string' to: FREE PLAY, (prior: None, change: True)
+2023-11-28 10:24:02,948 : EventManager : Event: ======'machine_var_credits_string'====== Args={'value': 'FREE PLAY', 'prev_value': None, 'change': True}
+2023-11-28 10:24:02,948 : mpfmc : Setting machine_var 'master_volume' to: 0.5, (prior: None, change: True)
+2023-11-28 10:24:02,948 : EventManager : Event: ======'machine_var_master_volume'====== Args={'value': 0.5, 'prev_value': None, 'change': True}
+2023-11-28 10:24:02,948 : mpfmc : Setting machine_var 'mpf_version' to: MPF v0.55.0, (prior: None, change: True)
+2023-11-28 10:24:02,948 : EventManager : Event: ======'machine_var_mpf_version'====== Args={'value': 'MPF v0.55.0', 'prev_value': None, 'change': True}
+2023-11-28 10:24:02,948 : mpfmc : Setting machine_var 'mpf_extended_version' to: MPF v0.55.0, Config version:5, Show version: 5, BCP version:1.1, (prior: None, change: True)
+2023-11-28 10:24:02,949 : EventManager : Event: ======'machine_var_mpf_extended_version'====== Args={'value': 'MPF v0.55.0, Config version:5, Show version: 5, BCP version:1.1', 'prev_value': None, 'change': True}
+2023-11-28 10:24:02,949 : mpfmc : Setting machine_var 'python_version' to: 3.8.10, (prior: None, change: True)
+2023-11-28 10:24:02,949 : EventManager : Event: ======'machine_var_python_version'====== Args={'value': '3.8.10', 'prev_value': None, 'change': True}
+2023-11-28 10:24:02,949 : mpfmc : Setting machine_var 'platform' to: Linux-5.15.0-89-generic-x86_64-with-glibc2.29, (prior: None, change: True)
+2023-11-28 10:24:02,949 : EventManager : Event: ======'machine_var_platform'====== Args={'value': 'Linux-5.15.0-89-generic-x86_64-with-glibc2.29', 'prev_value': None, 'change': True}
+2023-11-28 10:24:02,949 : mpfmc : Setting machine_var 'platform_system' to: Linux, (prior: None, change: True)
+2023-11-28 10:24:02,949 : EventManager : Event: ======'machine_var_platform_system'====== Args={'value': 'Linux', 'prev_value': None, 'change': True}
+2023-11-28 10:24:02,949 : mpfmc : Setting machine_var 'platform_release' to: 5.15.0-89-generic, (prior: None, change: True)
+2023-11-28 10:24:02,950 : EventManager : Event: ======'machine_var_platform_release'====== Args={'value': '5.15.0-89-generic', 'prev_value': None, 'change': True}
+2023-11-28 10:24:02,950 : mpfmc : Setting machine_var 'platform_version' to: #99~20.04.1-Ubuntu SMP Thu Nov 2 15:16:47 UTC 2023, (prior: None, change: True)
+2023-11-28 10:24:02,950 : EventManager : Event: ======'machine_var_platform_version'====== Args={'value': '#99~20.04.1-Ubuntu SMP Thu Nov 2 15:16:47 UTC 2023', 'prev_value': None, 'change': True}
+2023-11-28 10:24:02,950 : mpfmc : Setting machine_var 'platform_machine' to: x86_64, (prior: None, change: True)
+2023-11-28 10:24:02,950 : EventManager : Event: ======'machine_var_platform_machine'====== Args={'value': 'x86_64', 'prev_value': None, 'change': True}
+2023-11-28 10:24:02,950 : MPF-MC BCP Server : Received "goodbye"
+2023-11-28 10:24:02,951 : mpfmc : Setting machine_var 'mc_version' to: MPF-MC v0.55.0, (prior: None, change: True)
+2023-11-28 10:24:02,951 : EventManager : Event: ======'machine_var_mc_version'====== Args={'value': 'MPF-MC v0.55.0', 'prev_value': None, 'change': True}
+2023-11-28 10:24:02,951 : mpfmc : Setting machine_var 'mc_extended_version' to: MPF-MC v0.55.0 (config_version=5, BCP v1.1, Requires MPF v0.55.0-dev.49), (prior: None, change: True)
+2023-11-28 10:24:02,951 : EventManager : Event: ======'machine_var_mc_extended_version'====== Args={'value': 'MPF-MC v0.55.0 (config_version=5, BCP v1.1, Requires MPF v0.55.0-dev.49)', 'prev_value': None, 'change': True}
+2023-11-28 10:24:02,951 : SoundSystem : Setting master volume to 0.5
+2023-11-28 10:24:02,951 : mpfmc : Stopping...
+2023-11-28 10:24:02,952 : EventManager : Event: ======'shutdown'====== Args={}
+2023-11-28 10:24:02,952 : AudioInterface : Disabling audio playback
+2023-11-28 10:24:02,952 : Track.0.TrackStandard.music : Stopping all sounds and removing any pending sounds from queue
+2023-11-28 10:24:02,952 : Track.1.TrackStandard.voice : Stopping all sounds and removing any pending sounds from queue
+2023-11-28 10:24:02,952 : Track.2.TrackStandard.sfx : Stopping all sounds and removing any pending sounds from queue
+2023-11-28 10:24:03,029 : mpfmc : Loop rate 16.08 Hz
+2023-11-28 10:24:03,030 : kivy : Base: Leaving application in progress...
+2023-11-28 10:24:03,042 : mpfmc : Stopping...
+2023-11-28 10:24:03,042 : EventManager : Event: ======'shutdown'====== Args={}
+2023-11-28 10:24:03,042 : mpfmc : Loop rate 17.63 Hz
+2023-11-28 10:24:03,042 : kivy : MC run loop ended.
+2023-11-28 10:24:03,043 : kivy : Stopping child threads... (2 remaining)
+2023-11-28 10:24:03,910 : MPF-MC BCP Server : Stopping BCP sending thread
+2023-11-28 10:24:03,949 : kivy : All child threads stopped.

@@ -1,0 +1,29 @@
+2023-11-28 10:20:57,241 : ERROR : root : Received second SIGINT. Will exit ungracefully!
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/mpf/core/machine.py", line 769, in _run_loop
+    raise self._exception['exception']
+  File "/usr/lib/python3.8/asyncio/events.py", line 81, in _run
+    self._context.run(self._callback, *self._args)
+  File "/usr/local/lib/python3.8/dist-packages/mpf/core/events.py", line 728, in _queue_task_done
+    future.result()
+  File "/usr/local/lib/python3.8/dist-packages/mpf/core/events.py", line 645, in _run_handlers_sequential
+    handler.callback(queue=queue, **merged_kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/mpf/core/show_controller.py", line 52, in _load_shows
+    self.machine.shows[show_name].load(show_config)
+  File "/usr/local/lib/python3.8/dist-packages/mpf/assets/show.py", line 171, in load
+    self._process_step_actions(step, actions)
+  File "/usr/local/lib/python3.8/dist-packages/mpf/assets/show.py", line 202, in _process_step_actions
+    raise e
+  File "/usr/local/lib/python3.8/dist-packages/mpf/assets/show.py", line 198, in _process_step_actions
+    self.machine.show_controller.show_players[key].validate_config_entry(value, self.name)
+  File "/usr/local/lib/python3.8/dist-packages/mpf/config_players/device_config_player.py", line 56, in validate_config_entry
+    raise e
+  File "/usr/local/lib/python3.8/dist-packages/mpf/config_players/device_config_player.py", line 52, in validate_config_entry
+    self._validate_config_item(device, device_settings))
+  File "/usr/local/lib/python3.8/dist-packages/mpf/config_players/device_config_player.py", line 86, in _validate_config_item
+    devices = self._expand_device(device)
+  File "/usr/local/lib/python3.8/dist-packages/mpf/config_players/device_config_player.py", line 115, in _expand_device
+    return self.raise_config_error(
+  File "/usr/local/lib/python3.8/dist-packages/mpf/core/logging.py", line 172, in raise_config_error
+    raise ConfigFileError(msg, error_no, self.log.name if self.log else "", context, self._url_base) \
+mpf.exceptions.config_file_error.ConfigFileError: Config File Error in light_player: Show "attract_drinko" >> Failed to load config player attract_drinko:lights with settings {'drinko_d': {'color': <RGBColor (255, 0, 0) (red)>, 'fade': 250, 'priority': 0}} >> Could not find a lights device with name or tag drinko_d, from list ['drinko_d'] Error Code: CFE-light_player-101 (https://docs.missionpinball.org/en/0.55/logs/CFE-light_player-101.html)

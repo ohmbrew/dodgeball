@@ -1,0 +1,1570 @@
+#config_version=5
+##! mode: base
+
+# TODO: 
+
+mode:
+  start_events: ball_started
+  priority: 100
+
+# config:
+#   - shots.yaml
+  
+# event_player:
+#   mode_base_started:
+#     - start_mode_global
+#     - initialize_drinko_bonus
+#     - strikeout_bank_reset
+#     - start_mode_spellbeer
+#     - start_mode_spellmunich
+#     - flippers_normal
+#   mode_base_will_stop:
+#     - stop_mode_global
+#   mode_type_wizard_started:
+#     - stop_mode_global
+#   mode_type_wizard_stopped{not mode["base"].stopping}:
+#     - start_mode_global
+#   timer_monkeychug_slide_timer_complete: show_queued_drinko_bonus   # tell Drinko Bonus mode that we're done showing Monkeychug slide, if it has queued Drinko Bonus slide
+
+# timers:
+#   monkeychug_slide_timer:   # to change is_slide_monkeychug_active player var and fire event for drinko mode to show a Drinko Bonus if one is queued
+#     start_value: 2
+#     end_value: 0
+#     direction: down
+#     tick_interval: 1
+#     control_events:
+#       - action: restart
+#         event: slide_slide_bonus_monkeychug_active
+#   flipperflop_activated:
+#     start_value: 1
+#     end_value: 0
+#     tick_interval: 10s
+#     direction: down
+#     control_events:
+#       - action: restart
+#         event: logicblock_track_flipperflop_hit
+#   wait_flipper_1s:
+#     start_value: 2
+#     end_value: 0
+#     direction: down
+#     tick_interval: 1s
+#     control_events:
+#       - action: restart
+#         event: wait_flipper_1s_restart
+
+
+# counters:
+#   lf3:
+#     count_events: shot_leftflipper_hit
+#     count_complete_value: 3
+#     reset_events: lf3_reset
+#     events_when_complete: lf3_complete
+#     disable_on_complete: false
+#   rf1:
+#     count_events: shot_rightflipper_hit
+#     count_complete_value: 1
+#     reset_events: rf1_reset
+#     events_when_complete: rf1_complete
+#     disable_on_complete: false
+#   lf4:
+#     count_events: shot_leftflipper_hit
+#     count_complete_value: 4
+#     reset_events: lf4_reset
+#     events_when_complete: lf4_complete
+#     disable_on_complete: false
+
+# queue_relay_player:
+#   ball_ending:
+#     post: start_mode_bonusv2
+#     wait_for: mode_bonusv2_stopped
+
+slides:
+  round_started:
+    widgets:
+    - type: text
+      text: "Round 1...Dodgeball!"
+      font_size: 150
+#   video_cantdrinkabeer_slide:
+#     widgets:
+#     - type: image
+#       image: background-flag
+#     - type: video
+#       video: cantdrinkabeer
+#   video_firstbeer_slide:
+#     widgets:
+#     - type: image
+#       image: background-flag
+#     - type: video
+#       video: firstbeer
+#   video_nipple_slide:
+#     widgets:
+#     - type: image
+#       image: background-flag
+#     - type: video
+#       video: nipple 
+#   slide_bonus_monkeychug:
+#     widgets:
+#     - type: text
+#       text: MONKEY CHUG
+#       font_size: 150
+#       font_name: druillet
+#       anchor_x: center
+#       anchor_y: top
+#       x: middle
+#       y: top - 35
+#       color: 008ce5ff
+#     - type: text
+#       text: BONUS
+#       font_size: 150
+#       font_name: druillet
+#       anchor_x: center
+#       anchor_y: top
+#       x: middle
+#       y: top - 210
+#       color: 008ce5ff
+#     - type: text
+#       text: (player|pts_i)
+#       number_grouping: true
+#       min_digits: 1
+#       font_size: 10
+#       font_name: druillet
+#       anchor_x: center
+#       anchor_y: top
+#       x: middle
+#       y: top - 425
+#       color: 008ce5ff
+#       animations:
+#         show_slide:
+#           - property: font_size
+#             value: 200
+#             duration: .25s
+#     - type: image
+#       image: background
+  
+#   slide_bonus_strikeout:
+#     widgets:
+#     - type: text
+#       text: Strikeout
+#       font_size: 150
+#       font_name: druillet
+#       anchor_x: center
+#       anchor_y: top
+#       x: middle
+#       y: top - 35
+#       color: 008ce5ff
+#     - type: text
+#       text: BONUS
+#       font_size: 150
+#       font_name: druillet
+#       anchor_x: center
+#       anchor_y: top
+#       x: middle
+#       y: top - 210
+#       color: 008ce5ff
+#     - type: text
+#       text: (player|pts_strikeout_complete)
+#       number_grouping: true
+#       min_digits: 1
+#       font_size: 10
+#       font_name: druillet
+#       anchor_x: center
+#       anchor_y: top
+#       x: middle
+#       y: top - 425
+#       color: 008ce5ff
+#       animations:
+#         show_slide:
+#           - property: font_size
+#             value: 200
+#             duration: .5s
+#     - type: image
+#       image: background
+#   slide_ballsave:
+#     widgets:
+#     - type: text
+#       text: BALL SAVED
+#       font_name: druillet
+#       color: 008ce5ff
+#       font_size: 10
+#       anchor_x: middle
+#       anchor_y: middle
+#       x: middle
+#       y: top - 325
+#       animations:
+#         show_slide:
+#           - property: font_size
+#             value: 225
+#             duration: 3s
+#     - type: video
+#       video: landfill
+#     expire: 7.05s
+
+#   slide_play_easteregg_clean:
+#     widgets:
+#     - type: text
+#       text: First Playtest
+#       font_size: 150
+#       font_name: druillet
+#       anchor_x: left
+#       anchor_y: top
+#       x: left + 25
+#       y: top - 35
+#       color: 008ce5ff
+#     - type: video
+#       video: easteregg_clean
+#   slide_play_easteregg_adult:
+#     widgets:
+#     - type: video
+#       video: easteregg_adult
+
+slide_player:
+  mode_base_started:
+    round_started:
+      action: play
+#   shot_drinko_i_hit{mode.dasboot.active == False}:
+#     slide_bonus_monkeychug:
+#       priority: 1500
+#       expire: 2s
+#   bank_strikeout_complete{mode.strikeout.active == False and mode.dasboot.active == False}:
+#     slide_bonus_strikeout:
+#       priority: 1000
+#       expire: 2s
+#   ball_save_ball_save_saving_ball: slide_ballsave
+#   play_easteregg{device.switches.s_adult.state == 0}:
+#     slide_play_easteregg_clean:
+#       priority: 20000
+#       expire: 6.35s
+#   play_easteregg{device.switches.s_adult.state == 1}:
+#     slide_play_easteregg_adult:
+#       priority: 20000
+#       expire: 11.16s
+
+# shows to light lights when drinko sensor has been hit
+# shows:
+#   show_init_base:
+#     - time: 0
+#       lights:
+#         l_pop_left: on
+#         l_pop_right: on
+#         l_pop_lower: on
+#         tavern_sign1: white
+#         tavern_sign2: white
+#         tavern_inside: white
+#         gi_left1: 008ce5
+#         gi_left2: 008ce5
+#         gi_left3: 008ce5
+#         gi_left4: 008ce5
+#         gi_right1: 008ce5
+#         gi_right2: 008ce5
+#         gi_right3: 008ce5
+#         gi_right4: 008ce5
+#         gi_back1: off
+#         gi_back2: off
+#         gi_back3: off
+#         gi_back4: off
+#         gi_back5: off
+#         gi_back6: off
+#     - duration: -1
+#   show_pop_left:
+#     - time: 0
+#       lights:
+#         l_pop_left: off
+#     - time: '+.5s'
+#       lights:
+#         l_pop_left: on
+#   show_pop_right:
+#     - time: 0
+#       lights:
+#         l_pop_right: off
+#     - time: '+.5s'
+#       lights:
+#         l_pop_right: on
+#   show_pop_lower:
+#     - time: 0
+#       lights:
+#         l_pop_lower: off
+#     - time: '+.5s'
+#       lights:
+#         l_pop_lower: on
+#   show_slingquarters_hit:
+#     - time: 0
+#       lights:
+#         slingquarters_upper: off
+#         slingquarters_lower: off
+#     - time: '+.5'
+#       lights:
+#         slingquarters_upper: on
+#         slingquarters_lower: on
+#   show_slingleft_hit:
+#     - time: 0
+#       lights:
+#         slingleft_upper: off
+#         slingleft_lower: off
+#     - time: '+.5'
+#       lights:
+#         slingleft_upper: on
+#         slingleft_lower: on
+#   show_slingright_hit:
+#     - time: 0
+#       lights:
+#         slingright_upper: off
+#         slingright_lower: off
+#     - time: '+.5'
+#       lights:
+#         slingright_upper: on
+#         slingright_lower: on
+#   show_longpour_insert:
+#     - time: 0
+#       lights:
+#         mode_longpour: green
+#     - duration: -1
+#   show_quarters_insert:
+#     - time: 0
+#       lights:
+#         mode_quarters: green
+#     - duration: -1
+#   show_strikeout_insert:
+#     - time: 0
+#       lights:
+#         mode_strikeout: green
+#     - duration: -1
+#   show_volumechug_insert:
+#     - time: 0
+#       lights:
+#         mode_volumechug: green
+#     - duration: -1
+#   show_trojankeg_insert:
+#     - time: 0
+#       lights:
+#         mode_trojankeg: green
+#     - duration: -1
+#   show_dasboot_insert:
+#     - time: 0
+#       lights:
+#         mode_dasboot: green
+#     - duration: -1
+#   show_ball_save:
+#     - time: 0
+#       lights:
+#         (light): (on_color)
+#     - time: '+1'
+#       lights:
+#         (light): (off_color)
+#   show_tavern_hit:
+#     - time: 0
+#       lights:
+#         tavern_sign1: green
+#         tavern_sign2: green
+#         tavern_inside: green
+#     - time: 1
+#       lights:
+#         tavern_sign1: white
+#         tavern_sign2: white
+#         tavern_inside: white
+  
+#   show_shaker_1s:
+#     - duration: .5s
+#       coils:
+#         c_shaker:
+#           action: enable
+#           pulse_ms: 1
+#           hold_power: 0.1
+#     - duration: .5s
+#       coils:
+#         c_shaker:
+#           action: enable
+#           pulse_ms: 2
+#           hold_power: 0.15                
+#     - duration: .1s
+#       coils:
+#         c_shaker: disable
+  
+#   show_knocker:
+#     - duration: .5s
+#       events: enable_knocker
+#     - duration: .5s
+#       events: disable_knocker
+
+  # theme mode shows
+  # init_lights_themed:
+  #   - time: 0
+  #     lights:
+  #       gi_left1: white
+  #       gi_right1: white
+  #       gi_left2: white
+  #       gi_right2: white
+  #       gi_left3: white
+  #       gi_right3: white
+  #       gi_left4: white
+  #       gi_right4: white
+  #       gi_back1: white
+  #       gi_back2: white
+  #       gi_back3: white
+  #       gi_back4: white
+  #       gi_back5: white
+  #       gi_back6: white
+  #       slingleft_upper: white
+  #       slingleft_lower: white
+  #       slingright_upper: white
+  #       slingright_lower: white
+  #       slingquarters_upper: white
+  #       slingquarters_lower: white
+  #       flipper_left: white
+  #       flipper_right: white
+  #   - duration: -1
+
+  # flash_gi_themed:
+  #   - duration: 1s
+  #     lights:
+  #       gi_back1:
+  #         color: off
+  #         fade: .25s
+  #       gi_back2:
+  #         color: off
+  #         fade: .25s
+  #       gi_back3:
+  #         color: off
+  #         fade: .25s
+  #       gi_back4:
+  #         color: off
+  #         fade: .25s 
+  #       gi_back5:
+  #         color: off
+  #         fade: .25s
+  #       gi_back6:
+  #         color: off
+  #         fade: .25s
+  #       gi_left1:
+  #         color: 008ce5
+  #         fade: .25s
+  #       gi_right1:
+  #         color: 008ce5
+  #         fade: .25s  
+  #       gi_left2:
+  #         color: off
+  #         fade: .25s
+  #       gi_right2:
+  #         color: off
+  #         fade: .25s
+  #       gi_left3:
+  #         color: off
+  #         fade: .25s
+  #       gi_right3:
+  #         color: off
+  #         fade: .25s
+  #       gi_left4:
+  #         color: off
+  #         fade: .25s
+  #       gi_right4:
+  #         color: off
+  #         fade: .25s
+  #       slingleft_upper:
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingleft_lower: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingright_upper: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingright_lower: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingquarters_upper: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingquarters_lower: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       flipper_left: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       flipper_right: 
+  #         color: 008ce5
+  #         fade: .25s 
+
+  #   - duration: 1s
+  #     lights:
+  #       gi_left1:
+  #         color: off
+  #         fade: .25s
+  #       gi_right1:
+  #         color: off
+  #         fade: .25s    
+  #       gi_left2:
+  #         color: 008ce5
+  #         fade: .25s
+  #       gi_right2:
+  #         color: 008ce5
+  #         fade: .25s
+  #       slingleft_upper:
+  #         color: off
+  #         fade: .25s 
+  #       slingleft_lower: 
+  #         color: off
+  #         fade: .25s 
+  #       slingright_upper: 
+  #         color: off
+  #         fade: .25s 
+  #       slingright_lower: 
+  #         color: off
+  #         fade: .25s 
+  #       slingquarters_upper: 
+  #         color: off
+  #         fade: .25s 
+  #       slingquarters_lower: 
+  #         color: off
+  #         fade: .25s 
+  #       flipper_left: 
+  #         color: off
+  #         fade: .25s 
+  #       flipper_right: 
+  #         color: off
+  #         fade: .25s 
+
+  #   - duration: 1s
+  #     lights:
+  #       gi_left2:
+  #         color: off
+  #         fade: .25s
+  #       gi_right2:
+  #         color: off
+  #         fade: .25s    
+  #       gi_left3:
+  #         color: 008ce5
+  #         fade: .25s
+  #       gi_right3:
+  #         color: 008ce5
+  #         fade: .25s
+  #       slingleft_upper:
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingleft_lower: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingright_upper: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingright_lower: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingquarters_upper: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingquarters_lower: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       flipper_left: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       flipper_right: 
+  #         color: 008ce5
+  #         fade: .25s 
+      
+  #   - duration: 1s
+  #     lights:
+  #       gi_left3:
+  #         color: off
+  #         fade: .25s
+  #       gi_right3:
+  #         color: off
+  #         fade: .25s    
+  #       gi_left4:
+  #         color: 008ce5
+  #         fade: .25s
+  #       gi_right4:
+  #         color: 008ce5
+  #         fade: .25s
+  #       slingleft_upper:
+  #         color: off
+  #         fade: .25s 
+  #       slingleft_lower: 
+  #         color: off
+  #         fade: .25s 
+  #       slingright_upper: 
+  #         color: off
+  #         fade: .25s 
+  #       slingright_lower: 
+  #         color: off
+  #         fade: .25s 
+  #       slingquarters_upper: 
+  #         color: off
+  #         fade: .25s 
+  #       slingquarters_lower: 
+  #         color: off
+  #         fade: .25s 
+  #       flipper_left: 
+  #         color: off
+  #         fade: .25s 
+  #       flipper_right: 
+  #         color: off
+  #         fade: .25s 
+
+  #   - duration: 1s
+  #     lights:
+  #       gi_left4:
+  #         color: off
+  #         fade: .25s
+  #       gi_right4:
+  #         color: off
+  #         fade: .25s    
+  #       gi_back1:
+  #         color: 008ce5
+  #         fade: .25s
+  #       gi_back6:
+  #         color: 008ce5
+  #         fade: .25s
+  #       slingleft_upper:
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingleft_lower: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingright_upper: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingright_lower: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingquarters_upper: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingquarters_lower: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       flipper_left: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       flipper_right: 
+  #         color: 008ce5
+  #         fade: .25s 
+
+  #   - duration: 1s
+  #     lights:
+  #       gi_back1:
+  #         color: off
+  #         fade: .25s
+  #       gi_back6:
+  #         color: off
+  #         fade: .25s    
+  #       gi_back2:
+  #         color: 008ce5
+  #         fade: .25s
+  #       gi_back5:
+  #         color: 008ce5
+  #         fade: .25s
+  #       slingleft_upper:
+  #         color: off
+  #         fade: .25s 
+  #       slingleft_lower: 
+  #         color: off
+  #         fade: .25s 
+  #       slingright_upper: 
+  #         color: off
+  #         fade: .25s 
+  #       slingright_lower: 
+  #         color: off
+  #         fade: .25s 
+  #       slingquarters_upper: 
+  #         color: off
+  #         fade: .25s 
+  #       slingquarters_lower: 
+  #         color: off
+  #         fade: .25s 
+  #       flipper_left: 
+  #         color: off
+  #         fade: .25s 
+  #       flipper_right: 
+  #         color: off
+  #         fade: .25s
+
+  #   - duration: 1s
+  #     lights:
+  #       gi_back2:
+  #         color: off
+  #         fade: .25s
+  #       gi_back5:
+  #         color: off
+  #         fade: .25s    
+  #       gi_back3:
+  #         color: 008ce5
+  #         fade: .25s
+  #       gi_back4:
+  #         color: 008ce5
+  #         fade: .25s
+  #       slingleft_upper:
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingleft_lower: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingright_upper: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingright_lower: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingquarters_upper: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingquarters_lower: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       flipper_left: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       flipper_right: 
+  #         color: 008ce5
+  #         fade: .25s
+  #   # second round
+  #   - duration: 1s
+  #     lights:
+  #       gi_back3:
+  #         color: off
+  #         fade: .25s
+  #       gi_back4:
+  #         color: off
+  #         fade: .25s 
+  #       gi_left1:
+  #         color: 008ce5
+  #         fade: .25s
+  #       gi_right1:
+  #         color: 008ce5
+  #         fade: .25s  
+  #       gi_left2:
+  #         color: off
+  #         fade: .25s
+  #       gi_right2:
+  #         color: off
+  #         fade: .25s
+  #       gi_left3:
+  #         color: off
+  #         fade: .25s
+  #       gi_right3:
+  #         color: off
+  #         fade: .25s
+  #       gi_left4:
+  #         color: off
+  #         fade: .25s
+  #       gi_right4:
+  #         color: off
+  #         fade: .25s
+  #       slingleft_upper:
+  #         color: off
+  #         fade: .25s 
+  #       slingleft_lower: 
+  #         color: off
+  #         fade: .25s 
+  #       slingright_upper: 
+  #         color: off
+  #         fade: .25s 
+  #       slingright_lower: 
+  #         color: off
+  #         fade: .25s 
+  #       slingquarters_upper: 
+  #         color: off
+  #         fade: .25s 
+  #       slingquarters_lower: 
+  #         color: off
+  #         fade: .25s 
+  #       flipper_left: 
+  #         color: off
+  #         fade: .25s 
+  #       flipper_right: 
+  #         color: off
+  #         fade: .25s 
+
+  #   - duration: 1s
+  #     lights:
+  #       gi_left1:
+  #         color: off
+  #         fade: .25s
+  #       gi_right1:
+  #         color: off
+  #         fade: .25s    
+  #       gi_left2:
+  #         color: 008ce5
+  #         fade: .25s
+  #       gi_right2:
+  #         color: 008ce5
+  #         fade: .25s
+  #       slingleft_upper:
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingleft_lower: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingright_upper: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingright_lower: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingquarters_upper: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingquarters_lower: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       flipper_left: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       flipper_right: 
+  #         color: 008ce5
+  #         fade: .25s
+        
+
+  #   - duration: 1s
+  #     lights:
+  #       gi_left2:
+  #         color: off
+  #         fade: .25s
+  #       gi_right2:
+  #         color: off
+  #         fade: .25s    
+  #       gi_left3:
+  #         color: 008ce5
+  #         fade: .25s
+  #       gi_right3:
+  #         color: 008ce5
+  #         fade: .25s
+  #       slingleft_upper:
+  #         color: off
+  #         fade: .25s 
+  #       slingleft_lower: 
+  #         color: off
+  #         fade: .25s 
+  #       slingright_upper: 
+  #         color: off
+  #         fade: .25s 
+  #       slingright_lower: 
+  #         color: off
+  #         fade: .25s 
+  #       slingquarters_upper: 
+  #         color: off
+  #         fade: .25s 
+  #       slingquarters_lower: 
+  #         color: off
+  #         fade: .25s 
+  #       flipper_left: 
+  #         color: off
+  #         fade: .25s 
+  #       flipper_right: 
+  #         color: off
+  #         fade: .25s 
+      
+  #   - duration: 1s
+  #     lights:
+  #       gi_left3:
+  #         color: off
+  #         fade: .25s
+  #       gi_right3:
+  #         color: off
+  #         fade: .25s    
+  #       gi_left4:
+  #         color: 008ce5
+  #         fade: .25s
+  #       gi_right4:
+  #         color: 008ce5
+  #         fade: .25s
+  #       slingleft_upper:
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingleft_lower: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingright_upper: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingright_lower: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingquarters_upper: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingquarters_lower: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       flipper_left: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       flipper_right: 
+  #         color: 008ce5
+  #         fade: .25s
+
+
+  #   - duration: 1s
+  #     lights:
+  #       gi_left4:
+  #         color: off
+  #         fade: .25s
+  #       gi_right4:
+  #         color: off
+  #         fade: .25s    
+  #       gi_back1:
+  #         color: 008ce5
+  #         fade: .25s
+  #       gi_back6:
+  #         color: 008ce5
+  #         fade: .25s
+  #       slingleft_upper:
+  #         color: off
+  #         fade: .25s 
+  #       slingleft_lower: 
+  #         color: off
+  #         fade: .25s 
+  #       slingright_upper: 
+  #         color: off
+  #         fade: .25s 
+  #       slingright_lower: 
+  #         color: off
+  #         fade: .25s 
+  #       slingquarters_upper: 
+  #         color: off
+  #         fade: .25s 
+  #       slingquarters_lower: 
+  #         color: off
+  #         fade: .25s 
+  #       flipper_left: 
+  #         color: off
+  #         fade: .25s 
+  #       flipper_right: 
+  #         color: off
+  #         fade: .25s 
+
+  #   - duration: 1s
+  #     lights:
+  #       gi_back1:
+  #         color: off
+  #         fade: .25s
+  #       gi_back6:
+  #         color: off
+  #         fade: .25s    
+  #       gi_back2:
+  #         color: 008ce5
+  #         fade: .25s
+  #       gi_back5:
+  #         color: 008ce5
+  #         fade: .25s
+  #       slingleft_upper:
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingleft_lower: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingright_upper: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingright_lower: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingquarters_upper: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       slingquarters_lower: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       flipper_left: 
+  #         color: 008ce5
+  #         fade: .25s 
+  #       flipper_right: 
+  #         color: 008ce5
+  #         fade: .25s
+
+  #   - duration: 1s
+  #     lights:
+  #       gi_back2:
+  #         color: off
+  #         fade: .25s
+  #       gi_back5:
+  #         color: off
+  #         fade: .25s    
+  #       gi_back3:
+  #         color: 008ce5
+  #         fade: .25s
+  #       gi_back4:
+  #         color: 008ce5
+  #         fade: .25s
+  #       slingleft_upper:
+  #         color: off
+  #         fade: .25s 
+  #       slingleft_lower: 
+  #         color: off
+  #         fade: .25s 
+  #       slingright_upper: 
+  #         color: off
+  #         fade: .25s 
+  #       slingright_lower: 
+  #         color: off
+  #         fade: .25s 
+  #       slingquarters_upper: 
+  #         color: off
+  #         fade: .25s 
+  #       slingquarters_lower: 
+  #         color: off
+  #         fade: .25s 
+  #       flipper_left: 
+  #         color: off
+  #         fade: .25s 
+  #       flipper_right: 
+  #         color: off
+  #         fade: .25s 
+
+# sound_player:
+#   shot_diverter_hit{mode.volumechug.active == False and device.counters.track_flipperflop.value < 2}:
+#     2burps:
+#       action: play  
+#   shot_ramp_drinko_hit: 
+#     2burps:
+#       action: play
+#   spinner_tavern_spinner_active:
+#     voice_tavern:
+#       action: play
+#   shot_take_hit_hit{mode.dasboot.active == False}:
+#     takeahit:
+#       action: play
+#   shot_chug_beer_hit{mode.dasboot.active == False}:
+#     chugyourbeer:
+#       action: play
+#   shot_do_shot_hit{mode.dasboot.active == False}:
+#     doashot:
+#       action: play
+#   shot_hj_hit{mode.dasboot.active == False}:
+#     hj12:
+#       action: play
+#   shot_bj_hit{mode.dasboot.active == False}:
+#     bj10:
+#       action: play
+#   shot_zj_hit{mode.dasboot.active == False}:
+#     zj15:
+#       action: play    
+#   shot_chance_hit{mode.dasboot.active == False}:
+#     chance:
+#       action: play
+#   shot_special_hit{mode.dasboot.active == False}:
+#     unddrinken:
+#       action: play
+#   shot_tgt_ramp_boot_hit{mode.dasboot.active == False}:
+#     voice_cheers:
+#       action: play
+#   shot_tgt_rimrules_hit{mode.dasboot.active == False}:
+#     voice_eyeofjew:
+#       action: play
+#   shot_quarters_hit{mode.dasboot.active == False}:
+#     quarters:
+#       action: play
+#   # halt background music while we play easteregg
+#   play_easteregg:
+#     introrepeat:
+#       action: stop
+#   slide_slide_play_easteregg_clean_removed:
+#     introrepeat:
+#         action: play
+#         track: music
+#         loops: -1
+#         volume: .5
+#   slide_slide_play_easteregg_adult_removed:
+#     introrepeat:
+#         action: play
+#         track: music
+#         loops: -1
+#         volume: .5
+#   # halt background music if ball save
+#   slide_slide_ballsave_active:
+#     introrepeat:
+#       action: stop
+#   slide_slide_ballsave_removed:
+#     introrepeat:
+#       action: play
+#       track: music
+#       loops: -1
+#       volume: .5
+#   shot_drinko_i_hit:
+#     voice_ohyea:
+#       action: play
+#   shot_slingquarters_hit:
+#     sfx_pongcup:
+#       action: play
+#   shot_slingleft_hit:
+#     sfx_pongcup:
+#       action: play
+#   shot_slingright_hit:
+#     sfx_pongcup:
+#       action: play
+
+#   shot_pop_lower_hit:
+#     sfx_cancrush:
+#       action: play
+#   shot_pop_upper_right_hit:
+#     sfx_cancrush:
+#       action: play
+#   shot_pop_upper_left_hit:
+#     sfx_cancrush:
+#       action: play
+#   bank_strikeout_complete:
+#     strikeoutcomplete:
+#       action: play
+
+#   play_theme_drinkonme:
+#     themedrinkonme:
+#       action: play
+#       loops: 0
+#   play_theme_hardasarock:
+#     themehardasarock:
+#       action: play
+#       loops: 0
+#   play_theme_jungleboogie:
+#     themejungleboogie:
+#       action: play
+#       loops: 0
+#   play_theme_alcohol:
+#     themealcohol:
+#       action: play
+#       loops: 0
+#   play_theme_beer:
+#     themebeer:
+#       action: play
+#       loops: 0
+#   play_theme_beerformyhorses:
+#     themebeerformyhorses:
+#       action: play
+#       loops: 0
+#   play_theme_byob:
+#     themebyob:
+#       action: play
+#       loops: 0
+#   play_theme_comininhot:
+#     themecomininhot:
+#       action: play
+#       loops: 0
+
+# random_event_player:
+#   shot_slingleft_hit:    
+#     events:
+#       - random_pts_00
+#       - random_pts_10
+#       - random_pts_20
+#       - random_pts_30
+#       - random_pts_40
+#       - random_pts_50
+#       - random_pts_60
+#       - random_pts_70
+#       - random_pts_80
+#       - random_pts_90
+#   shot_slingright_hit:
+#     events:
+#       - random_pts_00
+#       - random_pts_10
+#       - random_pts_20
+#       - random_pts_30
+#       - random_pts_40
+#       - random_pts_50
+#       - random_pts_60
+#       - random_pts_70
+#       - random_pts_80
+#       - random_pts_90
+#   shot_pop_lower_hit{mode.volumechug.active == False}:    # pops special points in volumechug round
+#     events:
+#       - random_pts_00
+#       - random_pts_10
+#       - random_pts_20
+#       - random_pts_30
+#       - random_pts_40
+#       - random_pts_50
+#       - random_pts_60
+#       - random_pts_70
+#       - random_pts_80
+#       - random_pts_90
+#   shot_pop_upper_right_hit{mode.volumechug.active == False}:    # pops special points in volumechug round
+#     events:
+#       - random_pts_00
+#       - random_pts_10
+#       - random_pts_20
+#       - random_pts_30
+#       - random_pts_40
+#       - random_pts_50
+#       - random_pts_60
+#       - random_pts_70
+#       - random_pts_80
+#       - random_pts_90
+#   shot_pop_upper_left_hit{mode.volumechug.active == False}:    # pops special points in volumechug round
+#     events:
+#       - random_pts_00
+#       - random_pts_10
+#       - random_pts_20
+#       - random_pts_30
+#       - random_pts_40
+#       - random_pts_50
+#       - random_pts_60
+#       - random_pts_70
+#       - random_pts_80
+#       - random_pts_90
+#   shot_slingquarters_hit:
+#     events:
+#       - random_pts_00
+#       - random_pts_10
+#       - random_pts_20
+#       - random_pts_30
+#       - random_pts_40
+#       - random_pts_50
+#       - random_pts_60
+#       - random_pts_70
+#       - random_pts_80
+#       - random_pts_90
+  
+#   choose_random_background_music:
+#     events:
+#       - play_theme_drinkonme         # good
+#       - play_theme_hardasarock       # good
+#       - play_theme_jungleboogie       # good
+#       - play_theme_alcohol           # good  
+#       - play_theme_beer              # good
+#       - play_theme_beerformyhorses   # good
+#       - play_theme_byob               # good
+#       - play_theme_comininhot        # good
+  
+# show_player:
+#   mode_base_started:
+#     show_init_base:
+#       loops: 0
+#   mode_base_started.1:
+#     base_show:
+#       speed: 1
+#       loops: -1
+#   # TODO: Knocker test only
+#   # mode_base_started.2:
+#   #   show_knocker:
+#   #     loops: 0
+#   mode_bonusv2_started:
+#     base_show:
+#       action: stop
+#   mode_bonusv2_started.1:
+#     show_init_base:
+#       action: stop
+#   mode_bonusv2_stopped:
+#     base_show:
+#       speed: 1
+#       loops: -1
+#   mode_bonusv2_stopped.1:
+#     show_init_base:
+#       loops: 0
+#   shot_pop_lower_hit:
+#     show_pop_lower:
+#       loops: 0
+#   shot_pop_upper_left_hit:
+#     show_pop_left:
+#       loops: 0
+#   shot_pop_upper_right_hit:
+#     show_pop_right:
+#       loops: 0
+#   shot_slingquarters_hit:
+#     show_slingquarters_hit:
+#       speed: 4
+#       loops: 0
+#   shot_slingleft_hit:
+#     show_slingleft_hit:
+#       speed: 4
+#       loops: 0
+#   shot_slingright_hit:
+#     show_slingright_hit:
+#       speed: 4
+#       loops: 0
+#   s_plunger_lane_inactive:
+#     launch_show:
+#       speed: 8
+#       loops: 0
+#   shot_tavern_hit:
+#     show_tavern_hit:
+#       speed: 1
+#       loops: 0
+#     show_shaker_1s:
+#       loops: 0
+#   shot_diverter_hit:
+#     show_shaker_1s:
+#       loops: 0
+#   shot_ramp_drinko_hit:
+#     show_shaker_1s:
+#       loops: 0
+
+#   mode_longpour_stopped{current_player.has_longpour==1}: show_longpour_insert
+#   mode_base_started{current_player.has_longpour==1}: show_longpour_insert
+#   mode_quarters_stopped{current_player.has_quarters==1}: show_quarters_insert
+#   mode_base_started{current_player.has_quarters==1}: show_quarters_insert
+#   mode_strikeout_stopped{current_player.has_strikeout==1}: show_strikeout_insert
+#   mode_base_started{current_player.has_strikeout==1}: show_strikeout_insert
+#   mode_volumechug_stopped{current_player.has_volumechug==1}: show_volumechug_insert
+#   mode_base_started{current_player.has_volumechug==1}: show_volumechug_insert
+#   mode_trojankeg_stopped{current_player.has_trojankeg==1}: show_trojankeg_insert
+#   mode_base_started{current_player.has_trojankeg==1}: show_trojankeg_insert
+
+#   ball_save_ball_save_timer_start:
+#     show_ball_save:
+#       show_tokens:
+#         light: ball_save
+#         on_color: green
+#         off_color: off
+#       speed: 2
+#   ball_save_ball_save_hurry_up:
+#     show_ball_save:
+#       show_tokens:
+#         light: ball_save
+#         on_color: green
+#         off_color: off
+#       speed: 4
+#   ball_save_ball_save_disabled:
+#     show_ball_save:
+#       show_tokens:
+#         light: ball_save
+#         on_color: off
+#         off_color: off
+
+# ball_saves:
+#   ball_save:
+#     active_time: 10s
+#     hurry_up_time: 3s
+#     grace_period: 2s
+#     early_ball_save_events: shot_laneleft_outer_hit, shot_laneright_outer_hit
+#     timer_start_events: playfield_active
+#     auto_launch: false
+#     balls_to_save: 1
+#     debug: true
+
+# # using a state machine to track diverter servo state. The shot_diverter_hit event (triggered by RampSplit opto) transitions the
+# # state machine to the other state. On mode_attract_started, the diverter is pointed right, which will make the ball go down the
+# # left ramp first. On first shot_diverter_hit, we move from start to diverter_right_ramp (moving diverter left). And then it
+# # toggles back and forth from left and right ramp after that.
+# state_machines:
+#   diverter_state_machine:
+#     persist_state: true
+#     states:
+#       start:
+#         label: Diverter Starting
+#       diverter_rightramp:
+#         label: Right Wire Ramp
+#         show_when_active:
+#           show: diverter_show
+#           show_tokens:
+#             dir: left    # using the diverter_show with a token. send 'left' to send diverter servo to left (right ramp now active)
+#           loops: 0
+#       diverter_leftramp:
+#         label: Left Wire Ramp
+#         show_when_active:
+#           show: diverter_show
+#           show_tokens:
+#             dir: right    # using the diverter_show with a token. send 'right' to send diverter servo to right (left ramp now active)
+#           loops: 0
+#     transitions:
+#       - source: start
+#         target: diverter_leftramp
+#         events: mode_base_started
+#       - source: diverter_rightramp
+#         target: diverter_leftramp
+#         events: shot_diverter_hit
+#       - source: diverter_leftramp
+#         target: diverter_rightramp
+#         events: shot_diverter_hit
+  
+#   easteregg:
+#     persist_state: false
+#     states:
+#       start:
+#         label: Easter Egg started
+
+#       wait_for_LF3:
+#         label:
+#         events_when_started: lf3_reset, wait_flipper_1s_restart
+
+#       wait_for_RF1:
+#         label:
+#         events_when_started: rf1_reset, wait_flipper_1s_restart
+
+#       wait_for_LF4:
+#         label:
+#         events_when_started: lf4_reset, wait_flipper_1s_restart
+
+#       wait_for_RF1_second:
+#         label:
+#         events_when_started: rf1_reset, wait_flipper_1s_restart
+
+#       wait_for_flipper_cancel:
+#         label:
+#         events_when_started: wait_flipper_1s_restart
+
+#       easter_egg_activated:
+#         label: Easter Egg enabled
+#         events_when_started: play_easteregg
+
+#     transitions:
+#       - source: start
+#         target: wait_for_LF3      # init
+#         events: mode_base_started
+
+
+
+#       # NEW STATE - WAIT FOR LF3
+#       - source: wait_for_LF3      
+#         target: wait_for_RF1
+#         events: lf3_complete
+#       # goto wait_for_LF3 if wrong flipper is hit
+#       - source: wait_for_LF3     
+#         target: wait_for_LF3
+#         events: shot_rightflipper_hit
+#       # goto wait_for_LF3 if timer expired
+#       - source: wait_for_LF3     
+#         target: wait_for_LF3
+#         events: timer_wait_flipper_1s_complete
+
+
+#       # NEW STATE - WAIT FOR RF1
+#       - source: wait_for_RF1      
+#         target: wait_for_LF4
+#         events: rf1_complete
+#       # goto wait_for_LF3 if wrong flipper is hit
+#       - source: wait_for_RF1     
+#         target: wait_for_LF3
+#         events: shot_leftflipper_hit
+#       # goto wait_for_LF3 if timer expired
+#       - source: wait_for_RF1     
+#         target: wait_for_LF3
+#         events: timer_wait_flipper_1s_complete
+
+
+#       # NEW STATE - WAIT FOR LF4
+#       - source: wait_for_LF4      
+#         target: wait_for_RF1_second
+#         events: lf4_complete
+#       # goto wait_for_LF3 if wrong flipper is hit
+#       - source: wait_for_LF4     
+#         target: wait_for_LF3
+#         events: shot_rightflipper_hit
+#       # goto wait_for_LF3 if timer expired
+#       - source: wait_for_LF4     
+#         target: wait_for_LF3
+#         events: timer_wait_flipper_1s_complete
+
+
+#       # NEW STATE - WAIT FOR RF1_SECOND
+#       - source: wait_for_RF1_second      
+#         target: wait_for_flipper_cancel
+#         events: rf1_complete
+#       # goto wait_for_LF3 if wrong flipper is hit
+#       - source: wait_for_RF1_second     
+#         target: wait_for_LF3
+#         events: shot_leftflipper_hit
+#       # goto wait_for_LF3 if timer expired
+#       - source: wait_for_RF1_second     
+#         target: wait_for_LF3
+#         events: timer_wait_flipper_1s_complete
+
+
+#       # NEW STATE - WAIT FOR FLIPPER_CANCEL
+#       - source: wait_for_flipper_cancel      
+#         target: easter_egg_activated
+#         events: flipper_cancel
+      
+#       # goto wait_for_LF3 if timer expired
+#       - source: wait_for_flipper_cancel     
+#         target: wait_for_LF3
+#         events: timer_wait_flipper_1s_complete
+
+#       # NEW STATE - EASTER EGG ACTIVATED
+#       - source: easter_egg_activated      
+#         target: wait_for_LF3
+#         events: play_easteregg
+
+# variable_player:
+#   mode_base_started:    # this will only be set when highscore mode starts. So we can always just set to 0 when base
+#     has_a_highscore:
+#       int: 0
+#       action: set
+
+#   shot_chance_hit{mode.dasboot.active == False}:
+#     score: current_player.pts_chance
+#     bonus_numchance: 1    # bonus tracker (chance multiplier)
+#   shot_special_hit{mode.dasboot.active == False}:
+#     score: current_player.pts_special
+
+#   shot_kicker_mode_hit{mode.trojankeg.active == False and mode.dasboot.active == False}:
+#     score: current_player.pts_kicker_mode
+
+#   shot_kicker_rimrules_hit{mode.dasboot.active == False}:
+#     score: current_player.pts_kicker_rimrules
+
+#   # strikeout
+#   shot_take_hit_hit{mode.strikeout.active == False and mode.dasboot.active == False}:
+#     score: current_player.pts_take_hit
+#   shot_chug_beer_hit{mode.strikeout.active == False and mode.dasboot.active == False}:
+#     score: current_player.pts_chug_beer
+#   shot_do_shot_hit{mode.strikeout.active == False and mode.dasboot.active == False}:
+#     score: current_player.pts_do_shot
+#   bank_strikeout_complete{mode.strikeout.active == False and mode.dasboot.active == False}:
+#     score: current_player.pts_strikeout_complete
+#     bonus_numstrikeouts: 1    # bonus tracker (strikeouts)
+
+#   # quarters
+#   shot_quarters_hit{mode.quarters.active == False and mode.dasboot.active == False}:
+#     score: current_player.pts_quarters
+#     bonus_numquarters: 1      # bonus tracker (quarters)
+  
+#   # longpour
+#   shot_tavern_hit{mode.longpour.active == False and mode.volumechug.active == False and mode.dasboot.active == False}:    # longpour AND volumechug use this shot
+#     score: current_player.pts_tavern
+#     bonus_numramps: 1         # bonus tracker (ramps)
+#   shot_diverter_hit{mode.longpour.active == False and mode.volumechug.active == False and mode.dasboot.active == False}:  # longpour AND volumechug use this shot
+#     score: current_player.pts_ramp_boot
+#     bonus_numramps: 1         # bonus tracker (ramps)
+#   shot_ramp_drinko_hit{mode.longpour.active == False and mode.dasboot.active == False}:
+#     score: current_player.pts_ramp_drinko
+#     bonus_numramps: 1         # bonus tracker (ramps)
+
+#   # Trojan Keg
+#   shot_hj_hit{mode.dasboot.active == False and mode.trojankeg.active == False}:
+#     score: current_player.pts_hj
+#     bonus_numhjs: 1       # bonus tracker (HJs)
+#   shot_bj_hit{mode.dasboot.active == False and mode.trojankeg.active == False}:
+#     score: current_player.pts_bj
+#     bonus_numbjs: 1       # bonus tracker (BJs)
+#   shot_zj_hit{mode.dasboot.active == False and mode.trojankeg.active == False}:
+#     score: current_player.pts_zj
+#     bonus_numzjs: 1       # bonus tracker (ZJs)
+
+#   shot_tgt_ramp_boot_hit{mode.dasboot.active == False}:
+#     score: current_player.pts_tgt_ramp_boot
+#   shot_tgt_rimrules_hit{mode.dasboot.active == False}:
+#     score: current_player.pts_tgt_rimrules
+
+#   # the random_pts_X are used for slings and pops to adjust the 10's place for end-of-game match
+#   random_pts_00:
+#     score: current_player.pts_rnd
+#   random_pts_10:
+#     score: current_player.pts_rnd + 10
+#   random_pts_20:
+#     score: current_player.pts_rnd + 20
+#   random_pts_30:
+#     score: current_player.pts_rnd + 30
+#   random_pts_40:
+#     score: current_player.pts_rnd + 40
+#   random_pts_50:
+#     score: current_player.pts_rnd + 50
+#   random_pts_60:
+#     score: current_player.pts_rnd + 60
+#   random_pts_70:
+#     score: current_player.pts_rnd + 70
+#   random_pts_80:
+#     score: current_player.pts_rnd + 80
+#   random_pts_90:
+#     score: current_player.pts_rnd + 90
+
+#   # monkeychug/drinko slide arbitration. Set is_slide_monkeychug_active immediately so we prevent a Drinko Bonus slide from showing first.
+#   # set higher priority to make sure this processes first
+#   shot_drinko_i_hit:
+#     priority: 10000
+#     is_slide_monkeychug_active:
+#         int: 1
+#         action: set          # set player var to show we are showing drinko bonus slide
+  
+#   # when monkeychug slide timer (set to complete same length as showing Monkeychug bonus slide), clear the is_slide_monkeychug_active player var
+#   timer_monkeychug_slide_timer_complete:
+#     is_slide_monkeychug_active:
+#         int: 0
+#         action: set          # set player var to show we are showing drinko bonus slide

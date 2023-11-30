@@ -1,0 +1,434 @@
+#config_version=5
+
+sounds:
+  # introrepeat:
+  #   file: introrepeat1.wav
+  #   track: music
+  #   volume: 1.0
+  # intro:
+  #   file: intro1.wav
+  #   track: music
+  #   volume: 1.0
+  # voice_newplayer:
+  #   file: newplayer.wav
+  #   track: voice
+  #   volume: 1.0
+  # voice_welcome:
+  #   file: welcome.wav
+  #   track: voice
+  #   volume: 1.0
+  #   ducking:
+  #       target: music
+  #       delay: 0
+  #       attack: 0.3 sec
+  #       attenuation: -50db
+  #       release_point: 1.0 sec
+  #       release: 3.0 sec
+
+  # # All 5 theme mode rounds
+  # themedrinkonme:
+  #   file: themedrinkonme.wav
+  #   track: voice
+  #   volume: 1.0
+  # themehardasarock:
+  #   file: themehardasarock.wav
+  #   track: voice
+  #   volume: 1.0
+  # themejungleboogie:
+  #   file: themejungleboogie.wav
+  #   track: voice
+  #   volume: 1.0
+  # themealcohol:
+  #   file: themealcohol.wav
+  #   track: voice
+  #   volume: 1.0
+  # themebeer:
+  #   file: themebeer.wav
+  #   track: voice
+  #   volume: 1.0
+  # themebeerformyhorses:
+  #   file: themebeerformyhorses.wav
+  #   track: voice
+  #   volume: 1.0
+  # themebyob:
+  #   file: themebyob.wav
+  #   track: voice
+  #   volume: 1.0
+  # themecomininhot:
+  #   file: themecomininhot.wav
+  #   track: voice
+  #   volume: 1.0
+  
+  # # other
+  # music_wasted:
+  #   file: soundtrackwasted.wav
+  #   track: music
+  #   volume: 1.0
+
+
+  # # DAS BOOT
+  # music_bubbles:
+  #   file: dasbootthemebubbles.wav
+  #   track: voice
+  #   volume: 1.0
+
+  
+  # voice_ohyea:
+  #   file: buckcherry-ohyea.wav
+  #   track: voice
+  #   volume: 1.0
+  #   ducking:
+  #       target: music
+  #       delay: 0
+  #       attack: 0.3 sec
+  #       attenuation: -18db
+  #       release_point: 1.0 sec
+  #       release: 3.0 sec
+
+  # voice_sink2left:
+  #   file: notthatdrunk1.wav
+  #   track: voice
+  #   volume: 1.0
+  #   ducking:
+  #       target: music
+  #       delay: 0
+  #       attack: 0.3 sec
+  #       attenuation: -18db
+  #       release_point: 1.0 sec
+  #       release: 3.0 sec
+  # voice_sink1left:
+  #   file: notthatdrunk2.wav
+  #   track: voice
+  #   volume: 1.0
+  #   ducking:
+  #       target: music
+  #       delay: 0
+  #       attack: 0.3 sec
+  #       attenuation: -18db
+  #       release_point: 1.0 sec
+  #       release: 3.0 sec
+  
+  # voice_betterwhendrunk:
+  #   file: betterwhendrunk.wav
+  #   track: voice
+  #   volume: 1.0
+  #   ducking:
+  #       target: music
+  #       delay: 0
+  #       attack: 0.3 sec
+  #       attenuation: -50db
+  #       release_point: .5 sec
+  #       release: 1.5 sec
+  # # Longpour is custom from Derek/BL (below)
+  # voice_quarters_intro:
+  #   file: modeintro-quarters.wav
+  #   track: voice
+  #   volume: 1.0
+  #   ducking:
+  #       target: music
+  #       delay: 0
+  #       attack: 0.3 sec
+  #       attenuation: -50db
+  #       release_point: .5 sec
+  #       release: 1.5 sec
+  # voice_strikeout_intro:
+  #   file: modeintro-strikeout.wav
+  #   track: voice
+  #   volume: 1.0
+  #   ducking:
+  #       target: music
+  #       delay: 0
+  #       attack: 0.3 sec
+  #       attenuation: -50db
+  #       release_point: .5 sec
+  #       release: 1.5 sec
+  # voice_volumechug_intro:
+  #   file: modeintro-volumechug.wav
+  #   track: voice
+  #   volume: 1.0
+  #   ducking:
+  #       target: music
+  #       delay: 0
+  #       attack: 0.3 sec
+  #       attenuation: -50db
+  #       release_point: .5 sec
+  #       release: 1.5 sec
+  # voice_trojankeg_intro:
+  #   file: modeintro-trojankeg.wav
+  #   track: voice
+  #   volume: 1.0
+  #   ducking:
+  #       target: music
+  #       delay: 0
+  #       attack: 0.3 sec
+  #       attenuation: -50db
+  #       release_point: .5 sec
+  #       release: 1.5 sec
+  # voice_dasboot_intro:
+  #   file: modeintro-dasboot.wav
+  #   track: voice
+  #   volume: 1.0
+  #   ducking:
+  #       target: music
+  #       delay: 0
+  #       attack: 0.3 sec
+  #       attenuation: -50db
+  #       release_point: .5 sec
+  #       release: 1.5 sec
+  # voice_cheers:
+  #   file: cheers.wav
+  #   track: voice
+  #   volume: 1.0
+  #   ducking:
+  #       target: music
+  #       delay: 0
+  #       attack: 0.3 sec
+  #       attenuation: -50db
+  #       release_point: .5 sec
+  #       release: 1.5 sec     
+  # voice_eyeofjew:
+  #   file: eyeofthejew1.wav
+  #   track: voice
+  #   volume: 1.0
+  #   ducking:
+  #       target: music
+  #       delay: 0
+  #       attack: 0.3 sec
+  #       attenuation: -50db
+  #       release_point: .5 sec
+  #       release: 1.5 sec
+  # voice_soberasabird:
+  #   file: soberasabird.wav
+  #   track: voice
+  #   volume: 1.0
+  #   ducking:
+  #       target: music
+  #       delay: 0
+  #       attack: 0.3 sec
+  #       attenuation: -50db
+  #       release_point: .5 sec
+  #       release: 1.5 sec
+  # voice_handsomemf_clean:
+  #   file: handsome_mf_clean.wav
+  #   track: voice
+  #   volume: 1.0
+  #   ducking:
+  #       target: music
+  #       delay: 0
+  #       attack: 0.3 sec
+  #       attenuation: -50db
+  #       release_point: .5 sec
+  #       release: 1.5 sec
+  # voice_handsomemf_adult:
+  #   file: handsome_mf_adult.wav
+  #   track: voice
+  #   volume: 1.0
+  #   ducking:
+  #       target: music
+  #       delay: 0
+  #       attack: 0.3 sec
+  #       attenuation: -50db
+  #       release_point: .5 sec
+  #       release: 1.5 sec
+  # voice_tavern:
+  #   file: tavern1.wav
+  #   track: voice
+  #   volume: 1.0
+  #   #ducking:
+  #   #    target: music
+  #   #    delay: 0
+  #   #    attack: 0.3 sec
+  #   #    attenuation: -50db
+  #   #    release_point: .5 sec
+  #   #    release: 1.5 sec
+  
+  # voice_yodel:
+  #   file: yodel1.wav
+  #   track: voice
+  #   volume: .5
+
+  # # death clips  
+  # voice_drain_cantdrinkabeer:
+  #   file: death-cantdrinkabeer.wav
+  #   track: voice
+  #   volume: 1.0
+  #   ducking:
+  #       target: music
+  #       delay: 0
+  #       attack: 0.3 sec
+  #       attenuation: -50db
+  #       release_point: .5 sec
+  #       release: 1.5 sec
+  # voice_drain_firstbeer:
+  #   file: death-firstbeer.wav
+  #   track: voice
+  #   volume: 1.0
+  #   ducking:
+  #       target: music
+  #       delay: 0
+  #       attack: 0.3 sec
+  #       attenuation: -50db
+  #       release_point: .5 sec
+  #       release: 1.5 sec
+  # voice_drain_nipple:
+  #   file: death-nipple.wav
+  #   track: voice
+  #   volume: 1.0
+  #   ducking:
+  #       target: music
+  #       delay: 0
+  #       attack: 0.3 sec
+  #       attenuation: -50db
+  #       release_point: .5 sec
+  #       release: 1.5 sec
+  # voice_gameover:
+  #   file: death-stableboy.wav
+  #   track: voice
+  #   volume: 1.0
+  #   ducking:
+  #       target: music
+  #       delay: 0
+  #       attack: 0.3 sec
+  #       attenuation: -50db
+  #       release_point: .5 sec
+  #       release: 1.5 sec
+  # voice_beerfest:
+  #   file: dasboot-beerfest.wav
+  #   track: voice
+  #   volume: 1.0
+  #   ducking:
+  #       target: music
+  #       delay: 0
+  #       attack: 0.3 sec
+  #       attenuation: -50db
+  #       release_point: .5 sec
+  #       release: 1.5 sec
+    
+  # # Callouts from Derek. TODO: Change to Broken Lizard when I get them
+  # voice_flipperflop_active:
+  #   file: Derek-flippersflopped.wav
+  #   track: voice
+  #   volume: 1.0
+  #   # ducking:
+  #   #     target: music
+  #   #     delay: 0
+  #   #     attack: 0.3 sec
+  #   #     attenuation: -50db
+  #   #     release_point: .5 sec
+  #   #     release: 1.5 sec
+  # voice_multiball:
+  #   file: Derek-MunichMultiball.wav
+  #   track: voice
+  #   volume: 1.0
+  #   ducking:
+  #       target: music
+  #       delay: 0
+  #       attack: 0.3 sec
+  #       attenuation: -50db
+  #       release_point: .5 sec
+  #       release: 1.5 sec
+  # voice_spelledbeer:
+  #   file: Derek-SpelledBeer.wav
+  #   track: voice
+  #   volume: 1.0
+  #   # ducking:
+  #   #     target: music
+  #   #     delay: 0
+  #   #     attack: 0.3 sec
+  #   #     attenuation: -50db
+  #   #     release_point: .5 sec
+  #   #     release: 1.5 sec
+
+  # voice_longpour_intro:
+  #   file: Derek-LongpourIntro.wav
+  #   track: voice
+  #   volume: 1.0
+  #   ducking:
+  #       target: music
+  #       delay: 0
+  #       attack: 0.3 sec
+  #       attenuation: -50db
+  #       release_point: .5 sec
+  #       release: 1.5 sec
+
+  # voice_volumechug_megabonus:
+  #   file: Derek-VolumeChugMegaBonus.wav
+  #   track: voice
+  #   volume: 1.0
+  #   ducking:
+  #       target: music
+  #       delay: 0
+  #       attack: 0.3 sec
+  #       attenuation: -10db
+  #       release_point: .5 sec
+  #       release: 1.5 sec
+  # voice_trojankeg_megabonus:
+  #   file: Derek-TrojanKegMegaBonus.wav
+  #   track: voice
+  #   volume: 1.0
+  #   ducking:
+  #       target: music
+  #       delay: 0
+  #       attack: 0.3 sec
+  #       attenuation: -10db
+  #       release_point: .5 sec
+  #       release: 1.5 sec
+  # voice_drinko_d:
+  #   file: Derek-D.wav
+  #   track: voice
+  #   volume: 1.0
+  # voice_drinko_r:
+  #   file: Derek-R.wav
+  #   track: voice
+  #   volume: 1.0
+  # voice_drinko_n:
+  #   file: Derek-N.wav
+  #   track: voice
+  #   volume: 1.0
+  # voice_drinko_k:
+  #   file: Derek-K.wav
+  #   track: voice
+  #   volume: 1.0
+  # voice_drinko_o:
+  #   file: Derek-O.wav
+  #   track: voice
+  #   volume: 1.0
+
+  # voice_hitthekeg:
+  #   file: Derek-HitTheKeg.wav
+  #   track: voice
+  #   volume: 1.0
+  # voice_hitthesaucers:
+  #   file: Derek-HitTheSaucers.wav
+  #   track: voice
+  #   volume: 1.0
+  # voice_hurryup:
+  #   file: Derek-HurryUp.wav
+  #   track: voice
+  #   volume: 1.0
+  # voice_letsgotoschnitzengiggle:
+  #   file: Derek-Schnitz.wav
+  #   track: voice
+  #   volume: 1.0
+  # voice_shoottheboot:
+  #   file: Derek-ShootTheBoot.wav
+  #   track: voice
+  #   volume: 1.0
+  # voice_shootthedrinkoramp:
+  #   file: Derek-ShootTheDrinkoRamp.wav
+  #   track: voice
+  #   volume: 1.0
+  # voice_spelledmunich:
+  #   file: Derek-MunichBonus.wav
+  #   track: voice
+  #   volume: 1.0
+
+  
+  # sfx_pongcup:
+  #   file: pongcup.wav
+  #   track: sfx
+  #   volume: 1.0
+  # sfx_cancrush:
+  #   file: cancrush.wav
+  #   track: sfx
+  #   volume: 1.0

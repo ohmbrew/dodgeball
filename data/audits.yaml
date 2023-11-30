@@ -1,0 +1,17 @@
+events:
+  game_ended: 0
+  game_started: 1
+player:
+  score:
+    average: 0
+    top: []
+    total: 0
+switches:
+  s_catch_p1: 0
+  s_catch_p2: 0
+  s_sling_p1: 0
+  s_sling_p2: 0
+  s_start_p1: 0
+  s_start_p2: 0
+  s_trougheject_p1: 0
+  s_trougheject_p2: 0

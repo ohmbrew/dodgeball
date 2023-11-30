@@ -1,0 +1,10 @@
+#config_version=5
+
+player_vars:
+  has_a_highscore:
+    initial_value: 0
+    value_type: int
+
+  is_welcome_played:
+    initial_value: 0
+    value_type: int
