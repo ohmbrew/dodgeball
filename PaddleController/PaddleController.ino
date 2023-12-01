@@ -533,7 +533,7 @@ void move() {
         // we are near...proceed with deceleration, but first check if it's time to decelerate
         if (millis() - update_accelerationP2 > (1000/ACCELERATION_UPDATES_PER_SECOND)) {
           update_accelerationP2 = millis();
-          pwmSpeedMotorP2 -= accelerationP1;
+          pwmSpeedMotorP2 -= accelerationP2;
           if (pwmSpeedMotorP2 < HOMING_SPEED_SLOW) {
             pwmSpeedMotorP2 = HOMING_SPEED_SLOW;
             accelerationP2 = 255;
@@ -559,7 +559,7 @@ void move() {
     } else {
       // we are within 1/4 of center of dead zone on both sides. Stop motor and move state to stopped
       analogWrite(pwmPinP2, 0);
-      stateP1 = STATE_STOPPED;
+      stateP2 = STATE_STOPPED;
     }
   } 
 }
