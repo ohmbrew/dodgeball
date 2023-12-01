@@ -61,7 +61,7 @@
 
 // These values were all tested empirically and they work well together
 #define UPDATE_SERIAL_TIME  1000  // how often (ms) to send serial port updates of status
-#define DEAD_ZONE     350     // 17 Nov. 350 is lowest we can go with no minute oscillations (with .5 pot filter).
+#define DEAD_ZONE     400     // 17 Nov. 350 is lowest we can go with no minute oscillations (with .5 pot filter).
 #define DECEL_RANGE   2000     // TODO: tune this empirically. Distance to start deceleration mapping. Otherwise, full speed ahead!
 #define EDGE_OFFSET   100     // 17 Nov. This seems good.
 #define BACKOFF_TIME  500     // 18 Nov. This is good
@@ -473,6 +473,80 @@ void move() {
     } else {
       // we are within 1/4 of center of dead zone on both sides. Stop motor and move state to stopped
       analogWrite(pwmPinP1, 0);
+      stateP1 = STATE_STOPPED;
+    }
+  } 
+
+  // move M2 with acceleration
+  if (stateP2 == STATE_STOPPED) {
+    // set point needs to be > 1/2 length of dead zone. i.e., we track until we hit the set point exactly, and now to start moving again we need to be outside of dead zone range
+    if (setPointMotorP2 - posMotorP2 < (-1*DEAD_ZONE/2)) {
+      // need to move left from a stopped position. set our acceleration and direction
+      SET_DIR_P2_LEFT;
+      pwmSpeedMotorP2 = INITIAL_PWM;
+      accelerationP2 = ACCELERATION_INIT;
+      analogWrite(pwmPinP2, pwmSpeedMotorP2);  // set initial speed and acceleration. TRACKING will take care of adding to acceleration at specified rate, and add to pwmSpeedMotorP1
+      update_accelerationP2 = millis();
+      stateP2 = STATE_TRACKING;
+    } else if (setPointMotorP2 - posMotorP2 > (DEAD_ZONE/2)) {
+      // need to move right from a stopped position. set our acceleration and direction
+      SET_DIR_P2_RIGHT;
+      pwmSpeedMotorP2 = INITIAL_PWM;
+      accelerationP2 = ACCELERATION_INIT;
+      analogWrite(pwmPinP2, pwmSpeedMotorP2);  // set initial speed to 50 and acceleration to 5. TRACKING will take care of adding 5 to acceleration at specified rate, and add to pwmSpeedMotorP1
+      update_accelerationP2 = millis();
+      stateP2 = STATE_TRACKING;
+    } else {
+      analogWrite(pwmPinP2, 0); // we are in a stopped state, so make sure we are stopped! I still hear micro adjustments even with this algorithm. Which, shouldn't happen...
+    }
+  } else if (stateP2 == STATE_TRACKING) {
+    // check if we need to go left, right, or stop
+    if (setPointMotorP2 - posMotorP2 < (-1 * DEAD_ZONE/8)) {  // -1 because we are checking if we are within 1/4 dead zone on left
+      // need to move left
+      SET_DIR_P2_LEFT;
+      // how far are we? If far, full acceleration as below. If "near", let's decelerate
+      if (abs(setPointMotorP2 - posMotorP2) > DECEL_RANGE) {
+        // we are far away...proceed with acceleration. but first check if it's time to accelerate
+        if (millis() - update_accelerationP2 > (1000/ACCELERATION_UPDATES_PER_SECOND)) {
+          update_accelerationP2 = millis();
+          pwmSpeedMotorP2 += accelerationP2;
+          if (pwmSpeedMotorP2 > 255) {
+            pwmSpeedMotorP2 = 255;
+            accelerationP2 = DECELERATION_INIT;
+          }
+          accelerationP2 += ACCELERATION_VAL;
+          analogWrite(pwmPinP2, pwmSpeedMotorP2); // set to whatever our current pwm speed value is
+        }
+      } else {
+        // we are near...proceed with deceleration, but first check if it's time to decelerate
+        if (millis() - update_accelerationP2 > (1000/ACCELERATION_UPDATES_PER_SECOND)) {
+          update_accelerationP2 = millis();
+          pwmSpeedMotorP2 -= accelerationP1;
+          if (pwmSpeedMotorP2 < HOMING_SPEED_SLOW) {
+            pwmSpeedMotorP2 = HOMING_SPEED_SLOW;
+            accelerationP2 = 255;
+          }
+          accelerationP2 -= DECELERATION_VAL;
+          analogWrite(pwmPinP2, pwmSpeedMotorP2); // set to whatever our current pwm speed value is
+        }
+      }
+    } else if (setPointMotorP2 - posMotorP2 > (DEAD_ZONE/8)) {
+      // need to move right
+      SET_DIR_P2_RIGHT;
+      // check if it's time to accelerate
+      if (millis() - update_accelerationP2 > (1000/ACCELERATION_UPDATES_PER_SECOND)) {
+        update_accelerationP2 = millis();
+        pwmSpeedMotorP2 += accelerationP2;
+        if (pwmSpeedMotorP2 > 255) {
+          pwmSpeedMotorP2 = 255;
+          accelerationP2 = 255;
+        }
+        accelerationP2 += ACCELERATION_VAL;
+        analogWrite(pwmPinP2, pwmSpeedMotorP2); // set to whatever our current pwm speed value is
+      }
+    } else {
+      // we are within 1/4 of center of dead zone on both sides. Stop motor and move state to stopped
+      analogWrite(pwmPinP2, 0);
       stateP1 = STATE_STOPPED;
     }
   } 
