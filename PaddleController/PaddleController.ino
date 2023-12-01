@@ -60,7 +60,7 @@
 #define SET_DIR_P2_RIGHT digitalWrite(dirPinP2, HIGH)
 
 // These values were all tested empirically and they work well together
-#define SERIAL_UPDATE_TIME  1000
+#define UPDATE_SERIAL_TIME  1000  // how often (ms) to send serial port updates of status
 #define DEAD_ZONE     350     // 17 Nov. 350 is lowest we can go with no minute oscillations (with .5 pot filter).
 #define DECEL_RANGE   2000     // TODO: tune this empirically. Distance to start deceleration mapping. Otherwise, full speed ahead!
 #define EDGE_OFFSET   100     // 17 Nov. This seems good.
@@ -147,6 +147,7 @@ int accelerationP1 = 0;     // set this to whatever min speed you want to start 
 int is_acceleratingP2 = 0;  // used to set initial acceleration
 int accelerationP2 = 0;     // set this to whatever min speed you want to start at. It will increase it each move() until 255.
 
+long update_serial = 0;
 long update_timeP1 = 0;
 long update_accelerationP1 = 0;
 long update_timeP2 = 0;
@@ -367,6 +368,7 @@ void homePaddles() {
   }
   stateP1 = STATE_STOPPED;
   stateP2 = STATE_STOPPED;
+  update_serial = millis();
 }
 
 // This routine must be called quite periodically for good response!
@@ -376,23 +378,32 @@ void move() {
   potP1 = analogRead(potPinP1);   // read player 1 pot analog value - this is our set point
   potP1_smoothed = (potFilterParam * potP1) + ((1 - potFilterParam) * potP1_smoothed);
   setPointMotorP1 = map(potP1_smoothed, 0, 1023, settingsPosMinMotorP1, settingsPosMaxMotorP1);   // calculate where pot is wrt motor min and max
+
+  posMotorP2 = MotorP2.read();  // get current motor encoder values to update posMotorP2
+  potP2 = analogRead(potPinP2);   // read player 2 pot analog value - this is our set point
+  potP2_smoothed = (potFilterParam * potP2) + ((1 - potFilterParam) * potP2_smoothed);
+  setPointMotorP2 = map(potP2_smoothed, 0, 1023, settingsPosMinMotorP2, settingsPosMaxMotorP2);   // calculate where pot is wrt motor min and max
+  
   if (IS_DEBUG) {
-    if (millis() - update_timeP1 > SERIAL_UPDATE_TIME) {
-      update_timeP1 = millis();
-      Serial.print("M1 state: ");
-      if (stateP1 == STATE_STOPPED) Serial.print("stopped. ");
-      else if (stateP1 == STATE_TRACKING) Serial.print("tracking. ");
-      Serial.print(" M1 set point: ");
+    if (millis() - update_serial > UPDATE_SERIAL_TIME) {
+      update_serial = millis();
+      if (stateP1 == STATE_STOPPED) Serial.print("[M1] State: stopped. ");
+      else if (stateP1 == STATE_TRACKING) Serial.print("[M1] State: tracking. ");
+      Serial.print("Set Pt: ");
       Serial.print(setPointMotorP1);
-      Serial.print(". M1 position: ");
+      Serial.print(". Pos: ");
       Serial.print(posMotorP1);
-      Serial.print(". Smoothed pot val: ");
-      Serial.print(potP1_smoothed);
+      if (stateP2 == STATE_STOPPED) Serial.print("[M2] State: stopped. ");
+      else if (stateP1 == STATE_TRACKING) Serial.print("[M2] State: tracking. ");
+      Serial.print("Set Pt: ");
+      Serial.print(setPointMotorP2);
+      Serial.print(". Pos: ");
+      Serial.print(posMotorP2);
       Serial.println("");
     }
   }
 
-  // TODO: Acceleration is solved. But on stop, it should decelerate
+  // move M1 with acceleration
   if (stateP1 == STATE_STOPPED) {
     // set point needs to be > 1/2 length of dead zone. i.e., we track until we hit the set point exactly, and now to start moving again we need to be outside of dead zone range
     if (setPointMotorP1 - posMotorP1 < (-1*DEAD_ZONE/2)) {
@@ -411,6 +422,8 @@ void move() {
       analogWrite(pwmPinP1, pwmSpeedMotorP1);  // set initial speed to 50 and acceleration to 5. TRACKING will take care of adding 5 to acceleration at specified rate, and add to pwmSpeedMotorP1
       update_accelerationP1 = millis();
       stateP1 = STATE_TRACKING;
+    } else {
+      analogWrite(pwmPinP1, 0); // we are in a stopped state, so make sure we are stopped! I still hear micro adjustments even with this algorithm. Which, shouldn't happen...
     }
   } else if (stateP1 == STATE_TRACKING) {
     // check if we need to go left, right, or stop
