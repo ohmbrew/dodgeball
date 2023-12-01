@@ -60,6 +60,7 @@
 #define SET_DIR_P2_RIGHT digitalWrite(dirPinP2, HIGH)
 
 // These values were all tested empirically and they work well together
+#define SERIAL_UPDATE_TIME  1000
 #define DEAD_ZONE     350     // 17 Nov. 350 is lowest we can go with no minute oscillations (with .5 pot filter).
 #define DECEL_RANGE   2000     // TODO: tune this empirically. Distance to start deceleration mapping. Otherwise, full speed ahead!
 #define EDGE_OFFSET   100     // 17 Nov. This seems good.
@@ -283,17 +284,84 @@ void homePaddles() {
     // handle P2 paddle
     switch (stateP2) {
     case STATE_STOPPED:
-      isHomedP2 = 1;    // for testing this new construct for P1
+      if (IS_DEBUG) Serial.print("M2 tracking left until limit switch hit. HOMING_SPEED_SLOW: ");
+      if (IS_DEBUG) Serial.print(HOMING_SPEED_SLOW);
+      if (IS_DEBUG) Serial.println("");
+      SET_DIR_P2_LEFT;
+      analogWrite(pwmPinP2, HOMING_SPEED_SLOW);  // start moving motor left
+      stateP2 = STATE_HOMING_LEFT1;
       break;
     case STATE_HOMING_LEFT1:
+      // left limit switch hit yet?
+      if (digitalRead(limitSwitchP2L) == 0) {
+        analogWrite(pwmPinP2, 0);   // stop motor
+        if (IS_DEBUG) Serial.println("Stopped M2. Backing it off.");
+        SET_DIR_P2_RIGHT;
+        analogWrite(pwmPinP2, HOMING_SPEED_SLOW);  // start moving right for BACKOFF_TIME. Want to back it off if limit switch was active when started
+        update_timeP2 = millis();  // used to implement a delay
+        stateP2 = STATE_HOMING_RIGHT1;
+      }
       break;
     case STATE_HOMING_RIGHT1:
+      // have we delayed BACKOFF_TIME moving right after initially hitting left limit switch?
+      if (millis() - update_timeP2 > BACKOFF_TIME) {
+        if (IS_DEBUG) Serial.print("M2 tracking left until limit switch hit. HOMING_SPEED_SLOW: ");
+        if (IS_DEBUG) Serial.print(HOMING_SPEED_SLOW);
+        if (IS_DEBUG) Serial.println("");
+        SET_DIR_P2_LEFT;
+        analogWrite(pwmPinP2, HOMING_SPEED_SLOW);  // start moving motor at specified homing speed again. This time we know we were off limit switch
+        stateP2 = STATE_HOMING_LEFT2;
+      }
       break;
     case STATE_HOMING_LEFT2:
+      if (digitalRead(limitSwitchP2L) == 0) {
+        analogWrite(pwmPinP2, 0); // stop motor
+        if (IS_DEBUG) Serial.println("Stopped M2. Resetting position to 0.");
+        update_timeP2 = millis();  // used to implement a delay
+        stateP2 = STATE_HOMING_LEFT2_DECEL;
+      }
+      break;
+    case STATE_HOMING_LEFT2_DECEL:
+      if (millis() - update_timeP2 > DECEL_TIME) {
+        posMotorP2 = 0; // reset motor position to 0
+        MotorP2.write(0);   // reset encoder position to 0
+        // We are homed far left. Calculate max ticks to right limit switch. We are starting at 0.
+        if (IS_DEBUG) Serial.print("M2 tracking right. HOMING_SPEED_FAST: ");
+        if (IS_DEBUG) Serial.print(HOMING_SPEED_FAST);
+        if (IS_DEBUG) Serial.println("");
+        SET_DIR_P2_RIGHT;
+        analogWrite(pwmPinP2, HOMING_SPEED_FAST);  // start moving right fast
+        update_timeP2 = millis();  // used to implement delay
+        stateP2 = STATE_HOMING_RIGHT2;
+      }
       break;
     case STATE_HOMING_RIGHT2:
+      if (millis() - update_timeP2 > HOMING_FAST_TIME) {
+        analogWrite(pwmPinP2, HOMING_SPEED_SLOW);  // slow down after HOMING_FAST_TIME time
+        if (IS_DEBUG) Serial.print("M2 tracking right until limit switch hit. HOMING_SPEED_SLOW: ");
+        if (IS_DEBUG) Serial.print(HOMING_SPEED_SLOW);
+        if (IS_DEBUG) Serial.println("");
+        stateP2 = STATE_HOMING_RIGHT3;
+      }
       break;
-    case STATE_TRACKING:
+    case STATE_HOMING_RIGHT3:
+      if (digitalRead(limitSwitchP2R) == 0) {
+        analogWrite(pwmPinP2, 0); // stop motor
+        if (IS_DEBUG) Serial.print("Stopped M2. Setting max position to # total ticks - EDGE_OFFSET: ");
+        update_timeP2 = millis();  // used to implement a delay
+        stateP2 = STATE_HOMING_RIGHT3_DECEL;
+      }
+      break;
+    case STATE_HOMING_RIGHT3_DECEL:
+      if (millis() - update_timeP2 > DECEL_TIME) {
+        settingsPosMaxMotorP2 = MotorP2.read() - EDGE_OFFSET;   // save # ticks it took minus some edge padding
+        settingsPosCenterMotorP2 = (settingsPosMinMotorP2 + settingsPosMaxMotorP2) / 2 ; // save our center position
+        if (IS_DEBUG) Serial.print(settingsPosMaxMotorP2);
+        if (IS_DEBUG) Serial.println("\nM2Homed.");
+        isHomedP2 = 1;
+        stateP2 = STATE_HOMED;
+      }
+    default:
       break;
     }
   }
@@ -309,7 +377,7 @@ void move() {
   potP1_smoothed = (potFilterParam * potP1) + ((1 - potFilterParam) * potP1_smoothed);
   setPointMotorP1 = map(potP1_smoothed, 0, 1023, settingsPosMinMotorP1, settingsPosMaxMotorP1);   // calculate where pot is wrt motor min and max
   if (IS_DEBUG) {
-    if (millis() - update_timeP1 > 250) {
+    if (millis() - update_timeP1 > SERIAL_UPDATE_TIME) {
       update_timeP1 = millis();
       Serial.print("M1 state: ");
       if (stateP1 == STATE_STOPPED) Serial.print("stopped. ");
