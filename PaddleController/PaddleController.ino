@@ -266,6 +266,7 @@ void homePaddles() {
         update_timeP1 = millis();  // used to implement a delay
         stateP1 = STATE_HOMING_RIGHT3_DECEL;
       }
+      break;
     case STATE_HOMING_RIGHT3_DECEL:
       if (millis() - update_timeP1 > DECEL_TIME) {
         settingsPosMaxMotorP1 = MotorP1.read() - EDGE_OFFSET;   // save # ticks it took minus some edge padding
