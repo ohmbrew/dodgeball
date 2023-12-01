@@ -4,31 +4,36 @@
   The circuit:
 
   LattePanda Arduino pinout
-   B   C   E   F   G       D   A                   <- All these are P1 signals
-  D0  D1  D2  D3  D4  D5  D6  A0  A1  A2  5V  5V
-   |   |   |   |   |   |   |   |   |   |   |   | 
+   *     *     *     *   
+  E2A  DIR1   E1A   E1B   SR1   SL1  PWM1  POT1
+  D0    D1    D2    D3    D4    D5    D6    A0    A1    A2    5V    5V
+   |     |     |     |     |     |     |     |     |     |     |     | 
 
-   |   |   |   |   |   |   |   |   |   |   |   |   
-  D7  D8  D9  D10 D11 D12 D13 A3  A4  A5  GND GND
-   I   J   L   M   N       K   H                   <- All these are P2 signals
+   |     |     |     |     |     |     |     |     |     |     |     |   
+  D7    D8    D9    D10   D11   D12   D13   A3    A4    A5    GND   GND
+  E2B  DIR2               SR2   SL2  PWM2  POT2
+   *
 
+  * = digital interrupt capable. Prefer to put motor encoder signals on these pins. M1 is already good (connected to 2 and 3)
+      but, M2 is currently wired to 9,10, which aren't interrupt capable. Looks like we'll have to break the wiring symmetry...
+      
   Player 1 signals:
-  A [A0]: Pot P1
-  B [D0]: Limit Switch Left P1
-  C [D1]: Motor Direction P1
-  D [D6]: Motor PWM P1
-  E [D2]: Motor Encoder A P1
-  F [D3]: Motor Encoder B P1
-  G [D4]: Limit Switch Right P1
+  POT1  [A0]: Pot P1
+  SL1   [D5]: Limit Switch Left P1     * UPDATED - MUST REWIRE
+  DIR1  [D1]: Motor Direction P1
+  PWM1  [D6]: Motor PWM P1
+  E1A   [D2]: Motor Encoder A P1
+  E1B   [D3]: Motor Encoder B P1
+  SR1   [D4]: Limit Switch Right P1
   
   Player 2 signals:
-  H [A3]: Pot P2
-  I [D7]: Limit Switch Left P2
-  J [D8]: Motor Direction P2
-  K [D13]: Motor PWM P2
-  L [D9] Motor Encoder A P2
-  M [D10]: Motor Encoder B P2
-  N [D11]: Limit Switch Right P1
+  POT2  [A3]: Pot P2
+  SL2   [D7]: Limit Switch Left P2      * UPDATED - MUST REWIRE
+  DIR2  [D8]: Motor Direction P2
+  PWM2 [D13]: Motor PWM P2
+  E2A   [D0]: Motor Encoder A P2        * UPDATED - MUST REWIRE
+  E2B   [D7]: Motor Encoder B P2        * UPDATED - MUST REWIRE
+  SR2  [D11]: Limit Switch Right P2
 
 
   Operation
@@ -172,7 +177,7 @@ void setup() {
   pinMode(dirPinP2, OUTPUT);      // Player 2 Motor Direction
   pinMode(motorEncP2A, INPUT);    // Player 2 Motor Encoder A
   pinMode(motorEncP2B, INPUT);    // Player 2 Motor Encoder B
-  analogWrite(pwmPinP1, 0);       // init Player 2 Motor PWM to 0
+  analogWrite(pwmPinP2, 0);       // init Player 2 Motor PWM to 0
 
   Serial.begin(9600);             // initialize serial communication at 9600 bits per second
 }
