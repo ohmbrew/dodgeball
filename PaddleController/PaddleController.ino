@@ -28,7 +28,7 @@
   
   Player 2 signals:
   POT2  [A3]: Pot P2
-  SL2   [D7]: Limit Switch Left P2      * UPDATED - MUST REWIRE
+  SL2   [D12]: Limit Switch Left P2      * UPDATED - MUST REWIRE
   DIR2  [D8]: Motor Direction P2
   PWM2 [D13]: Motor PWM P2
   E2A   [D0]: Motor Encoder A P2        * UPDATED - MUST REWIRE
@@ -102,12 +102,11 @@
 
 #define STATE_TRACKING            9   // paddle is moving toward position target
 
-
 // Player 1 signal pins
 int potPinP1 = A0;        // pot connected to A0 on LattePanda board (Arduino section)
 int pwmPinP1 = 6;         // motor PWM (connects to H-Bridge motor driver boards I bought)
 int dirPinP1 = 1;         // motor direction signal (connects to H-Bridge motor driver boards I bought)
-int limitSwitchP1L = 0;   // limit switch left
+int limitSwitchP1L = 5;   // limit switch left
 int limitSwitchP1R = 4;   // limit switch right
 int motorEncP1A = 2;      // motor encoder A
 int motorEncP1B = 3;      // motor encoder B
@@ -117,10 +116,10 @@ int motorEncP1B = 3;      // motor encoder B
 int potPinP2 = A3;        // pot connected to A3 on LattePanda board (Arduino section)
 int pwmPinP2 = 13;        // motor PWM (connects to H-Bridge motor driver boards I bought)
 int dirPinP2 = 8;         // motor direction signal (connects to H-Bridge motor driver boards I bought)
-int limitSwitchP2L = 7;   // limit switch left
+int limitSwitchP2L = 12;   // limit switch left
 int limitSwitchP2R = 11;  // limit switch right
-int motorEncP2A = 9;      // motor encoder A
-int motorEncP2B = 10;     // motor encoder B
+int motorEncP2A = 0;      // motor encoder A
+int motorEncP2B = 1;      // motor encoder B
 
 int ledPin = 13;          // default red led. Will place blinks in certain parts of code
 
