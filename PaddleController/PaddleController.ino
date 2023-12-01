@@ -47,7 +47,8 @@
   created 5 Nov 2023
   modified 16 Nov - tested out with belted drive system. Uploading to github
   modified 30 Nov - All physical wiring of P1 and P2 is done. Updating code to move/home paddles simultaneously
-
+  modified 1 Dec - Code updated to home() and move() both paddles simultaneously in real time
+  
   Notes:
   Using example Analog Serial Monitoring, pot currently reports 0 for full turned one way, 1023 for full turned other way. So use that as scale for
     PWM motor control

@@ -81,9 +81,13 @@ mode:
 slides:
   round_started:
     widgets:
-    - type: text
-      text: "Round 1...Dodgeball!"
-      font_size: 150
+    # - type: text
+    #   text: "Round 1...Dodgeball!"
+    #   font_size: 150
+    #   color: white
+    - type: image
+      image: Playfield-v1
+    
 #   video_cantdrinkabeer_slide:
 #     widgets:
 #     - type: image
@@ -219,8 +223,7 @@ slides:
 
 slide_player:
   mode_base_started:
-    round_started:
-      action: play
+    round_started
 #   shot_drinko_i_hit{mode.dasboot.active == False}:
 #     slide_bonus_monkeychug:
 #       priority: 1500
