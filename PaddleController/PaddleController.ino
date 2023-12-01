@@ -55,7 +55,6 @@
     The Arduino's programming language makes PWM easy to use; simply call analogWrite(pin, dutyCycle), where dutyCycle is a value from 0 to 255, and pin is one of the PWM pins (3, 5, 6, 9, 10, or 11).
     The analogWrite() function provides a simple interface to the hardware PWM, but doesn't provide any control over frequency.
 
-  
   Motor color code:
   Red: Motor Power
   Black: Motor Power
