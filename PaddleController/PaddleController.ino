@@ -119,7 +119,7 @@ int dirPinP2 = 8;         // motor direction signal (connects to H-Bridge motor 
 int limitSwitchP2L = 12;   // limit switch left
 int limitSwitchP2R = 11;  // limit switch right
 int motorEncP2A = 0;      // motor encoder A
-int motorEncP2B = 1;      // motor encoder B
+int motorEncP2B = 7;      // motor encoder B
 
 int ledPin = 13;          // default red led. Will place blinks in certain parts of code
 
