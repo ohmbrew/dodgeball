@@ -67,7 +67,7 @@
 #define DECEL_TIME    500
 #define HOMING_SPEED_SLOW 40  // 18 Nov this is good
 #define HOMING_SPEED_FAST 200
-#define HOMING_FAST_TIME  1400
+#define HOMING_FAST_TIME  1600
 #define INITIAL_PWM   40
 #define ACCELERATION_INIT 5
 #define DECELERATION_INIT 10
@@ -84,8 +84,9 @@
 #define STATE_HOMING_RIGHT2       5   // moving right fast for HOMING_FAST_TIME
 #define STATE_HOMING_RIGHT3       6   // slow homing speed after moving right fast for HOMING_FAST_TIME
 #define STATE_HOMING_RIGHT3_DECEL 7   // delaying for DECEL_TIME after right limit switch hit
+#define STATE_HOMED               8
 
-#define STATE_TRACKING            8   // paddle is moving toward position target
+#define STATE_TRACKING            9   // paddle is moving toward position target
 
 
 // Player 1 signal pins
@@ -272,8 +273,10 @@ void homePaddles() {
         if (IS_DEBUG) Serial.print(settingsPosMaxMotorP1);
         if (IS_DEBUG) Serial.println("\nM1Homed.");
         isHomedP1 = 1;
+        stateP1 = STATE_HOMED;
+        delay(2000);
       }
-    case STATE_TRACKING:
+    default:
       break;
     }
 
@@ -318,6 +321,7 @@ void move() {
       Serial.println("");
     }
   }
+
 
   // TODO: Acceleration is solved. But on stop, it should decelerate
   if (stateP1 == STATE_STOPPED) {
