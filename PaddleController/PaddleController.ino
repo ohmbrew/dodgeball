@@ -275,7 +275,6 @@ void homePaddles() {
         if (IS_DEBUG) Serial.println("\nM1Homed.");
         isHomedP1 = 1;
         stateP1 = STATE_HOMED;
-        delay(2000);
       }
     default:
       break;
@@ -298,6 +297,8 @@ void homePaddles() {
       break;
     }
   }
+  stateP1 = STATE_STOPPED;
+  stateP2 = STATE_STOPPED;
 }
 
 // This routine must be called quite periodically for good response!
@@ -322,7 +323,6 @@ void move() {
       Serial.println("");
     }
   }
-
 
   // TODO: Acceleration is solved. But on stop, it should decelerate
   if (stateP1 == STATE_STOPPED) {
