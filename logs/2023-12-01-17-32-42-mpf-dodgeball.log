@@ -1,0 +1,52 @@
+2023-12-01 17:32:42,238 : INFO : root : Loading config.
+2023-12-01 17:32:42,243 : INFO : YamlMultifileConfigLoader : Machine config file #1: config.yaml
+2023-12-01 17:32:42,244 : WARNING : ConfigProcessor : Config file in cache changed: /home/ohm/dodgeball/config/config.yaml
+2023-12-01 17:32:42,244 : INFO : ConfigProcessor : Loading config from file /home/ohm/.local/lib/python3.10/site-packages/mpf/mpfconfig.yaml.
+2023-12-01 17:32:42,267 : INFO : ConfigProcessor : Loading config: /home/ohm/.local/lib/python3.10/site-packages/mpf/mpfconfig.yaml
+2023-12-01 17:32:42,268 : INFO : ConfigProcessor : Loading config from file /home/ohm/dodgeball/config/config.yaml.
+2023-12-01 17:32:42,277 : INFO : ConfigProcessor : Loading config: /home/ohm/dodgeball/config/config.yaml
+2023-12-01 17:32:42,279 : INFO : ConfigProcessor : Loading config: /home/ohm/dodgeball/config/lights.yaml
+2023-12-01 17:32:42,281 : INFO : ConfigProcessor : Loading config: /home/ohm/dodgeball/config/coils.yaml
+2023-12-01 17:32:42,283 : INFO : ConfigProcessor : Loading config: /home/ohm/dodgeball/config/switches.yaml
+2023-12-01 17:32:42,285 : INFO : ConfigProcessor : Loading config: /home/ohm/dodgeball/config/playervars.yaml
+2023-12-01 17:32:42,287 : INFO : ConfigProcessor : Config file cache created: /tmp/bf38e15644d30ba1eb87297a18d33bd2.mpf_cache
+2023-12-01 17:32:42,385 : INFO : ConfigProcessor : Loading config from cache: /tmp/ecc2466debc0cbb894d1a2fba8912b38.mpf_cache
+2023-12-01 17:32:42,386 : INFO : ConfigProcessor : Loading config from cache: /tmp/32cc0edc83e6cd7fce5d5a48c9d631d2.mpf_cache
+2023-12-01 17:32:42,388 : INFO : ConfigProcessor : Loading config from cache: /tmp/0fe63fd00a83faf3a344d3dd33ac8b6e.mpf_cache
+2023-12-01 17:32:42,389 : INFO : ConfigProcessor : Loading config from cache: /tmp/4923a60b897e22ae41d9973250e86152.mpf_cache
+2023-12-01 17:32:42,390 : INFO : Machine : Mission Pinball Framework Core Engine v0.57.0.dev32
+2023-12-01 17:32:42,390 : INFO : Machine : Command line arguments: {'no_load_cache': False, 'create_config_cache': True, 'bcp': True, 'configfile': ['config.yaml'], 'force_assets_load': False, 'jsonlogging': False, 'logfile': 'logs/2023-12-01-17-32-42-mpf-dodgeball.log', 'pause': False, 'production': False, 'text_ui': True, 'loglevel': 15, 'consoleloglevel': 20, 'force_platform': None, 'syslog_address': None, 'mc_file_name': None, 'no_sound': False}
+2023-12-01 17:32:42,391 : INFO : Machine : MPF path: /home/ohm/.local/lib/python3.10/site-packages/mpf
+2023-12-01 17:32:42,391 : INFO : Machine : Machine path: /home/ohm/dodgeball
+2023-12-01 17:32:42,391 : INFO : Machine : Platform: linux
+2023-12-01 17:32:42,391 : INFO : Machine : Python executable location: /usr/bin/python3
+2023-12-01 17:32:42,391 : INFO : Machine : Python version: 3.10.12 (64-bit)
+2023-12-01 17:32:42,403 : INFO : Machine : Initializing MPF...
+2023-12-01 17:32:42,506 : INFO : P-Roc : Connecting to P-ROC
+2023-12-01 17:32:42,521 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -5: unable to claim usb device. Make sure the default FTDI driver is not in use. Is your P/P3-Roc connected and powered up?
+2023-12-01 17:32:42,521 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 17:32:43,536 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -5: unable to claim usb device. Make sure the default FTDI driver is not in use. Is your P/P3-Roc connected and powered up?
+2023-12-01 17:32:43,536 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 17:32:44,551 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -5: unable to claim usb device. Make sure the default FTDI driver is not in use. Is your P/P3-Roc connected and powered up?
+2023-12-01 17:32:44,551 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 17:32:45,566 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -5: unable to claim usb device. Make sure the default FTDI driver is not in use. Is your P/P3-Roc connected and powered up?
+2023-12-01 17:32:45,566 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 17:32:46,582 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -5: unable to claim usb device. Make sure the default FTDI driver is not in use. Is your P/P3-Roc connected and powered up?
+2023-12-01 17:32:46,583 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 17:32:47,609 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -5: unable to claim usb device. Make sure the default FTDI driver is not in use. Is your P/P3-Roc connected and powered up?
+2023-12-01 17:32:47,610 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 17:32:48,632 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -5: unable to claim usb device. Make sure the default FTDI driver is not in use. Is your P/P3-Roc connected and powered up?
+2023-12-01 17:32:48,633 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 17:32:49,665 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -5: unable to claim usb device. Make sure the default FTDI driver is not in use. Is your P/P3-Roc connected and powered up?
+2023-12-01 17:32:49,665 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 17:32:50,697 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -5: unable to claim usb device. Make sure the default FTDI driver is not in use. Is your P/P3-Roc connected and powered up?
+2023-12-01 17:32:50,698 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 17:32:51,608 : INFO : Machine : Starting the main run loop.
+2023-12-01 17:32:51,609 : INFO : Machine : Shutting down...
+2023-12-01 17:32:51,610 : INFO : EventManager : Event: ======'shutdown'====== Args={}
+2023-12-01 17:32:51,728 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -5: unable to claim usb device. Make sure the default FTDI driver is not in use. Is your P/P3-Roc connected and powered up?
+2023-12-01 17:32:51,729 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 17:32:52,761 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -5: unable to claim usb device. Make sure the default FTDI driver is not in use. Is your P/P3-Roc connected and powered up?
+2023-12-01 17:32:52,761 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 17:32:52,882 : ERROR : root : Received second SIGINT. Will exit ungracefully!
+NoneType: None

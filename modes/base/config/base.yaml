@@ -11,8 +11,8 @@ config:
   - shots.yaml
 
 event_player:
-  shot_catch_p1_hit: catch_p1_eject
-
+  balldevice_bd_catch_p1_ball_entered: catch_p1_eject
+  balldevice_bd_catch_p2_ball_entered: catch_p2_eject
 
 # event_player:
 #   mode_base_started:

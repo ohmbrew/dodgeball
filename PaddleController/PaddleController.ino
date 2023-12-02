@@ -77,7 +77,7 @@
 #define UPDATE_SERIAL_TIME  1000  // how often (ms) to send serial port updates of status
 #define DEAD_ZONE     400     // 17 Nov. 350 is lowest we can go with no minute oscillations (with .5 pot filter).
 #define DECEL_RANGE   2000     // TODO: tune this empirically. Distance to start deceleration mapping. Otherwise, full speed ahead!
-#define EDGE_OFFSET   100     // 17 Nov. This seems good.
+#define EDGE_OFFSET   150     // 17 Nov. This seems good.
 #define BACKOFF_TIME  500     // 18 Nov. This is good
 #define DECEL_TIME    500
 #define HOMING_SPEED_SLOW 40  // 18 Nov this is good

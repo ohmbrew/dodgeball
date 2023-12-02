@@ -1,0 +1,6 @@
+2023-12-01 15:15:06,467 : INFO : root : Loading config.
+2023-12-01 15:15:06,583 : INFO : ConfigProcessor : Config spec file cache created: /tmp/config_spec.mpf_cache
+2023-12-01 15:15:06,584 : INFO : YamlMultifileConfigLoader : Machine config file #1: config.yaml
+2023-12-01 15:15:06,584 : INFO : ConfigProcessor : Loading config from file /home/ohm/.local/lib/python3.10/site-packages/mpf/mpfconfig.yaml.
+2023-12-01 15:15:06,679 : INFO : ConfigProcessor : Loading config: /home/ohm/.local/lib/python3.10/site-packages/mpf/mpfconfig.yaml
+2023-12-01 15:15:06,680 : INFO : ConfigProcessor : Loading config from file /home/ohm/dodgeball/config/config.yaml.

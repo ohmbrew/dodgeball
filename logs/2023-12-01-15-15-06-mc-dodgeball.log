@@ -1,0 +1,16 @@
+2023-12-01 15:15:06,687 : kivy : Config: Older configuration version detected (0 instead of 27)
+2023-12-01 15:15:06,687 : kivy : Config: Upgrading configuration in progress.
+2023-12-01 15:15:06,689 : kivy : Kivy: v2.2.1
+2023-12-01 15:15:06,689 : kivy : Kivy: Installed at "/home/ohm/.local/lib/python3.10/site-packages/kivy/__init__.py"
+2023-12-01 15:15:06,689 : kivy : Python: v3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+2023-12-01 15:15:06,689 : kivy : Python: Interpreter at "/usr/bin/python3"
+2023-12-01 15:15:06,743 : kivy : Factory: 190 symbols loaded
+2023-12-01 15:15:07,355 : kivy : ImageLoaderFFPy: Using ffpyplayer 4.5.1
+2023-12-01 15:15:07,355 : kivy : Image: Providers: img_tex, img_dds, img_sdl2, img_pil, img_ffpyplayer 
+2023-12-01 15:15:07,912 : kivy : VideoFFPy: Using ffpyplayer 4.5.1
+2023-12-01 15:15:07,913 : kivy : Video: Provider: ffpyplayer(['video_ffmpeg'] ignored)
+2023-12-01 15:15:08,084 : root : Loading MPF-MC controller
+2023-12-01 15:15:08,088 : YamlMultifileConfigLoader : Machine config file #1: config
+2023-12-01 15:15:08,088 : ConfigProcessor : Loading config from file /home/ohm/.local/lib/python3.10/site-packages/mpfmc/mcconfig.yaml.
+2023-12-01 15:15:08,105 : ConfigProcessor : Loading config: /home/ohm/.local/lib/python3.10/site-packages/mpfmc/mcconfig.yaml
+2023-12-01 15:15:08,105 : ConfigProcessor : Loading config from file /home/ohm/dodgeball/config/config.

@@ -1,0 +1,92 @@
+2023-12-01 17:25:15,503 : INFO : root : Loading config.
+2023-12-01 17:25:15,610 : INFO : ConfigProcessor : Config spec file cache created: /tmp/config_spec.mpf_cache
+2023-12-01 17:25:15,610 : INFO : YamlMultifileConfigLoader : Machine config file #1: config.yaml
+2023-12-01 17:25:15,610 : INFO : ConfigProcessor : Loading config from file /home/ohm/.local/lib/python3.10/site-packages/mpf/mpfconfig.yaml.
+2023-12-01 17:25:15,656 : INFO : ConfigProcessor : Loading config: /home/ohm/.local/lib/python3.10/site-packages/mpf/mpfconfig.yaml
+2023-12-01 17:25:15,657 : INFO : ConfigProcessor : Loading config from file /home/ohm/dodgeball/config/config.yaml.
+2023-12-01 17:25:15,668 : INFO : ConfigProcessor : Loading config: /home/ohm/dodgeball/config/config.yaml
+2023-12-01 17:25:15,669 : INFO : ConfigProcessor : Loading config: /home/ohm/dodgeball/config/lights.yaml
+2023-12-01 17:25:15,672 : INFO : ConfigProcessor : Loading config: /home/ohm/dodgeball/config/coils.yaml
+2023-12-01 17:25:15,675 : INFO : ConfigProcessor : Loading config: /home/ohm/dodgeball/config/switches.yaml
+2023-12-01 17:25:15,677 : INFO : ConfigProcessor : Loading config: /home/ohm/dodgeball/config/playervars.yaml
+2023-12-01 17:25:15,680 : INFO : ConfigProcessor : Config file cache created: /tmp/bf38e15644d30ba1eb87297a18d33bd2.mpf_cache
+2023-12-01 17:25:15,784 : INFO : ConfigProcessor : Loading config from file /home/ohm/.local/lib/python3.10/site-packages/mpf/modes/attract/config/attract.yaml.
+2023-12-01 17:25:15,786 : INFO : ConfigProcessor : Loading config: /home/ohm/.local/lib/python3.10/site-packages/mpf/modes/attract/config/attract.yaml
+2023-12-01 17:25:15,786 : INFO : ConfigProcessor : Loading config from file /home/ohm/dodgeball/modes/attract/config/attract.yaml.
+2023-12-01 17:25:15,787 : INFO : ConfigProcessor : Loading config: /home/ohm/dodgeball/modes/attract/config/attract.yaml
+2023-12-01 17:25:15,788 : INFO : ConfigProcessor : Config file cache created: /tmp/ecc2466debc0cbb894d1a2fba8912b38.mpf_cache
+2023-12-01 17:25:15,789 : INFO : ConfigProcessor : Loading config from file /home/ohm/.local/lib/python3.10/site-packages/mpf/modes/game/config/game.yaml.
+2023-12-01 17:25:15,790 : INFO : ConfigProcessor : Loading config: /home/ohm/.local/lib/python3.10/site-packages/mpf/modes/game/config/game.yaml
+2023-12-01 17:25:15,790 : INFO : ConfigProcessor : Config file cache created: /tmp/32cc0edc83e6cd7fce5d5a48c9d631d2.mpf_cache
+2023-12-01 17:25:15,791 : INFO : ConfigProcessor : Loading config from file /home/ohm/dodgeball/modes/base/config/base.yaml.
+2023-12-01 17:25:15,794 : INFO : ConfigProcessor : Loading config: /home/ohm/dodgeball/modes/base/config/base.yaml
+2023-12-01 17:25:15,794 : INFO : ConfigProcessor : Config file cache created: /tmp/0fe63fd00a83faf3a344d3dd33ac8b6e.mpf_cache
+2023-12-01 17:25:15,795 : INFO : ConfigProcessor : Loading config from file /home/ohm/dodgeball/modes/attract/shows/./attract_display_loop.yaml.
+2023-12-01 17:25:15,798 : INFO : ConfigProcessor : Loading config: /home/ohm/dodgeball/modes/attract/shows/./attract_display_loop.yaml
+2023-12-01 17:25:15,798 : INFO : ConfigProcessor : Config file cache created: /tmp/4923a60b897e22ae41d9973250e86152.mpf_cache
+2023-12-01 17:25:15,798 : INFO : Machine : Mission Pinball Framework Core Engine v0.57.0.dev32
+2023-12-01 17:25:15,799 : INFO : Machine : Command line arguments: {'no_load_cache': False, 'create_config_cache': True, 'bcp': True, 'configfile': ['config.yaml'], 'force_assets_load': False, 'jsonlogging': False, 'logfile': 'logs/2023-12-01-17-25-15-mpf-dodgeball.log', 'pause': False, 'production': False, 'text_ui': True, 'loglevel': 15, 'consoleloglevel': 20, 'force_platform': None, 'syslog_address': None, 'mc_file_name': None, 'no_sound': False}
+2023-12-01 17:25:15,799 : INFO : Machine : MPF path: /home/ohm/.local/lib/python3.10/site-packages/mpf
+2023-12-01 17:25:15,799 : INFO : Machine : Machine path: /home/ohm/dodgeball
+2023-12-01 17:25:15,799 : INFO : Machine : Platform: linux
+2023-12-01 17:25:15,799 : INFO : Machine : Python executable location: /usr/bin/python3
+2023-12-01 17:25:15,799 : INFO : Machine : Python version: 3.10.12 (64-bit)
+2023-12-01 17:25:15,816 : INFO : Machine : Initializing MPF...
+2023-12-01 17:25:15,930 : INFO : P-Roc : Connecting to P-ROC
+2023-12-01 17:25:15,994 : INFO : P-Roc : Successfully connected to P-ROC/P3-ROC. Firmware Version: 2. Firmware Revision: 18. Hardware Board ID: 3
+2023-12-01 17:25:16,007 : INFO : EventManager : Event: ======'machine_var_p_roc_version'====== Args={'value': 2, 'prev_value': None, 'change': True}
+2023-12-01 17:25:16,007 : INFO : EventManager : Event: ======'machine_var_p_roc_revision'====== Args={'value': 18, 'prev_value': None, 'change': True}
+2023-12-01 17:25:16,007 : INFO : EventManager : Event: ======'machine_var_p_roc_hardware_version'====== Args={'value': 3, 'prev_value': None, 'change': True}
+2023-12-01 17:25:16,008 : INFO : EventManager : Event: ======'machine_var_credits_string'====== Args={'value': 'FREE PLAY', 'prev_value': None, 'change': True}
+2023-12-01 17:25:16,083 : INFO : EventManager : Event: ======'machine_var_master_volume'====== Args={'value': 0.5, 'prev_value': None, 'change': True}
+2023-12-01 17:25:16,083 : INFO : EventManager : Event: ======'machine_var_mpf_version'====== Args={'value': 'Mission Pinball Framework v0.57.0.dev32', 'prev_value': None, 'change': True}
+2023-12-01 17:25:16,083 : INFO : EventManager : Event: ======'machine_var_mpf_extended_version'====== Args={'value': 'Mission Pinball Framework v0.57.0.dev32, Config version:6, Show version: 6, BCP version:1.1', 'prev_value': None, 'change': True}
+2023-12-01 17:25:16,083 : INFO : EventManager : Event: ======'machine_var_python_version'====== Args={'value': '3.10.12', 'prev_value': None, 'change': True}
+2023-12-01 17:25:16,086 : INFO : EventManager : Event: ======'machine_var_platform'====== Args={'value': 'Linux-6.2.0-37-generic-x86_64-with-glibc2.35', 'prev_value': None, 'change': True}
+2023-12-01 17:25:16,086 : INFO : EventManager : Event: ======'machine_var_platform_system'====== Args={'value': 'Linux', 'prev_value': None, 'change': True}
+2023-12-01 17:25:16,086 : INFO : EventManager : Event: ======'machine_var_platform_release'====== Args={'value': '6.2.0-37-generic', 'prev_value': None, 'change': True}
+2023-12-01 17:25:16,086 : INFO : EventManager : Event: ======'machine_var_platform_version'====== Args={'value': '#38~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Nov  2 18:01:13 UTC 2', 'prev_value': None, 'change': True}
+2023-12-01 17:25:16,086 : INFO : EventManager : Event: ======'machine_var_platform_machine'====== Args={'value': 'x86_64', 'prev_value': None, 'change': True}
+2023-12-01 17:25:16,086 : INFO : EventManager : Event: ======'init_phase_1'====== Args={}
+2023-12-01 17:25:16,156 : INFO : EventManager : Event: ======'logicblock_has_highscore_updated'====== Args={'value': 0, 'enabled': True}
+2023-12-01 17:25:16,156 : INFO : EventManager : Event: ======'logicblock_has_highscore_updated'====== Args={'value': 0, 'enabled': True}
+2023-12-01 17:25:16,159 : INFO : EventManager : Event: ======'init_phase_2'====== Args={}
+2023-12-01 17:25:16,174 : INFO : SwitchController : Found active switch: (3, <Platform.P3-ROC>) <switch.s_trougheject_p1>
+2023-12-01 17:25:16,175 : INFO : SwitchController : Found active switch: (11, <Platform.P3-ROC>) <switch.s_trougheject_p2>
+2023-12-01 17:25:16,179 : INFO : EventManager : Event: ======'bcp_connection_attempt'====== Args={'name': 'local_display', 'host': 'localhost', 'port': 5050}
+2023-12-01 17:25:16,182 : INFO : BCPClientSocket : Connecting BCP to 'local_display' at localhost:5050...
+2023-12-01 17:25:19,009 : INFO : BCPClientSocket : Connected BCP to 'local_display' localhost:5050
+2023-12-01 17:25:19,010 : INFO : EventManager : Event: ======'bcp_clients_connected'====== Args={}
+2023-12-01 17:25:19,012 : INFO : ball_device.bd_trough : BCH: Initial count: 1
+2023-12-01 17:25:19,013 : INFO : ball_device.bd_trough : State: idle
+2023-12-01 17:25:19,013 : INFO : ball_device.bd_catch_p1 : BCH: Initial count: 0
+2023-12-01 17:25:19,013 : INFO : ball_device.bd_catch_p1 : State: idle
+2023-12-01 17:25:19,014 : INFO : ball_device.bd_catch_p2 : BCH: Initial count: 0
+2023-12-01 17:25:19,014 : INFO : ball_device.bd_catch_p2 : State: idle
+2023-12-01 17:25:19,051 : INFO : EventManager : Event: ======'init_phase_3'====== Args={}
+2023-12-01 17:25:19,057 : INFO : EventManager : Event: ======'machine_var_mc_version'====== Args={'value': 'MPF-MC v0.57.0.dev12', 'prev_value': None, 'change': True}
+2023-12-01 17:25:19,057 : INFO : EventManager : Event: ======'machine_var_mc_extended_version'====== Args={'value': 'MPF-MC v0.57.0.dev12 (config_version=6, BCP v1.1,                      Requires MPF API compatibility v0.57.0.dev32 or newer)', 'prev_value': None, 'change': True}
+2023-12-01 17:25:19,064 : INFO : EventManager : Event: ======'init_phase_4'====== Args={}
+2023-12-01 17:25:19,065 : INFO : BallController : Initial balls found: 1
+2023-12-01 17:25:19,066 : INFO : EventManager : Event: ======'machine_var_audits_events_game_ended'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2023-12-01 17:25:19,066 : INFO : EventManager : Event: ======'machine_var_audits_events_game_started'====== Args={'value': 1, 'prev_value': None, 'change': True}
+2023-12-01 17:25:19,066 : INFO : EventManager : Event: ======'machine_var_audits_player_score'====== Args={'value': {'average': 0, 'top': [], 'total': 0}, 'prev_value': None, 'change': True}
+2023-12-01 17:25:19,067 : INFO : EventManager : Event: ======'machine_var_audits_switches_s_catch_p1'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2023-12-01 17:25:19,067 : INFO : EventManager : Event: ======'machine_var_audits_switches_s_catch_p2'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2023-12-01 17:25:19,067 : INFO : EventManager : Event: ======'machine_var_audits_switches_s_sling_p1'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2023-12-01 17:25:19,067 : INFO : EventManager : Event: ======'machine_var_audits_switches_s_sling_p2'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2023-12-01 17:25:19,068 : INFO : EventManager : Event: ======'machine_var_audits_switches_s_start_p1'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2023-12-01 17:25:19,068 : INFO : EventManager : Event: ======'machine_var_audits_switches_s_start_p2'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2023-12-01 17:25:19,068 : INFO : EventManager : Event: ======'machine_var_audits_switches_s_trougheject_p1'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2023-12-01 17:25:19,068 : INFO : EventManager : Event: ======'machine_var_audits_switches_s_trougheject_p2'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2023-12-01 17:25:19,077 : INFO : EventManager : Event: ======'init_phase_5'====== Args={}
+2023-12-01 17:25:19,077 : INFO : EventManager : Event: ======'init_done'====== Args={}
+2023-12-01 17:25:19,078 : INFO : EventManager : Event: ======'machine_reset_phase_1'====== Args={}
+2023-12-01 17:25:19,084 : INFO : EventManager : Event: ======'machine_reset_phase_2'====== Args={}
+2023-12-01 17:25:19,084 : INFO : EventManager : Event: ======'machine_reset_phase_3'====== Args={}
+2023-12-01 17:25:19,084 : INFO : EventManager : Event: ======'reset_complete'====== Args={}
+2023-12-01 17:25:19,084 : INFO : EventManager : Event: ======'mode_attract_will_start'====== Args={}
+2023-12-01 17:25:19,085 : INFO : EventManager : Event: ======'mode_attract_starting'====== Args={}
+2023-12-01 17:25:19,085 : INFO : Mode.attract : Started. Priority: 10
+2023-12-01 17:25:19,085 : INFO : EventManager : Event: ======'modes_active_modes_changed'====== Args={}
+2023-12-01 17:25:19,085 : INFO : EventManager : Event: ======'mode_attract_started'====== Args={}

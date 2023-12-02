@@ -1,0 +1,46 @@
+2023-12-01 15:27:31,056 : INFO : root : Loading config.
+2023-12-01 15:27:31,061 : INFO : YamlMultifileConfigLoader : Machine config file #1: config.yaml
+2023-12-01 15:27:31,062 : INFO : ConfigProcessor : Loading config from cache: /tmp/bf38e15644d30ba1eb87297a18d33bd2.mpf_cache
+2023-12-01 15:27:31,151 : INFO : ConfigProcessor : Loading config from cache: /tmp/ecc2466debc0cbb894d1a2fba8912b38.mpf_cache
+2023-12-01 15:27:31,152 : INFO : ConfigProcessor : Loading config from cache: /tmp/32cc0edc83e6cd7fce5d5a48c9d631d2.mpf_cache
+2023-12-01 15:27:31,153 : INFO : ConfigProcessor : Loading config from cache: /tmp/0fe63fd00a83faf3a344d3dd33ac8b6e.mpf_cache
+2023-12-01 15:27:31,154 : INFO : ConfigProcessor : Loading config from cache: /tmp/4923a60b897e22ae41d9973250e86152.mpf_cache
+2023-12-01 15:27:31,155 : INFO : Machine : Mission Pinball Framework Core Engine v0.57.0.dev32
+2023-12-01 15:27:31,155 : INFO : Machine : Command line arguments: {'no_load_cache': False, 'create_config_cache': True, 'bcp': True, 'configfile': ['config.yaml'], 'force_assets_load': False, 'jsonlogging': False, 'logfile': 'logs/2023-12-01-15-27-31-mpf-dodgeball.log', 'pause': False, 'production': False, 'text_ui': True, 'loglevel': 15, 'consoleloglevel': 20, 'force_platform': None, 'syslog_address': None, 'mc_file_name': None, 'no_sound': False}
+2023-12-01 15:27:31,155 : INFO : Machine : MPF path: /home/ohm/.local/lib/python3.10/site-packages/mpf
+2023-12-01 15:27:31,155 : INFO : Machine : Machine path: /home/ohm/dodgeball
+2023-12-01 15:27:31,155 : INFO : Machine : Platform: linux
+2023-12-01 15:27:31,155 : INFO : Machine : Python executable location: /usr/bin/python3
+2023-12-01 15:27:31,155 : INFO : Machine : Python version: 3.10.12 (64-bit)
+2023-12-01 15:27:31,167 : INFO : Machine : Initializing MPF...
+2023-12-01 15:27:31,183 : ERROR : Machine : Failed to initialize MPF
+Traceback (most recent call last):
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/platforms/p_roc_common.py", line 31, in <module>
+    import pinproc
+ImportError: libpinproc.so.2.0: cannot open shared object file: No such file or directory
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/platforms/p_roc_common.py", line 41, in <module>
+    raise ImportError
+ImportError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/machine.py", line 670, in initialize_mpf
+    raise init.exception()
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/machine.py", line 246, in initialize
+    await self.initialize_core_and_hardware()
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/machine.py", line 232, in initialize_core_and_hardware
+    self._load_hardware_platforms()
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/machine.py", line 479, in _load_hardware_platforms
+    self.add_platform(hardware_platform)
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/machine.py", line 604, in add_platform
+    self.hardware_platforms[name] = hardware_platform(self)
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/platforms/p3_roc.py", line 113, in __init__
+    super().__init__(machine)
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/platforms/p_roc_common.py", line 180, in __init__
+    raise MpfRuntimeError('Could not import "pinproc". Either the library is not installed or is missing '
+mpf.exceptions.runtime_error.MpfRuntimeError: Runtime Error in P-Roc: Could not import "pinproc". Either the library is not installed or is missing some of its dependencies. Check the install instructions for your OS in Multimorphic section of the MPF docs. You can run mpf with "-X" to use virtual hardware in the meantime. Error Code: RE-P-Roc-3 (https://missionpinball.org/logs)

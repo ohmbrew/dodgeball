@@ -1,0 +1,198 @@
+2023-12-01 15:31:39,438 : INFO : root : Loading config.
+2023-12-01 15:31:39,443 : INFO : YamlMultifileConfigLoader : Machine config file #1: config.yaml
+2023-12-01 15:31:39,444 : INFO : ConfigProcessor : Loading config from cache: /tmp/bf38e15644d30ba1eb87297a18d33bd2.mpf_cache
+2023-12-01 15:31:39,539 : INFO : ConfigProcessor : Loading config from cache: /tmp/ecc2466debc0cbb894d1a2fba8912b38.mpf_cache
+2023-12-01 15:31:39,540 : INFO : ConfigProcessor : Loading config from cache: /tmp/32cc0edc83e6cd7fce5d5a48c9d631d2.mpf_cache
+2023-12-01 15:31:39,541 : INFO : ConfigProcessor : Loading config from cache: /tmp/0fe63fd00a83faf3a344d3dd33ac8b6e.mpf_cache
+2023-12-01 15:31:39,542 : INFO : ConfigProcessor : Loading config from cache: /tmp/4923a60b897e22ae41d9973250e86152.mpf_cache
+2023-12-01 15:31:39,543 : INFO : Machine : Mission Pinball Framework Core Engine v0.57.0.dev32
+2023-12-01 15:31:39,543 : INFO : Machine : Command line arguments: {'no_load_cache': False, 'create_config_cache': True, 'bcp': True, 'configfile': ['config.yaml'], 'force_assets_load': False, 'jsonlogging': False, 'logfile': 'logs/2023-12-01-15-31-39-mpf-dodgeball.log', 'pause': False, 'production': False, 'text_ui': True, 'loglevel': 15, 'consoleloglevel': 20, 'force_platform': None, 'syslog_address': None, 'mc_file_name': None, 'no_sound': False}
+2023-12-01 15:31:39,543 : INFO : Machine : MPF path: /home/ohm/.local/lib/python3.10/site-packages/mpf
+2023-12-01 15:31:39,543 : INFO : Machine : Machine path: /home/ohm/dodgeball
+2023-12-01 15:31:39,543 : INFO : Machine : Platform: linux
+2023-12-01 15:31:39,543 : INFO : Machine : Python executable location: /usr/bin/python3
+2023-12-01 15:31:39,543 : INFO : Machine : Python version: 3.10.12 (64-bit)
+2023-12-01 15:31:39,566 : INFO : Machine : Initializing MPF...
+2023-12-01 15:31:39,697 : INFO : P-Roc : Connecting to P-ROC
+2023-12-01 15:31:39,708 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:31:39,708 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:31:40,718 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:31:40,718 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:31:41,729 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:31:41,729 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:31:42,832 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:31:42,833 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:31:43,843 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:31:43,843 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:31:44,853 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:31:44,853 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:31:45,863 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:31:45,864 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:31:46,873 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:31:46,873 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:31:47,883 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:31:47,883 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:31:48,893 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:31:48,893 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:31:49,909 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:31:49,910 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:31:50,535 : INFO : Machine : Starting the main run loop.
+2023-12-01 15:31:50,536 : INFO : Machine : Shutting down...
+2023-12-01 15:31:50,536 : INFO : EventManager : Event: ======'shutdown'====== Args={}
+2023-12-01 15:31:50,920 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:31:50,920 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:31:51,944 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:31:51,944 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:31:52,966 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:31:52,967 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:31:53,991 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:31:53,992 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:31:55,011 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:31:55,011 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:31:56,035 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:31:56,036 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:31:57,061 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:31:57,062 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:31:58,087 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:31:58,087 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:31:59,112 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:31:59,113 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:00,137 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:00,138 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:01,162 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:01,163 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:02,188 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:02,188 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:03,214 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:03,214 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:04,239 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:04,239 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:05,265 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:05,266 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:06,290 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:06,291 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:07,316 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:07,317 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:08,342 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:08,342 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:09,367 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:09,367 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:10,391 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:10,392 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:11,417 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:11,417 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:12,442 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:12,443 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:13,467 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:13,468 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:14,493 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:14,494 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:15,519 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:15,520 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:16,545 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:16,545 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:17,571 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:17,571 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:18,596 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:18,597 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:19,607 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:19,608 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:20,633 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:20,634 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:21,659 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:21,659 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:22,685 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:22,685 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:23,710 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:23,710 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:24,735 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:24,736 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:25,793 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:25,793 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:26,818 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:26,819 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:27,844 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:27,845 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:28,870 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:28,871 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:29,889 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:29,889 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:30,913 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:30,914 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:31,939 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:31,939 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:32,965 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:32,965 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:33,990 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:33,991 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:35,016 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:35,016 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:36,041 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:36,042 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:37,067 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:37,067 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:38,093 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:38,093 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:39,118 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:39,119 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:40,144 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:40,144 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:41,169 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:41,170 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:42,195 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:42,195 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:43,220 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:43,221 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:44,248 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:44,248 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:45,273 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:45,274 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:46,299 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:46,300 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:47,325 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:47,325 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:48,350 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:48,351 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:49,370 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:49,371 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:50,382 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:50,382 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:51,407 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:51,408 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:52,433 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:52,434 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:53,458 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:53,459 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:54,483 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:54,484 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:55,509 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:55,510 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:56,535 : WARNING : P-Roc : Failed to instantiate pinproc.PinPROC(7): Unable to open ftdi device: -3: device not found. Is your P/P3-Roc connected and powered up?
+2023-12-01 15:32:56,535 : INFO : P-Roc : Will retry creating PinPROC in 1s.
+2023-12-01 15:32:57,819 : INFO : P-Roc : Successfully connected to P-ROC/P3-ROC. Firmware Version: 2. Firmware Revision: 18. Hardware Board ID: 3
+2023-12-01 15:32:57,820 : ERROR : asyncio : Task exception was never retrieved
+future: <Task finished name='Task-1' coro=<MachineController.initialize() done, defined at /home/ohm/.local/lib/python3.10/site-packages/mpf/core/machine.py:244> exception=RuntimeError('Event loop is closed')>
+Traceback (most recent call last):
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/machine.py", line 246, in initialize
+    await self.initialize_core_and_hardware()
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/machine.py", line 242, in initialize_core_and_hardware
+    await self._initialize_platforms()
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/machine.py", line 333, in _initialize_platforms
+    result.result()
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/platforms/p_roc_common.py", line 229, in initialize
+    await self.connect()
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/platforms/p3_roc.py", line 148, in connect
+    self.pdbconfig = PDBConfig(self, self.machine.config, self.pinproc.DriverCount)
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/platforms/p_roc_common.py", line 882, in __init__
+    self._initialize_drivers()
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/platforms/p_roc_common.py", line 1136, in _initialize_drivers
+    self.platform.run_proc_cmd_no_wait("driver_update_state", state)
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/platforms/p_roc_common.py", line 220, in run_proc_cmd_no_wait
+    asyncio.run_coroutine_threadsafe(self.proc_process.run_command(cmd, *args), self.proc_process_instance)
+  File "/usr/lib/python3.10/asyncio/tasks.py", line 892, in run_coroutine_threadsafe
+    loop.call_soon_threadsafe(callback)
+  File "uvloop/loop.pyx", line 1288, in uvloop.loop.Loop.call_soon_threadsafe
+  File "uvloop/loop.pyx", line 671, in uvloop.loop.Loop._append_ready_handle
+  File "uvloop/loop.pyx", line 703, in uvloop.loop.Loop._check_closed
+RuntimeError: Event loop is closed
+2023-12-01 15:32:57,826 : INFO : root : MPF run loop ended.

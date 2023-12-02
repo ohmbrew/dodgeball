@@ -1,16 +1,21 @@
 events:
   game_ended: 0
-  game_started: 1
+  game_started: 7
 player:
   score:
     average: 0
     top: []
     total: 0
+shots:
+  catch_p1: 9
+  catch_p2: 1
+  sling_p1: 9
+  sling_p2: 1
 switches:
-  s_catch_p1: 0
-  s_catch_p2: 0
-  s_sling_p1: 0
-  s_sling_p2: 0
+  s_catch_p1: 9
+  s_catch_p2: 1
+  s_sling_p1: 9
+  s_sling_p2: 1
   s_start_p1: 0
   s_start_p2: 0
   s_trougheject_p1: 0

@@ -1,0 +1,81 @@
+2023-12-02 11:25:49,422 : INFO : root : Loading config.
+2023-12-02 11:25:49,528 : INFO : ConfigProcessor : Config spec file cache created: /tmp/config_spec.mpf_cache
+2023-12-02 11:25:49,528 : INFO : YamlMultifileConfigLoader : Machine config file #1: config.yaml
+2023-12-02 11:25:49,528 : INFO : ConfigProcessor : Loading config from file /home/ohm/.local/lib/python3.10/site-packages/mpf/mpfconfig.yaml.
+2023-12-02 11:25:49,575 : INFO : ConfigProcessor : Loading config: /home/ohm/.local/lib/python3.10/site-packages/mpf/mpfconfig.yaml
+2023-12-02 11:25:49,576 : INFO : ConfigProcessor : Loading config from file /home/ohm/dodgeball/config/config.yaml.
+2023-12-02 11:25:49,585 : INFO : ConfigProcessor : Loading config: /home/ohm/dodgeball/config/config.yaml
+2023-12-02 11:25:49,586 : INFO : ConfigProcessor : Loading config: /home/ohm/dodgeball/config/lights.yaml
+2023-12-02 11:25:49,589 : INFO : ConfigProcessor : Loading config: /home/ohm/dodgeball/config/coils.yaml
+2023-12-02 11:25:49,592 : INFO : ConfigProcessor : Loading config: /home/ohm/dodgeball/config/switches.yaml
+2023-12-02 11:25:49,594 : INFO : ConfigProcessor : Loading config: /home/ohm/dodgeball/config/playervars.yaml
+2023-12-02 11:25:49,596 : INFO : ConfigProcessor : Config file cache created: /tmp/bf38e15644d30ba1eb87297a18d33bd2.mpf_cache
+2023-12-02 11:25:49,699 : INFO : ConfigProcessor : Loading config from file /home/ohm/.local/lib/python3.10/site-packages/mpf/modes/attract/config/attract.yaml.
+2023-12-02 11:25:49,701 : INFO : ConfigProcessor : Loading config: /home/ohm/.local/lib/python3.10/site-packages/mpf/modes/attract/config/attract.yaml
+2023-12-02 11:25:49,701 : INFO : ConfigProcessor : Loading config from file /home/ohm/dodgeball/modes/attract/config/attract.yaml.
+2023-12-02 11:25:49,702 : INFO : ConfigProcessor : Loading config: /home/ohm/dodgeball/modes/attract/config/attract.yaml
+2023-12-02 11:25:49,702 : INFO : ConfigProcessor : Config file cache created: /tmp/ecc2466debc0cbb894d1a2fba8912b38.mpf_cache
+2023-12-02 11:25:49,703 : INFO : ConfigProcessor : Loading config from file /home/ohm/.local/lib/python3.10/site-packages/mpf/modes/game/config/game.yaml.
+2023-12-02 11:25:49,704 : INFO : ConfigProcessor : Loading config: /home/ohm/.local/lib/python3.10/site-packages/mpf/modes/game/config/game.yaml
+2023-12-02 11:25:49,705 : INFO : ConfigProcessor : Config file cache created: /tmp/32cc0edc83e6cd7fce5d5a48c9d631d2.mpf_cache
+2023-12-02 11:25:49,705 : INFO : ConfigProcessor : Loading config from file /home/ohm/dodgeball/modes/base/config/base.yaml.
+2023-12-02 11:25:49,708 : INFO : ConfigProcessor : Loading config: /home/ohm/dodgeball/modes/base/config/base.yaml
+2023-12-02 11:25:49,709 : INFO : ConfigProcessor : Loading config: /home/ohm/dodgeball/modes/base/config/shots.yaml
+2023-12-02 11:25:49,710 : INFO : ConfigProcessor : Config file cache created: /tmp/0fe63fd00a83faf3a344d3dd33ac8b6e.mpf_cache
+2023-12-02 11:25:49,710 : INFO : ConfigProcessor : Loading config from file /home/ohm/dodgeball/modes/attract/shows/./attract_display_loop.yaml.
+2023-12-02 11:25:49,713 : INFO : ConfigProcessor : Loading config: /home/ohm/dodgeball/modes/attract/shows/./attract_display_loop.yaml
+2023-12-02 11:25:49,713 : INFO : ConfigProcessor : Config file cache created: /tmp/4923a60b897e22ae41d9973250e86152.mpf_cache
+2023-12-02 11:25:49,714 : INFO : Machine : Mission Pinball Framework Core Engine v0.57.0.dev32
+2023-12-02 11:25:49,714 : INFO : Machine : Command line arguments: {'no_load_cache': False, 'create_config_cache': True, 'bcp': True, 'configfile': ['config.yaml'], 'force_assets_load': False, 'jsonlogging': False, 'logfile': 'logs/2023-12-02-11-25-49-mpf-dodgeball.log', 'pause': False, 'production': False, 'text_ui': True, 'loglevel': 15, 'consoleloglevel': 20, 'force_platform': None, 'syslog_address': None, 'mc_file_name': None, 'no_sound': False}
+2023-12-02 11:25:49,714 : INFO : Machine : MPF path: /home/ohm/.local/lib/python3.10/site-packages/mpf
+2023-12-02 11:25:49,714 : INFO : Machine : Machine path: /home/ohm/dodgeball
+2023-12-02 11:25:49,714 : INFO : Machine : Platform: linux
+2023-12-02 11:25:49,714 : INFO : Machine : Python executable location: /usr/bin/python3
+2023-12-02 11:25:49,714 : INFO : Machine : Python version: 3.10.12 (64-bit)
+2023-12-02 11:25:49,730 : INFO : Machine : Initializing MPF...
+2023-12-02 11:25:49,756 : ERROR : Machine : Failed to initialize MPF
+Traceback (most recent call last):
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/machine.py", line 670, in initialize_mpf
+    raise init.exception()
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/machine.py", line 246, in initialize
+    await self.initialize_core_and_hardware()
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/machine.py", line 232, in initialize_core_and_hardware
+    self._load_hardware_platforms()
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/machine.py", line 479, in _load_hardware_platforms
+    self.add_platform(hardware_platform)
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/machine.py", line 604, in add_platform
+    self.hardware_platforms[name] = hardware_platform(self)
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/platforms/pololu_maestro.py", line 22, in __init__
+    self.config = self.machine.config_validator.validate_config("pololu_maestro",
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/config_validator.py", line 164, in validate_config
+    return self._validate_config(config_spec, source, base_spec=base_spec, add_missing_keys=add_missing_keys,
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/config_validator.py", line 215, in _validate_config
+    processed_config[k] = self.validate_config_item(
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/config_validator.py", line 237, in validate_config_item
+    self.validation_error("None", validation_failure_info,
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/config_validator.py", line 700, in validation_error
+    raise ConfigFileError("Config validation error: Entry {} = \"{}\" is not valid. {}".format(
+mpf.exceptions.config_file_error.ConfigFileError: Config File Error in ConfigValidator: Config validation error: Entry pololu_maestro:pololu_maestro:port = "None" is not valid. Required setting "port:" is missing from section "pololu_maestro:pololu_maestro:" in your config. Error Code: CFE-ConfigValidator-9 (https://missionpinball.org/logs)
+2023-12-02 11:26:16,959 : ERROR : root : Received second SIGINT. Will exit ungracefully!
+Traceback (most recent call last):
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/machine.py", line 670, in initialize_mpf
+    raise init.exception()
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/machine.py", line 246, in initialize
+    await self.initialize_core_and_hardware()
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/machine.py", line 232, in initialize_core_and_hardware
+    self._load_hardware_platforms()
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/machine.py", line 479, in _load_hardware_platforms
+    self.add_platform(hardware_platform)
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/machine.py", line 604, in add_platform
+    self.hardware_platforms[name] = hardware_platform(self)
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/platforms/pololu_maestro.py", line 22, in __init__
+    self.config = self.machine.config_validator.validate_config("pololu_maestro",
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/config_validator.py", line 164, in validate_config
+    return self._validate_config(config_spec, source, base_spec=base_spec, add_missing_keys=add_missing_keys,
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/config_validator.py", line 215, in _validate_config
+    processed_config[k] = self.validate_config_item(
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/config_validator.py", line 237, in validate_config_item
+    self.validation_error("None", validation_failure_info,
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/config_validator.py", line 700, in validation_error
+    raise ConfigFileError("Config validation error: Entry {} = \"{}\" is not valid. {}".format(
+mpf.exceptions.config_file_error.ConfigFileError: Config File Error in ConfigValidator: Config validation error: Entry pololu_maestro:pololu_maestro:port = "None" is not valid. Required setting "port:" is missing from section "pololu_maestro:pololu_maestro:" in your config. Error Code: CFE-ConfigValidator-9 (https://missionpinball.org/logs)

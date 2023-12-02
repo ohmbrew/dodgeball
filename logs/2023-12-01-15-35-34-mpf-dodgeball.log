@@ -1,0 +1,33 @@
+2023-12-01 15:35:34,040 : INFO : root : Loading config.
+2023-12-01 15:35:34,046 : INFO : YamlMultifileConfigLoader : Machine config file #1: config.yaml
+2023-12-01 15:35:34,047 : INFO : ConfigProcessor : Loading config from cache: /tmp/bf38e15644d30ba1eb87297a18d33bd2.mpf_cache
+2023-12-01 15:35:34,149 : INFO : ConfigProcessor : Loading config from cache: /tmp/ecc2466debc0cbb894d1a2fba8912b38.mpf_cache
+2023-12-01 15:35:34,150 : INFO : ConfigProcessor : Loading config from cache: /tmp/32cc0edc83e6cd7fce5d5a48c9d631d2.mpf_cache
+2023-12-01 15:35:34,151 : INFO : ConfigProcessor : Loading config from cache: /tmp/0fe63fd00a83faf3a344d3dd33ac8b6e.mpf_cache
+2023-12-01 15:35:34,152 : INFO : ConfigProcessor : Loading config from cache: /tmp/4923a60b897e22ae41d9973250e86152.mpf_cache
+2023-12-01 15:35:34,153 : INFO : Machine : Mission Pinball Framework Core Engine v0.57.0.dev32
+2023-12-01 15:35:34,153 : INFO : Machine : Command line arguments: {'no_load_cache': False, 'create_config_cache': True, 'bcp': True, 'configfile': ['config.yaml'], 'force_assets_load': False, 'jsonlogging': False, 'logfile': 'logs/2023-12-01-15-35-34-mpf-dodgeball.log', 'pause': False, 'production': False, 'text_ui': True, 'loglevel': 15, 'consoleloglevel': 20, 'force_platform': None, 'syslog_address': None, 'mc_file_name': None, 'no_sound': False}
+2023-12-01 15:35:34,153 : INFO : Machine : MPF path: /home/ohm/.local/lib/python3.10/site-packages/mpf
+2023-12-01 15:35:34,153 : INFO : Machine : Machine path: /home/ohm/dodgeball
+2023-12-01 15:35:34,153 : INFO : Machine : Platform: linux
+2023-12-01 15:35:34,153 : INFO : Machine : Python executable location: /usr/bin/python3
+2023-12-01 15:35:34,153 : INFO : Machine : Python version: 3.10.12 (64-bit)
+2023-12-01 15:35:34,166 : INFO : Machine : Initializing MPF...
+2023-12-01 15:35:34,283 : INFO : P-Roc : Connecting to P-ROC
+2023-12-01 15:35:41,922 : INFO : P-Roc : Successfully connected to P-ROC/P3-ROC. Firmware Version: 2. Firmware Revision: 18. Hardware Board ID: 3
+2023-12-01 15:35:41,935 : INFO : EventManager : Event: ======'machine_var_p_roc_version'====== Args={'value': 2, 'prev_value': None, 'change': True}
+2023-12-01 15:35:41,935 : INFO : EventManager : Event: ======'machine_var_p_roc_revision'====== Args={'value': 18, 'prev_value': None, 'change': True}
+2023-12-01 15:35:41,935 : INFO : EventManager : Event: ======'machine_var_p_roc_hardware_version'====== Args={'value': 3, 'prev_value': None, 'change': True}
+2023-12-01 15:35:41,936 : INFO : EventManager : Event: ======'machine_var_credits_string'====== Args={'value': 'FREE PLAY', 'prev_value': None, 'change': True}
+2023-12-01 15:35:42,002 : INFO : EventManager : Event: ======'machine_var_master_volume'====== Args={'value': 0.5, 'prev_value': None, 'change': True}
+2023-12-01 15:35:42,002 : INFO : EventManager : Event: ======'machine_var_mpf_version'====== Args={'value': 'Mission Pinball Framework v0.57.0.dev32', 'prev_value': None, 'change': True}
+2023-12-01 15:35:42,003 : INFO : EventManager : Event: ======'machine_var_mpf_extended_version'====== Args={'value': 'Mission Pinball Framework v0.57.0.dev32, Config version:6, Show version: 6, BCP version:1.1', 'prev_value': None, 'change': True}
+2023-12-01 15:35:42,003 : INFO : EventManager : Event: ======'machine_var_python_version'====== Args={'value': '3.10.12', 'prev_value': None, 'change': True}
+2023-12-01 15:35:42,007 : INFO : EventManager : Event: ======'machine_var_platform'====== Args={'value': 'Linux-6.2.0-37-generic-x86_64-with-glibc2.35', 'prev_value': None, 'change': True}
+2023-12-01 15:35:42,007 : INFO : EventManager : Event: ======'machine_var_platform_system'====== Args={'value': 'Linux', 'prev_value': None, 'change': True}
+2023-12-01 15:35:42,007 : INFO : EventManager : Event: ======'machine_var_platform_release'====== Args={'value': '6.2.0-37-generic', 'prev_value': None, 'change': True}
+2023-12-01 15:35:42,008 : INFO : EventManager : Event: ======'machine_var_platform_version'====== Args={'value': '#38~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Nov  2 18:01:13 UTC 2', 'prev_value': None, 'change': True}
+2023-12-01 15:35:42,008 : INFO : EventManager : Event: ======'machine_var_platform_machine'====== Args={'value': 'x86_64', 'prev_value': None, 'change': True}
+2023-12-01 15:35:42,008 : INFO : EventManager : Event: ======'init_phase_1'====== Args={}
+2023-12-01 15:36:02,464 : ERROR : root : Received second SIGINT. Will exit ungracefully!
+NoneType: None

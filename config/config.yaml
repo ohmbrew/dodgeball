@@ -3,7 +3,7 @@
 hardware:
   platform: p3_roc
   driverboards: pdb
-  servo_controllers: pololu_maestro
+  #servo_controllers: pololu_maestro
 
 # define servo and min/max ranges
 # pololu_maestro:
@@ -171,6 +171,7 @@ ball_devices:
     eject_coil: c_trougheject_p1
     eject_targets: playfield
     tags: home, trough
+    mechanical_eject: true
     eject_timeouts: 2s
     debug: true
   bd_catch_p1:
