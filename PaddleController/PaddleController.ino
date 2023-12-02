@@ -11,7 +11,7 @@
 
    |     |     |     |     |     |     |     |     |     |     |     |   
   D7    D8    D9    D10   D11   D12   D13   A3    A4    A5    GND   GND
-  E2B  DIR2               SR2   SL2  PWM2  POT2
+  E2B  DIR2        PWM2   SR2   SL2        POT2
    *
 
   * = digital interrupt capable. Prefer to put motor encoder signals on these pins. M1 is already good (connected to 2 and 3)
@@ -30,7 +30,7 @@
   POT2  [A3]: Pot P2
   SL2   [D12]: Limit Switch Left P2      * UPDATED - MUST REWIRE
   DIR2  [D8]: Motor Direction P2
-  PWM2 [D13]: Motor PWM P2
+  PWM2 [D10]: Motor PWM P2
   E2A   [D0]: Motor Encoder A P2        * UPDATED - MUST REWIRE
   E2B   [D7]: Motor Encoder B P2        * UPDATED - MUST REWIRE
   SR2  [D11]: Limit Switch Right P2
@@ -115,7 +115,7 @@ int motorEncP1B = 3;      // motor encoder B
 
 // Player 2 signal pins
 int potPinP2 = A3;        // pot connected to A3 on LattePanda board (Arduino section)
-int pwmPinP2 = 13;        // motor PWM (connects to H-Bridge motor driver boards I bought)
+int pwmPinP2 = 10;        // motor PWM (connects to H-Bridge motor driver boards I bought). Moved to D10 since D13 was the onboard LED, fucked with motor PWM signal
 int dirPinP2 = 8;         // motor direction signal (connects to H-Bridge motor driver boards I bought)
 int limitSwitchP2L = 12;   // limit switch left
 int limitSwitchP2R = 11;  // limit switch right
