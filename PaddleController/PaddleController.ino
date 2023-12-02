@@ -176,6 +176,8 @@ void setup() {
   pinMode(dirPinP1, OUTPUT);      // Player 1 Motor Direction
   pinMode(motorEncP1A, INPUT);    // Player 1 Motor Encoder A
   pinMode(motorEncP1B, INPUT);    // Player 1 Motor Encoder B
+  pinMode(pwmPinP1, OUTPUT);      // Player 1 Motor PWM set as output then drive low. Trying to prevent paddles smashing into sides on reset
+  digitalWrite(pwmPinP1, LOW);    // 0 PWM - motor off
   analogWrite(pwmPinP1, 0);       // init Player 1 Motor PWM to 0
 
   // Player 2 signals I/O configure
@@ -185,6 +187,8 @@ void setup() {
   pinMode(dirPinP2, OUTPUT);      // Player 2 Motor Direction
   pinMode(motorEncP2A, INPUT);    // Player 2 Motor Encoder A
   pinMode(motorEncP2B, INPUT);    // Player 2 Motor Encoder B
+  pinMode(pwmPinP2, OUTPUT);      // Player 1 Motor PWM set as outpuet then drive low. Trying to prevent paddles smashing into sides on reset
+  digitalWrite(pwmPinP2, LOW);    // 0 PWM - motor off
   analogWrite(pwmPinP2, 0);       // init Player 2 Motor PWM to 0
 
   Serial.begin(9600);             // initialize serial communication at 9600 bits per second

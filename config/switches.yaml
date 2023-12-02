@@ -7,8 +7,10 @@ switches:
     number: A0-B0-0
     type: NC
     ignore_window_ms: 750
+    tags: playfield
   s_sling_p1:
     number: A0-B0-1
+    tags: playfield
   s_start_p1:
     number: A0-B0-2
     tags: start
@@ -21,8 +23,10 @@ switches:
     number: A0-B1-0
     type: NC
     ignore_window_ms: 750
+    tags: playfield
   s_sling_p2:
     number: A0-B1-1
+    tags: playfield
   s_start_p2:
     number: A0-B1-2
     tags: start

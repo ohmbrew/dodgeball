@@ -10,7 +10,7 @@ coils:
     default_pulse_ms: 20
   c_sling_p1:
     number: A0-B1-1
-    default_pulse_ms: 15
+    default_pulse_ms: 25
   c_trougheject_p1:
     number: A0-B1-4
     default_pulse_ms: 35
@@ -19,7 +19,7 @@ coils:
     default_pulse_ms: 20
   c_sling_p2:
     number: A0-B1-3
-    default_pulse_ms: 15
+    default_pulse_ms: 25
   c_trougheject_p2:
     number: A0-B1-5
     default_pulse_ms: 35

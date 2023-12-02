@@ -10,3 +10,7 @@
 2023-12-01 13:16:17,463 : INFO : BCP Client : Connected to MPF
 2023-12-01 13:19:14,463 : INFO : BCP Client : Connected to MPF
 2023-12-01 13:19:34,463 : INFO : BCP Client : Connected to MPF
+2023-12-01 17:57:36,381 : INFO : Core : Quitting due to quit on close
+2023-12-01 17:57:36,419 : INFO : root : MPF Monitor run loop ended.
+2023-12-01 17:57:36,423 : INFO : root : Stopping child threads... (0 remaining)
+2023-12-01 17:57:36,511 : INFO : root : All child threads stopped.

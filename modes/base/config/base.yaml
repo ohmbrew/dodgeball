@@ -7,9 +7,13 @@ mode:
   start_events: ball_started
   priority: 100
 
-# config:
-#   - shots.yaml
-  
+config:
+  - shots.yaml
+
+event_player:
+  shot_catch_p1_hit: catch_p1_eject
+
+
 # event_player:
 #   mode_base_started:
 #     - start_mode_global
