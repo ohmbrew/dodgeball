@@ -1,22 +1,31 @@
 /*
   Dodgeball Motor Controller
 
+  Arduino connected to SBC over USB - provides monitor
+  I2C comms to SBC
+  - Gonna use bitbang I2C on D20/D23 (SDA/SCL): https://www.arduino.cc/reference/en/libraries/bitbang_i2c/
+  - Make a cable that connects to I2C on LattePanda to the I2C bus on SBC. I do not believe they're connected at this time
+  - MPF can talk "native i2c", so code a custom python module for that
+    - https://missionpinball.org/hardware/i2c_platforms/
+
   The circuit:
 
   LattePanda Arduino pinout
-   *     *     *     *   
-  E2A  DIR1   E1A   E1B   SR1   SL1  PWM1  POT1
-  D0    D1    D2    D3    D4    D5    D6    A0    A1    A2    5V    5V
-   |     |     |     |     |     |     |     |     |     |     |     | 
 
-   |     |     |     |     |     |     |     |     |     |     |     |   
-  D7    D8    D9    D10   D11   D12   D13   A3    A4    A5    GND   GND
-  E2B  DIR2        PWM2   SR2   SL2        POT2
-   *
+                 
+    *     *     *     *   
+   E2A   E2B   E1A   E1B   SR1   SL1  PWM1  POT1         SDA
+   D0    D1    D2    D3    D4    D5    D6    A0    D19   D20    5V    5V
+    |     |     |     |     |     |     |     |     |     |     |     | 
+
+    |     |     |     |     |     |     |     |     |     |     |     |   
+   D7    D8    D9    D10   D11   D12   D13   A3    D22   D23   GND   GND
+  DIR1  DIR2        PWM2   SR2   SL2        POT2         SCL
+    *
 
   * = digital interrupt capable. Prefer to put motor encoder signals on these pins. M1 is already good (connected to 2 and 3)
       but, M2 is currently wired to 9,10, which aren't interrupt capable. Looks like we'll have to break the wiring symmetry...
-      
+
   Player 1 signals:
   POT1  [A0]: Pot P1
   SL1   [D5]: Limit Switch Left P1     * UPDATED - MUST REWIRE
@@ -41,13 +50,16 @@
     - Control paddle by using a pot that has left/right limits. Those limits equate to paddle far left/far right. As you move pot, it moves paddle.
     - center pin of the potentiometer to the analog input 0. One side pin (either one) to ground the other side pin to +5V
   - drive 2x pins (pwmPinP1 and pwmPinP2) with AnalogWrite (see below) to drive PWM signal to H-Bridge chip to motor
-  - motor encoder signals (2 signals per motor = 4) going to inputs (M1=[D2,D3] and M2=[D9,D10]) used to calculate distance moved
+  - motor encoder signals (2 signals per motor = 4) going to inputs (M1=[D2,D3] and M2=[D0,D7]) used to calculate distance moved
+  - regularly send paddle position info over i2c for MPF python module to listen to and send events accordingly
+  - regulary receive info like setting paddle position in the case of AI player 2
 
   created by Greg Brault (Ohmbrew) for use in Dodge (pin) Ball game
   created 5 Nov 2023
   modified 16 Nov - tested out with belted drive system. Uploading to github
   modified 30 Nov - All physical wiring of P1 and P2 is done. Updating code to move/home paddles simultaneously
   modified 1 Dec - Code updated to home() and move() both paddles simultaneously in real time
+  modified 3 Dec - Added info about how to communicate back to MPF. I'll use bit bang i2c, connected to SBC I2C. MPF can read that using "native i2c". Custom python module.
   
   Notes:
   Using example Analog Serial Monitoring, pot currently reports 0 for full turned one way, 1023 for full turned other way. So use that as scale for
@@ -66,6 +78,7 @@
 */
 
 #include <Encoder.h>
+#include <BitBang_I2C.h>
 
 #define IS_DEBUG 1
 #define SET_DIR_P1_LEFT digitalWrite(dirPinP1, LOW)
@@ -102,6 +115,11 @@
 #define STATE_HOMED               8
 
 #define STATE_TRACKING            9   // paddle is moving toward position target
+
+// Define as -1, -1 to use the Wire library over the default I2C interface
+#define SDA_PIN 20
+#define SCL_PIN 23
+#define BITBANG true
 
 // Player 1 signal pins
 int potPinP1 = A0;        // pot connected to A0 on LattePanda board (Arduino section)
@@ -166,6 +184,14 @@ long update_accelerationP1 = 0;
 long update_timeP2 = 0;
 long update_accelerationP2 = 0;
 
+// i2c vars
+BBI2C     bbi2c;
+uint8_t   i2c_map[16];
+char      szTemp[32];
+uint8_t   i;
+int       iDevice, iCount;
+uint32_t  u32Caps;
+
 void setup() {
   pinMode(ledPin, OUTPUT);        // make on-board LED output
 
@@ -188,9 +214,16 @@ void setup() {
   pinMode(motorEncP2A, INPUT);    // Player 2 Motor Encoder A
   pinMode(motorEncP2B, INPUT);    // Player 2 Motor Encoder B
   pinMode(pwmPinP2, OUTPUT);      // Player 1 Motor PWM set as outpuet then drive low. Trying to prevent paddles smashing into sides on reset
-  digitalWrite(pwmPinP2, LOW);    // 0 PWM - motor off
+  digitalWrite(pwmPinP2, 0);      // 0 PWM - motor off
   analogWrite(pwmPinP2, 0);       // init Player 2 Motor PWM to 0
 
+  memset(&bbi2c, 0, sizeof(bbi2c));
+  bbi2c.bWire = BITBANG;          // use bit bang, not wire library
+  bbi2c.iSDA = SDA_PIN;
+  bbi2c.iSCL = SCL_PIN;
+  I2CInit(&bbi2c, 100000L);       // SDA=pin 20, SCL=pin 23, 100K clock
+  delay(100);                     // allow devices to power up
+  
   Serial.begin(9600);             // initialize serial communication at 9600 bits per second
 }
 
@@ -569,11 +602,43 @@ void move() {
   } 
 }
 
+// sends paddle position data to SBC over i2c
+void sendUpdate() {
+  
+}
+
 void loop() {
   if (isHomedP1 == 0) {
     delay(2000);
     Serial.println("");
-    Serial.println("Connected to Dodgeball.\n");
+    Serial.println("Connected to Dodgeball.\nScanning for I2C devices...");
+
+    // scan for I2C devices. Looking for SBC
+    I2CScan(&bbi2c, i2c_map); // get bitmap of connected I2C devices
+    if (i2c_map[0] == 0xfe) {
+      // something is wrong with the I2C bus
+      Serial.println("I2C pins are not correct or the bus is being pulled low by a bad device; unable to run scan.");
+    } else {
+      iCount = 0;
+      for (i = 1; i < 128; i++) // skip address 0 (general call address) since more than 1 device can respond
+      {
+        if (i2c_map[i>>3] & (1 << (i & 7))) {
+          // device found, print info about it
+          iCount++;
+          Serial.print("Device found at 0x");
+          Serial.print(i, HEX);
+          iDevice = I2CDiscoverDevice(&bbi2c, i, &u32Caps);
+          Serial.print(", type = ");
+          I2CGetDeviceName(iDevice, szTemp);
+          Serial.print(szTemp); // show the device name as a string
+          Serial.print(", capability bits = 0x");
+          Serial.println(u32Caps, HEX);
+        }
+      }
+      Serial.print(iCount, DEC);
+      Serial.println(" device(s) found");
+    }
+  
     homePaddles();
     update_timeP1 = millis();
     update_timeP2 = millis();
