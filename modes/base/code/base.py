@@ -2,6 +2,7 @@
 
 from mpf.core.mode import Mode
 import serial
+import time
 
 ser = serial.Serial("/dev/ttyACM0", 115200)
 
@@ -11,6 +12,7 @@ class Base(Mode):
             if (ser.inWaiting() > 0):
                 data_str = ser.read(ser.inWaitin()).decode('ascii')
             println(data_str, end='')
+            sleep(.1)
     def mode_init(self):
         print("[Serial Monitor] Base Mode custom python is initialized.")
         
