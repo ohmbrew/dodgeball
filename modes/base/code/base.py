@@ -14,8 +14,8 @@ class Base(Mode):
     def mode_start(self, **kwargs):
         print("[Serial Monitor] Base Mode custom python is starting.")
         while True:
-            if (ser.in_waiting() > 0):
-                data_str = ser.read(ser.in_waiting()).decode('ascii')
+            if (ser.in_waiting > 0):
+                data_str = ser.read(ser.in_waiting).decode('ascii')
                 print(data_str, end='')
             time.sleep(.1)
             
