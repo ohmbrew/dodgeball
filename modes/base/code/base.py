@@ -17,6 +17,6 @@ class Base(Mode):
             if (ser.inWaiting() > 0):
                 data_str = ser.read(ser.inWaiting()).decode('ascii')
             print(data_str, end='')
-            sleep(.1)
+            time.sleep(.1)
             
         
