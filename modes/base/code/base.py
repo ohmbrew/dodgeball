@@ -12,8 +12,8 @@ class Base(Mode):
         print("[Serial Monitor] Base Mode custom python is initialized.")
         
     def listen(self):
-        if (ser.in_waiting() > 0):
-            data_str = ser.read(ser.in_waiting()).decode('ascii')
+        if (ser.in_waiting > 0):
+            data_str = ser.read(ser.in_waiting).decode('ascii')
             print(data_str, end='')
         if self.active:
             thread.Timer(1, listen).start()     # start new timer of 1 second
