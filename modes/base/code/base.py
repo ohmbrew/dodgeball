@@ -6,15 +6,16 @@ import time
 import threading
 
 ser = serial.Serial("/dev/ttyACM0", 115200)
+String inSer
 
 class Base(Mode):
-    def mode_init(self):
-        print("[Serial Monitor] Base Mode custom python is initialized.")
-        
     def listen(self):
         if (ser.in_waiting > 0):
-            data_str = ser.read(ser.in_waiting).decode('ascii')
-            print(data_str, end='')
+            rec  = ser.read()
+            inSer += rec
+            if (rec == '\n'):
+                print(inSer)
+                inSer = ""
         if self.active:
             threading.Timer(1, listen).start()     # start new timer of 1 second
 
