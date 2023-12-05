@@ -16,11 +16,13 @@ class Base(Mode):
 
         while (ser.in_waiting > 0):
             rec  = ser.read()
-            inData += rec.decode('utf-8')
-            #print("".join(hex(ord(rec))))
-            if (rec[0] == 0x0a):
-                print(inData)
-                inData = ""
+            if (rec[0] != 0xd):
+                if (rec[0] == 0xa):
+                    print(inData)       # change this to fire an MPF event with data in its params
+                    self.machine.events.post(event='paddle_update', {'m1pos': 100, 'm1sp: 200'})
+                    inData = ""
+                else:
+                    inData += rec.decode('utf-8')
         if self.active:
             threading.Timer(1, self.listen).start()     # start new timer of 1 second
 

@@ -437,19 +437,18 @@ void move() {
   if (IS_DEBUG) {
     if (millis() - update_serial > UPDATE_SERIAL_TIME) {
       update_serial = millis();
-      if (stateP1 == STATE_STOPPED) Serial.print("[M1] State: stopped. ");
-      else if (stateP1 == STATE_TRACKING) Serial.print("[M1] State: tracking. ");
-      Serial.print("Set Pt: ");
+      if (stateP1 == STATE_STOPPED) Serial.print("P,S,");       // P = Paddle Update
+      else if (stateP1 == STATE_TRACKING) Serial.print("P,T,");
       Serial.print(setPointMotorP1);
-      Serial.print(". Pos: ");
+      Serial.print(",");
       Serial.print(posMotorP1);
-      if (stateP2 == STATE_STOPPED) Serial.print("[M2] State: stopped. ");
-      else if (stateP1 == STATE_TRACKING) Serial.print("[M2] State: tracking. ");
-      Serial.print("Set Pt: ");
+      Serial.print(",");
+      if (stateP2 == STATE_STOPPED) Serial.print("S,");
+      else if (stateP1 == STATE_TRACKING) Serial.print("T,");
       Serial.print(setPointMotorP2);
-      Serial.print(". Pos: ");
+      Serial.print(",");
       Serial.print(posMotorP2);
-      Serial.println("");
+      Serial.print(",\n");
     }
   }
 
