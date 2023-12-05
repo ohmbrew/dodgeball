@@ -1,0 +1,173 @@
+2023-12-05 11:03:02,135 : INFO : root : Loading config.
+2023-12-05 11:03:02,140 : INFO : YamlMultifileConfigLoader : Machine config file #1: config.yaml
+2023-12-05 11:03:02,141 : INFO : ConfigProcessor : Loading config from cache: /tmp/5a3923a48fe959299dd7a8425fffc094.mpf_cache
+2023-12-05 11:03:02,200 : DEBUG : YamlMultifileConfigLoader : Loading mode attract from /usr/local/lib/python3.8/dist-packages/mpf/modes/attract/config/attract.yaml
+2023-12-05 11:03:02,200 : DEBUG : YamlMultifileConfigLoader : Loading mode attract from /usr/local/lib/python3.8/dist-packages/mpf/modes/attract/config/attract.yaml
+2023-12-05 11:03:02,200 : INFO : ConfigProcessor : Loading config from cache: /tmp/edc4d190d9d8f70bc3743826a8ccf986.mpf_cache
+2023-12-05 11:03:02,201 : DEBUG : YamlMultifileConfigLoader : Loading mode game from /usr/local/lib/python3.8/dist-packages/mpf/modes/game/config/game.yaml
+2023-12-05 11:03:02,201 : INFO : ConfigProcessor : Loading config from cache: /tmp/973d4e7a920ce70e84cdae92155661d2.mpf_cache
+2023-12-05 11:03:02,202 : DEBUG : YamlMultifileConfigLoader : Loading mode base from /usr/local/lib/python3.8/dist-packages/mpf/modes/base/config/base.yaml
+2023-12-05 11:03:02,202 : INFO : ConfigProcessor : Loading config from cache: /tmp/08246c3708ae4e12eaf85abdc426b6fd.mpf_cache
+2023-12-05 11:03:02,203 : INFO : ConfigProcessor : Loading config from cache: /tmp/7e847900d30f18bf7c378bcbecf331e4.mpf_cache
+2023-12-05 11:03:02,203 : INFO : Machine : Mission Pinball Framework Core Engine v0.55.0
+2023-12-05 11:03:02,203 : INFO : Machine : Command line arguments: {'no_load_cache': False, 'create_config_cache': True, 'bcp': True, 'configfile': ['config.yaml'], 'force_assets_load': False, 'jsonlogging': False, 'logfile': 'logs/2023-12-05-11-03-02-mpf-dev-lappy.log', 'pause': False, 'production': False, 'text_ui': False, 'loglevel': 10, 'consoleloglevel': 20, 'force_platform': 'virtual', 'syslog_address': None, 'mc_file_name': None, 'no_sound': False}
+2023-12-05 11:03:02,204 : INFO : Machine : MPF path: /usr/local/lib/python3.8/dist-packages/mpf
+2023-12-05 11:03:02,204 : INFO : Machine : Machine path: /home/ohm/projects/embedded/59-Dodgeball/dodgeball
+2023-12-05 11:03:02,204 : INFO : Machine : Platform: linux
+2023-12-05 11:03:02,204 : INFO : Machine : Python executable location: /usr/bin/python3
+2023-12-05 11:03:02,204 : INFO : Machine : Python version: 3.8.10 (64-bit)
+2023-12-05 11:03:02,205 : DEBUG : asyncio : Using selector: EpollSelector
+2023-12-05 11:03:02,206 : INFO : Machine : Initialise MPF.
+2023-12-05 11:03:02,210 : DEBUG : Virtual Platform : Configuring virtual hardware interface.
+2023-12-05 11:03:02,255 : INFO : EventManager : Event: ======'machine_var_credits_string'====== Args={'value': 'FREE PLAY', 'prev_value': None, 'change': True}
+2023-12-05 11:03:02,298 : INFO : EventManager : Event: ======'machine_var_master_volume'====== Args={'value': 0.5, 'prev_value': None, 'change': True}
+2023-12-05 11:03:02,299 : INFO : EventManager : Event: ======'machine_var_mpf_version'====== Args={'value': 'MPF v0.55.0', 'prev_value': None, 'change': True}
+2023-12-05 11:03:02,299 : INFO : EventManager : Event: ======'machine_var_mpf_extended_version'====== Args={'value': 'MPF v0.55.0, Config version:5, Show version: 5, BCP version:1.1', 'prev_value': None, 'change': True}
+2023-12-05 11:03:02,299 : INFO : EventManager : Event: ======'machine_var_python_version'====== Args={'value': '3.8.10', 'prev_value': None, 'change': True}
+2023-12-05 11:03:02,314 : INFO : EventManager : Event: ======'machine_var_platform'====== Args={'value': 'Linux-5.15.0-89-generic-x86_64-with-glibc2.29', 'prev_value': None, 'change': True}
+2023-12-05 11:03:02,314 : INFO : EventManager : Event: ======'machine_var_platform_system'====== Args={'value': 'Linux', 'prev_value': None, 'change': True}
+2023-12-05 11:03:02,315 : INFO : EventManager : Event: ======'machine_var_platform_release'====== Args={'value': '5.15.0-89-generic', 'prev_value': None, 'change': True}
+2023-12-05 11:03:02,315 : INFO : EventManager : Event: ======'machine_var_platform_version'====== Args={'value': '#99~20.04.1-Ubuntu SMP Thu Nov 2 15:16:47 UTC 2023', 'prev_value': None, 'change': True}
+2023-12-05 11:03:02,315 : INFO : EventManager : Event: ======'machine_var_platform_machine'====== Args={'value': 'x86_64', 'prev_value': None, 'change': True}
+2023-12-05 11:03:02,315 : INFO : EventManager : Event: ======'init_phase_1'====== Args={}
+2023-12-05 11:03:02,320 : DEBUG : ModeController : Loaded mode game
+2023-12-05 11:03:02,323 : DEBUG : ModeController : Loaded mode attract
+2023-12-05 11:03:02,328 : DEBUG : ModeController : Loaded mode base
+2023-12-05 11:03:02,338 : DEBUG : ball_device.bd_trough : Configuring device with settings: '{'ball_switches': 's_trougheject_p1', 'eject_coil': 'c_trougheject_p1', 'eject_targets': [<playfield.playfield>], 'tags': ['home', 'trough'], 'mechanical_eject': True, 'eject_timeouts': [2000], 'debug': True, 'label': '%', 'console_log': 'full', 'file_log': 'full', 'entrance_events': {}, 'idle_missing_ball_timeout': 5.0, 'confirm_eject_type': 'target', 'captures_from': <playfield.playfield>, 'ball_missing_timeouts': [], 'ball_missing_target': <playfield.playfield>, 'confirm_eject_switch': None, 'confirm_eject_event': None, 'max_eject_attempts': 0, 'request_ball_events': {}, 'eject_events': {}, 'eject_all_events': {}, 'player_controlled_eject_event': None, 'ball_search_order': 200, 'auto_fire_on_unexpected_ball': True, 'target_on_unexpected_ball': None}'
+2023-12-05 11:03:02,346 : INFO : EventManager : Event: ======'logicblock_has_highscore_updated'====== Args={'value': 0, 'enabled': True}
+2023-12-05 11:03:02,346 : INFO : EventManager : Event: ======'logicblock_has_highscore_updated'====== Args={'value': 0, 'enabled': True}
+2023-12-05 11:03:02,354 : INFO : EventManager : Event: ======'init_phase_2'====== Args={}
+2023-12-05 11:03:02,354 : INFO : SwitchController : Found active switch: ('A0-B0-3', <Platform.Virtual>) <switch.s_trougheject_p1>
+2023-12-05 11:03:02,354 : INFO : SwitchController : Found active switch: ('A0-B1-3', <Platform.Virtual>) <switch.s_trougheject_p2>
+2023-12-05 11:03:02,358 : INFO : EventManager : Event: ======'bcp_connection_attempt'====== Args={'name': 'local_display', 'host': 'localhost', 'port': 5050}
+2023-12-05 11:03:02,362 : INFO : BCPClientSocket : Connecting BCP to 'local_display' at localhost:5050...
+2023-12-05 11:03:04,795 : INFO : BCPClientSocket : Connected BCP to 'local_display' localhost:5050
+2023-12-05 11:03:04,796 : INFO : EventManager : Event: ======'bcp_clients_connected'====== Args={}
+2023-12-05 11:03:04,797 : DEBUG : ball_device.bd_trough : SC: Counted 1 balls. Active switches: [<switch.s_trougheject_p1>]. Old: None
+2023-12-05 11:03:04,797 : DEBUG : ball_device.bd_trough : SC: New count 1 last: None
+2023-12-05 11:03:04,797 : INFO : ball_device.bd_trough : BCH: Initial count: 1
+2023-12-05 11:03:04,798 : INFO : ball_device.bd_trough : State: idle
+2023-12-05 11:03:04,798 : DEBUG : ball_device.bd_trough : Waiting for eject request.
+2023-12-05 11:03:04,798 : INFO : ball_device.bd_catch_p1 : BCH: Initial count: 0
+2023-12-05 11:03:04,799 : INFO : ball_device.bd_catch_p1 : State: idle
+2023-12-05 11:03:04,799 : INFO : ball_device.bd_catch_p2 : BCH: Initial count: 0
+2023-12-05 11:03:04,800 : INFO : ball_device.bd_catch_p2 : State: idle
+2023-12-05 11:03:04,800 : INFO : EventManager : Event: ======'machine_var_mc_version'====== Args={'value': 'MPF-MC v0.55.0', 'prev_value': None, 'change': True}
+2023-12-05 11:03:04,801 : INFO : EventManager : Event: ======'machine_var_mc_extended_version'====== Args={'value': 'MPF-MC v0.55.0 (config_version=5, BCP v1.1, Requires MPF v0.55.0-dev.49)', 'prev_value': None, 'change': True}
+2023-12-05 11:03:04,805 : DEBUG : YAML File Interface : Loading file: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/data/audits.yaml
+2023-12-05 11:03:04,811 : DEBUG : Machine : "info_lights:" section not found in machine configuration, so the Info Lights plugin will not be used.
+2023-12-05 11:03:04,811 : DEBUG : Machine : "switch_player:" section not found in machine configuration, so the Switch Playerplugin will not be used.
+2023-12-05 11:03:04,834 : DEBUG : twitch_client : "twitch_client:" section not found in machine configuration, so the Twitch Clientplugin will not be used.
+2023-12-05 11:03:04,835 : DEBUG : virtual_segment_display_connector : "virtual_segment_display_connector:" section not found in machine configuration, so the Virtual Segment Display Connector plugin will not be used.
+2023-12-05 11:03:04,835 : INFO : EventManager : Event: ======'init_phase_3'====== Args={}
+2023-12-05 11:03:04,837 : INFO : EventManager : Event: ======'init_phase_4'====== Args={}
+2023-12-05 11:03:04,838 : DEBUG : ball_device.bd_trough : SC: Counted 1 balls. Active switches: [<switch.s_trougheject_p1>]. Old: 1
+2023-12-05 11:03:04,838 : INFO : BallController : Initial balls found: 1
+2023-12-05 11:03:04,839 : INFO : EventManager : Event: ======'machine_var_audits_events_game_ended'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2023-12-05 11:03:04,839 : INFO : EventManager : Event: ======'machine_var_audits_events_game_started'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2023-12-05 11:03:04,839 : INFO : EventManager : Event: ======'machine_var_audits_player_score'====== Args={'value': {'average': 0, 'top': [], 'total': 0}, 'prev_value': None, 'change': True}
+2023-12-05 11:03:04,840 : INFO : EventManager : Event: ======'machine_var_audits_shots_catch_p1'====== Args={'value': 9, 'prev_value': None, 'change': True}
+2023-12-05 11:03:04,840 : INFO : EventManager : Event: ======'machine_var_audits_shots_catch_p2'====== Args={'value': 1, 'prev_value': None, 'change': True}
+2023-12-05 11:03:04,840 : INFO : EventManager : Event: ======'machine_var_audits_shots_sling_p1'====== Args={'value': 9, 'prev_value': None, 'change': True}
+2023-12-05 11:03:04,841 : INFO : EventManager : Event: ======'machine_var_audits_shots_sling_p2'====== Args={'value': 1, 'prev_value': None, 'change': True}
+2023-12-05 11:03:04,841 : INFO : EventManager : Event: ======'machine_var_audits_switches_s_catch_p1'====== Args={'value': 9, 'prev_value': None, 'change': True}
+2023-12-05 11:03:04,841 : INFO : EventManager : Event: ======'machine_var_audits_switches_s_catch_p2'====== Args={'value': 1, 'prev_value': None, 'change': True}
+2023-12-05 11:03:04,842 : INFO : EventManager : Event: ======'machine_var_audits_switches_s_sling_p1'====== Args={'value': 9, 'prev_value': None, 'change': True}
+2023-12-05 11:03:04,842 : INFO : EventManager : Event: ======'machine_var_audits_switches_s_sling_p2'====== Args={'value': 1, 'prev_value': None, 'change': True}
+2023-12-05 11:03:04,842 : INFO : EventManager : Event: ======'machine_var_audits_switches_s_start_p1'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2023-12-05 11:03:04,843 : INFO : EventManager : Event: ======'machine_var_audits_switches_s_start_p2'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2023-12-05 11:03:04,843 : INFO : EventManager : Event: ======'machine_var_audits_switches_s_trougheject_p1'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2023-12-05 11:03:04,844 : INFO : EventManager : Event: ======'machine_var_audits_switches_s_trougheject_p2'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2023-12-05 11:03:04,844 : INFO : EventManager : Event: ======'init_phase_5'====== Args={}
+2023-12-05 11:03:04,845 : INFO : EventManager : Event: ======'init_done'====== Args={}
+2023-12-05 11:03:04,845 : INFO : EventManager : Event: ======'machine_reset_phase_1'====== Args={}
+2023-12-05 11:03:04,851 : INFO : EventManager : Event: ======'machine_reset_phase_2'====== Args={}
+2023-12-05 11:03:04,851 : INFO : EventManager : Event: ======'machine_reset_phase_3'====== Args={}
+2023-12-05 11:03:04,851 : INFO : EventManager : Event: ======'reset_complete'====== Args={}
+2023-12-05 11:03:04,852 : INFO : EventManager : Event: ======'mode_attract_will_start'====== Args={}
+2023-12-05 11:03:04,852 : INFO : EventManager : Event: ======'mode_attract_starting'====== Args={}
+2023-12-05 11:03:04,852 : INFO : Mode.attract : Started. Priority: 10
+2023-12-05 11:03:04,853 : INFO : EventManager : Event: ======'modes_active_modes_changed'====== Args={}
+2023-12-05 11:03:04,853 : INFO : EventManager : Event: ======'mode_attract_started'====== Args={}
+2023-12-05 11:03:04,854 : INFO : EventManager : Event: ======'collecting_balls_complete'====== Args={}
+2023-12-05 11:03:04,854 : INFO : Machine : Starting the main run loop.
+2023-12-05 11:03:04,881 : INFO : EventManager : Event: ======'slide_press_start_created'====== Args={'_from_bcp': True}
+2023-12-05 11:03:04,922 : INFO : EventManager : Event: ======'slide_press_start_active'====== Args={'_from_bcp': True}
+2023-12-05 11:03:06,004 : INFO : SwitchController : <<<<<<< 's_start_p1' active >>>>>>>
+2023-12-05 11:03:06,107 : INFO : SwitchController : <<<<<<< 's_start_p1' inactive >>>>>>>
+2023-12-05 11:03:06,108 : INFO : EventManager : Event: ======'request_to_start_game'====== Args={}
+2023-12-05 11:03:06,109 : INFO : EventManager : Event: ======'game_start'====== Args={'buttons': [], 'hold_time': 0.10292028899857542}
+2023-12-05 11:03:06,109 : INFO : EventManager : Event: ======'mode_game_will_start'====== Args={'buttons': [], 'hold_time': 0.10292028899857542}
+2023-12-05 11:03:06,110 : INFO : EventManager : Event: ======'mode_game_starting'====== Args={'buttons': [], 'hold_time': 0.10292028899857542}
+2023-12-05 11:03:06,111 : INFO : EventManager : Event: ======'mode_attract_will_stop'====== Args={}
+2023-12-05 11:03:06,111 : INFO : EventManager : Event: ======'mode_attract_stopping'====== Args={}
+2023-12-05 11:03:06,112 : INFO : Mode.attract : Stopped.
+2023-12-05 11:03:06,112 : INFO : EventManager : Event: ======'modes_active_modes_changed'====== Args={}
+2023-12-05 11:03:06,113 : INFO : EventManager : Event: ======'mode_attract_stopped'====== Args={}
+2023-12-05 11:03:06,113 : INFO : EventManager : Event: ======'clear'====== Args={'key': 'attract'}
+2023-12-05 11:03:06,117 : INFO : Mode.game : Started. Priority: 20
+2023-12-05 11:03:06,117 : INFO : EventManager : Event: ======'modes_active_modes_changed'====== Args={}
+2023-12-05 11:03:06,118 : INFO : EventManager : Event: ======'mode_game_started'====== Args={'buttons': [], 'hold_time': 0.10292028899857542}
+2023-12-05 11:03:06,122 : INFO : EventManager : Event: ======'game_will_start'====== Args={}
+2023-12-05 11:03:06,122 : INFO : EventManager : Event: ======'game_starting'====== Args={'game': <Mode.game>}
+2023-12-05 11:03:06,123 : DEBUG : Auditor : Enabling the Auditor
+2023-12-05 11:03:06,124 : INFO : EventManager : Event: ======'player_add_request'====== Args={}
+2023-12-05 11:03:06,125 : INFO : EventManager : Event: ======'player_will_add'====== Args={'number': 1}
+2023-12-05 11:03:06,126 : DEBUG : Player : Creating new player: Player 1. (player index '0')
+2023-12-05 11:03:06,128 : DEBUG : Player : Setting 'has_a_highscore' to: 0, (prior: 0, change: 0)
+2023-12-05 11:03:06,129 : DEBUG : Player : Setting 'is_welcome_played' to: 0, (prior: 0, change: 0)
+2023-12-05 11:03:06,132 : DEBUG : Player : Setting 'score' to: 0, (prior: 0, change: 0)
+2023-12-05 11:03:06,134 : INFO : EventManager : Event: ======'player_adding'====== Args={'player': <Player 1>, 'number': 1}
+2023-12-05 11:03:06,135 : INFO : EventManager : Event: ======'player_added'====== Args={'player': <Player 1>, 'num': 1}
+2023-12-05 11:03:06,135 : INFO : Mode.game : Player added successfully. Total players: 1
+2023-12-05 11:03:06,137 : INFO : EventManager : Event: ======'player_index'====== Args={'value': 0, 'prev_value': 0, 'change': 0, 'player_num': 1}
+2023-12-05 11:03:06,139 : INFO : EventManager : Event: ======'player_number'====== Args={'value': 1, 'prev_value': 1, 'change': 0, 'player_num': 1}
+2023-12-05 11:03:06,142 : INFO : EventManager : Event: ======'player_has_a_highscore'====== Args={'value': 0, 'prev_value': 0, 'change': 0, 'player_num': 1}
+2023-12-05 11:03:06,143 : INFO : EventManager : Event: ======'player_is_welcome_played'====== Args={'value': 0, 'prev_value': 0, 'change': 0, 'player_num': 1}
+2023-12-05 11:03:06,144 : INFO : EventManager : Event: ======'player_score'====== Args={'value': 0, 'prev_value': 0, 'change': 0, 'player_num': 1}
+2023-12-05 11:03:06,146 : INFO : EventManager : Event: ======'slide_press_start_removed'====== Args={'_from_bcp': True}
+2023-12-05 11:03:06,146 : INFO : EventManager : Event: ======'game_started'====== Args={}
+2023-12-05 11:03:06,147 : INFO : EventManager : Event: ======'logicblock_has_highscore_updated'====== Args={'value': 0, 'enabled': True}
+2023-12-05 11:03:06,147 : INFO : EventManager : Event: ======'slide_window_blank_active'====== Args={'_from_bcp': True}
+2023-12-05 11:03:06,148 : INFO : EventManager : Event: ======'player_turn_will_start'====== Args={'player': <Player 1>, 'number': 1}
+2023-12-05 11:03:06,148 : INFO : EventManager : Event: ======'player_turn_starting'====== Args={'player': <Player 1>, 'number': 1}
+2023-12-05 11:03:06,148 : DEBUG : Player : Setting 'ball' to: 1, (prior: 0, change: 1)
+2023-12-05 11:03:06,148 : INFO : EventManager : Event: ======'player_ball'====== Args={'value': 1, 'prev_value': 0, 'change': 1, 'player_num': 1}
+2023-12-05 11:03:06,154 : INFO : EventManager : Event: ======'player_turn_started'====== Args={'player': <Player 1>, 'number': 1}
+2023-12-05 11:03:06,162 : INFO : EventManager : Event: ======'ball_will_start'====== Args={'player': 1, 'ball': 1, 'balls_remaining': 2, 'is_extra_ball': False}
+2023-12-05 11:03:06,162 : INFO : EventManager : Event: ======'ball_starting'====== Args={'player': 1, 'ball': 1, 'balls_remaining': 2, 'is_extra_ball': False}
+2023-12-05 11:03:06,163 : INFO : EventManager : Event: ======'balls_in_play'====== Args={'balls': 1}
+2023-12-05 11:03:06,163 : INFO : EventManager : Event: ======'ball_started'====== Args={'player': 1, 'ball': 1, 'balls_remaining': 2, 'is_extra_ball': False}
+2023-12-05 11:03:06,163 : INFO : EventManager : Event: ======'mode_base_will_start'====== Args={'player': 1, 'ball': 1, 'balls_remaining': 2, 'is_extra_ball': False}
+2023-12-05 11:03:06,164 : DEBUG : Player : Setting 'shot_sling_p1_enabled' to: True, (prior: 0, change: 1)
+2023-12-05 11:03:06,164 : INFO : EventManager : Event: ======'player_shot_sling_p1_enabled'====== Args={'value': True, 'prev_value': 0, 'change': 1, 'player_num': 1}
+2023-12-05 11:03:06,167 : DEBUG : Player : Setting 'shot_sling_p2_enabled' to: True, (prior: 0, change: 1)
+2023-12-05 11:03:06,167 : INFO : EventManager : Event: ======'player_shot_sling_p2_enabled'====== Args={'value': True, 'prev_value': 0, 'change': 1, 'player_num': 1}
+2023-12-05 11:03:06,168 : DEBUG : Player : Setting 'shot_catch_p1_enabled' to: True, (prior: 0, change: 1)
+2023-12-05 11:03:06,168 : INFO : EventManager : Event: ======'player_shot_catch_p1_enabled'====== Args={'value': True, 'prev_value': 0, 'change': 1, 'player_num': 1}
+2023-12-05 11:03:06,169 : DEBUG : Player : Setting 'shot_catch_p2_enabled' to: True, (prior: 0, change: 1)
+2023-12-05 11:03:06,169 : INFO : EventManager : Event: ======'player_shot_catch_p2_enabled'====== Args={'value': True, 'prev_value': 0, 'change': 1, 'player_num': 1}
+2023-12-05 11:03:06,174 : INFO : EventManager : Event: ======'mode_base_starting'====== Args={'player': 1, 'ball': 1, 'balls_remaining': 2, 'is_extra_ball': False}
+2023-12-05 11:03:06,176 : INFO : Mode.base : Started. Priority: 100
+2023-12-05 11:03:06,176 : INFO : EventManager : Event: ======'modes_active_modes_changed'====== Args={}
+2023-12-05 11:03:06,176 : INFO : EventManager : Event: ======'mode_base_started'====== Args={'player': 1, 'ball': 1, 'balls_remaining': 2, 'is_extra_ball': False}
+2023-12-05 11:03:06,177 : INFO : EventManager : Event: ======'single_player_ball_started'====== Args={}
+2023-12-05 11:03:06,178 : INFO : EventManager : Event: ======'ball_start_target'====== Args={'target': 'playfield'}
+2023-12-05 11:03:06,178 : INFO : ball_device.bd_trough : Setting up player-controlled eject. Balls: 1, Target: <playfield.playfield>, player_controlled_eject_event: None
+2023-12-05 11:03:06,178 : DEBUG : ball_device.bd_trough : Adding eject chain
+2023-12-05 11:03:06,178 : INFO : EventManager : Event: ======'balldevice_balls_available'====== Args={}
+2023-12-05 11:03:06,178 : DEBUG : ball_device.bd_trough : Got eject request
+2023-12-05 11:03:06,179 : DEBUG : ball_device.bd_trough : BCH: Counting. New count: 1 Old count: 1
+2023-12-05 11:03:06,179 : INFO : ball_device.bd_trough : State: waiting_for_target_ready
+2023-12-05 11:03:06,179 : INFO : EventManager : Event: ======'balldevice_bd_trough_ball_eject_attempt'====== Args={'balls': 1, 'target': <playfield.playfield>, 'source': <ball_device.bd_trough>, 'mechanical_eject': True, 'num_attempts': 0}
+2023-12-05 11:03:06,179 : INFO : ball_device.bd_trough : State: ejecting
+2023-12-05 11:03:06,180 : INFO : ball_device.bd_trough : Ejecting ball to <playfield.playfield>
+2023-12-05 11:03:06,180 : INFO : EventManager : Event: ======'balldevice_bd_trough_ejecting_ball'====== Args={'balls': 1, 'target': <playfield.playfield>, 'source': <ball_device.bd_trough>, 'mechanical_eject': True, 'num_attempts': 0}
+2023-12-05 11:03:06,180 : DEBUG : ball_device.bd_trough : Entered eject mode.
+2023-12-05 11:03:06,180 : INFO : ball_device.bd_trough : Wait for ball to leave device
+2023-12-05 11:03:06,187 : INFO : EventManager : Event: ======'slide_round_started_created'====== Args={'_from_bcp': True}
+2023-12-05 11:03:06,230 : INFO : EventManager : Event: ======'slide_round_started_active'====== Args={'_from_bcp': True}
+2023-12-05 11:03:08,187 : INFO : Machine : Shutting down...
+2023-12-05 11:03:08,188 : INFO : EventManager : Event: ======'shutdown'====== Args={}
+2023-12-05 11:03:08,191 : DEBUG : ball_device.bd_trough : Stopping ball device
+2023-12-05 11:03:08,196 : INFO : root : MPF run loop ended.

@@ -1,0 +1,19 @@
+2023-12-05 10:52:05,181 : kivy : Factory: 186 symbols loaded
+2023-12-05 10:52:05,183 : kivy : Cache: register <kv.lang> with limit=None, timeout=None
+2023-12-05 10:52:05,294 : kivy : Cache: register <kv.image> with limit=None, timeout=60
+2023-12-05 10:52:05,294 : kivy : Cache: register <kv.atlas> with limit=None, timeout=None
+2023-12-05 10:52:05,567 : kivy : ImageLoaderFFPy: Using ffpyplayer 4.3.2
+2023-12-05 10:52:05,568 : kivy : Image: Providers: img_tex, img_dds, img_sdl2, img_pil, img_ffpyplayer 
+2023-12-05 10:52:05,569 : kivy : Cache: register <kv.texture> with limit=1000, timeout=60
+2023-12-05 10:52:05,569 : kivy : Cache: register <kv.shader> with limit=1000, timeout=3600
+2023-12-05 10:52:05,632 : kivy : Video: Ignored <ffmpeg> (import error)
+2023-12-05 10:52:05,665 : kivy : VideoFFPy: Using ffpyplayer 4.3.2
+2023-12-05 10:52:05,666 : kivy : Video: Provider: ffpyplayer(['video_ffmpeg'] ignored)
+2023-12-05 10:52:06,005 : kivy : Loading MPF-MC controller
+2023-12-05 10:52:06,008 : YamlMultifileConfigLoader : Machine config file #1: config
+2023-12-05 10:52:06,008 : ConfigProcessor : Cache file not found: /tmp/1c6947f3bf649506cc20b67c9bc404eb.mpf_cache
+2023-12-05 10:52:06,009 : ConfigProcessor : Loading config from file /usr/local/lib/python3.8/dist-packages/mpfmc/mcconfig.yaml.
+2023-12-05 10:52:06,009 : YAML File Interface : Loading file: /usr/local/lib/python3.8/dist-packages/mpfmc/mcconfig.yaml
+2023-12-05 10:52:06,055 : ConfigProcessor : Loading config: /usr/local/lib/python3.8/dist-packages/mpfmc/mcconfig.yaml
+2023-12-05 10:52:06,055 : ConfigProcessor : Loading config from file /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/config.
+2023-12-05 10:52:06,055 : YAML File Interface : Loading file: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/config.yaml

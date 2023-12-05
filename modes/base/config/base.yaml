@@ -6,6 +6,7 @@
 mode:
   start_events: ball_started
   priority: 100
+  code: base.Base
 
 config:
   - shots.yaml
@@ -90,7 +91,7 @@ slides:
     #   font_size: 150
     #   color: white
     - type: image
-      image: Playfield-v1
+      image: field-grass
     
 #   video_cantdrinkabeer_slide:
 #     widgets:

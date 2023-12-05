@@ -1,0 +1,8 @@
+2023-12-05 10:52:04,911 : INFO : root : Loading config.
+2023-12-05 10:52:04,916 : INFO : YamlMultifileConfigLoader : Machine config file #1: config.yaml
+2023-12-05 10:52:04,916 : DEBUG : ConfigProcessor : Cache file not found: /tmp/5a3923a48fe959299dd7a8425fffc094.mpf_cache
+2023-12-05 10:52:04,916 : INFO : ConfigProcessor : Loading config from file /usr/local/lib/python3.8/dist-packages/mpf/mpfconfig.yaml.
+2023-12-05 10:52:04,916 : DEBUG : YAML File Interface : Loading file: /usr/local/lib/python3.8/dist-packages/mpf/mpfconfig.yaml
+2023-12-05 10:52:05,038 : INFO : ConfigProcessor : Loading config: /usr/local/lib/python3.8/dist-packages/mpf/mpfconfig.yaml
+2023-12-05 10:52:05,039 : INFO : ConfigProcessor : Loading config from file /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/config.yaml.
+2023-12-05 10:52:05,039 : DEBUG : YAML File Interface : Loading file: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/config.yaml

@@ -1,0 +1,136 @@
+2023-12-05 11:04:13,114 : kivy : Factory: 186 symbols loaded
+2023-12-05 11:04:13,117 : kivy : Cache: register <kv.lang> with limit=None, timeout=None
+2023-12-05 11:04:13,199 : kivy : Cache: register <kv.image> with limit=None, timeout=60
+2023-12-05 11:04:13,199 : kivy : Cache: register <kv.atlas> with limit=None, timeout=None
+2023-12-05 11:04:13,238 : kivy : ImageLoaderFFPy: Using ffpyplayer 4.3.2
+2023-12-05 11:04:13,238 : kivy : Image: Providers: img_tex, img_dds, img_sdl2, img_pil, img_ffpyplayer 
+2023-12-05 11:04:13,238 : kivy : Cache: register <kv.texture> with limit=1000, timeout=60
+2023-12-05 11:04:13,238 : kivy : Cache: register <kv.shader> with limit=1000, timeout=3600
+2023-12-05 11:04:13,259 : kivy : Video: Ignored <ffmpeg> (import error)
+2023-12-05 11:04:13,263 : kivy : VideoFFPy: Using ffpyplayer 4.3.2
+2023-12-05 11:04:13,264 : kivy : Video: Provider: ffpyplayer(['video_ffmpeg'] ignored)
+2023-12-05 11:04:13,472 : kivy : Loading MPF-MC controller
+2023-12-05 11:04:13,474 : YamlMultifileConfigLoader : Machine config file #1: config
+2023-12-05 11:04:13,475 : ConfigProcessor : Config file in cache changed: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/config
+2023-12-05 11:04:13,475 : ConfigProcessor : Loading config from file /usr/local/lib/python3.8/dist-packages/mpfmc/mcconfig.yaml.
+2023-12-05 11:04:13,475 : YAML File Interface : Loading file: /usr/local/lib/python3.8/dist-packages/mpfmc/mcconfig.yaml
+2023-12-05 11:04:13,539 : ConfigProcessor : Loading config: /usr/local/lib/python3.8/dist-packages/mpfmc/mcconfig.yaml
+2023-12-05 11:04:13,540 : ConfigProcessor : Loading config from file /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/config.
+2023-12-05 11:04:13,540 : YAML File Interface : Loading file: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/config.yaml
+2023-12-05 11:04:13,607 : ConfigProcessor : Loading config: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/config
+2023-12-05 11:04:13,608 : YAML File Interface : Loading file: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/lights.yaml
+2023-12-05 11:04:13,611 : ConfigProcessor : Loading config: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/lights.yaml
+2023-12-05 11:04:13,612 : YAML File Interface : Loading file: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/coils.yaml
+2023-12-05 11:04:13,618 : ConfigProcessor : Loading config: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/coils.yaml
+2023-12-05 11:04:13,619 : YAML File Interface : Loading file: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/switches.yaml
+2023-12-05 11:04:13,626 : ConfigProcessor : Loading config: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/switches.yaml
+2023-12-05 11:04:13,627 : YAML File Interface : Loading file: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/playervars.yaml
+2023-12-05 11:04:13,629 : ConfigProcessor : Loading config: /home/ohm/projects/embedded/59-Dodgeball/dodgeball/config/playervars.yaml
+2023-12-05 11:04:13,633 : ConfigProcessor : Config file cache created: /tmp/1c6947f3bf649506cc20b67c9bc404eb.mpf_cache
+2023-12-05 11:04:13,634 : YamlMultifileConfigLoader : Loading mode attract from /usr/local/lib/python3.8/dist-packages/mpf/modes/attract/config/attract.yaml
+2023-12-05 11:04:13,634 : YamlMultifileConfigLoader : Loading mode attract from /usr/local/lib/python3.8/dist-packages/mpf/modes/attract/config/attract.yaml
+2023-12-05 11:04:13,634 : ConfigProcessor : Loading config from cache: /tmp/edc4d190d9d8f70bc3743826a8ccf986.mpf_cache
+2023-12-05 11:04:13,634 : YamlMultifileConfigLoader : Loading mode game from /usr/local/lib/python3.8/dist-packages/mpf/modes/game/config/game.yaml
+2023-12-05 11:04:13,634 : ConfigProcessor : Loading config from cache: /tmp/973d4e7a920ce70e84cdae92155661d2.mpf_cache
+2023-12-05 11:04:13,635 : YamlMultifileConfigLoader : Loading mode base from /usr/local/lib/python3.8/dist-packages/mpf/modes/base/config/base.yaml
+2023-12-05 11:04:13,635 : ConfigProcessor : Loading config from cache: /tmp/08246c3708ae4e12eaf85abdc426b6fd.mpf_cache
+2023-12-05 11:04:13,635 : mpfmc : Mission Pinball Framework Media Controller v0.55.0
+2023-12-05 11:04:13,635 : mpfmc : Mission Pinball Framework Game Engine v0.55.0
+2023-12-05 11:04:13,635 : mpfmc : Machine path: /home/ohm/projects/embedded/59-Dodgeball/dodgeball
+2023-12-05 11:04:13,636 : mpfmc : Starting clock at 60.0Hz
+2023-12-05 11:04:13,642 : kivy : Text: Provider: sdl2
+2023-12-05 11:04:13,675 : kivy : Window: Provider: sdl2
+2023-12-05 11:04:13,953 : kivy : GL: Using the "OpenGL" graphics system
+2023-12-05 11:04:13,954 : kivy : GL: Backend used <sdl2>
+2023-12-05 11:04:13,955 : kivy : GL: OpenGL version <b'4.6 (Compatibility Profile) Mesa 21.2.6'>
+2023-12-05 11:04:13,955 : kivy : GL: OpenGL vendor <b'Intel'>
+2023-12-05 11:04:13,955 : kivy : GL: OpenGL renderer <b'Mesa Intel(R) HD Graphics 520 (SKL GT2)'>
+2023-12-05 11:04:13,955 : kivy : GL: OpenGL parsed version: 4, 6
+2023-12-05 11:04:13,955 : kivy : GL: Shading version <b'4.60'>
+2023-12-05 11:04:13,955 : kivy : GL: Texture max size <16384>
+2023-12-05 11:04:13,955 : kivy : GL: Texture max units <32>
+2023-12-05 11:04:13,997 : kivy : Shader: Fragment compiled successfully
+2023-12-05 11:04:13,998 : kivy : Shader: Vertex compiled successfully
+2023-12-05 11:04:13,999 : kivy : ImageSDL2: Load </usr/local/lib/python3.8/dist-packages/kivy/data/glsl/default.png>
+2023-12-05 11:04:14,003 : kivy : Window: auto add sdl2 input provider
+2023-12-05 11:04:14,004 : kivy : Window: virtual keyboard not allowed, single mode, not docked
+2023-12-05 11:04:14,007 : mpfmc : Machine path: /home/ohm/projects/embedded/59-Dodgeball/dodgeball
+2023-12-05 11:04:14,007 : kivy : Resource: add </home/ohm/projects/embedded/59-Dodgeball/dodgeball/fonts> in path list
+2023-12-05 11:04:14,008 : kivy : Resource: add </usr/local/lib/python3.8/dist-packages/mpfmc/fonts> in path list
+2023-12-05 11:04:14,008 : SoundSystem : Loading the Sound System
+2023-12-05 11:04:14,036 : AudioInterface : Initialized
+2023-12-05 11:04:14,036 : AudioInterface : Loaded SDL 2.0.10
+2023-12-05 11:04:14,036 : AudioInterface : Loaded SDL_Mixer 2.0.4
+2023-12-05 11:04:14,036 : AudioInterface : Loaded GStreamer 1.16.3.0
+2023-12-05 11:04:14,036 : AudioInterface : Loaded GLib 2.64.6
+2023-12-05 11:04:14,037 : AudioInterface : Settings requested - rate: 44100, channels: 1, buffer: 2048 samples
+2023-12-05 11:04:14,037 : AudioInterface : Settings in use - rate: 44100, channels: 1, buffer: 2048 samples (4096 bytes @ 2 bytes per sample)
+2023-12-05 11:04:14,037 : Track : Allocated track audio buffer (4096 bytes)
+2023-12-05 11:04:14,037 : Track.0.TrackStandard.music : Created Track 0 music with the following settings: simultaneous_sounds = 3, volume = 1.000000
+2023-12-05 11:04:14,037 : AudioInterface : The 'music' standard track has successfully been created.
+2023-12-05 11:04:14,037 : Track : Allocated track audio buffer (4096 bytes)
+2023-12-05 11:04:14,037 : Track.1.TrackStandard.voice : Created Track 1 voice with the following settings: simultaneous_sounds = 3, volume = 1.000000
+2023-12-05 11:04:14,037 : AudioInterface : The 'voice' standard track has successfully been created.
+2023-12-05 11:04:14,038 : Track : Allocated track audio buffer (4096 bytes)
+2023-12-05 11:04:14,038 : Track.2.TrackStandard.sfx : Created Track 2 sfx with the following settings: simultaneous_sounds = 8, volume = 1.000000
+2023-12-05 11:04:14,038 : AudioInterface : The 'sfx' standard track has successfully been created.
+2023-12-05 11:04:14,038 : SoundSystem : Setting master volume to 0.0
+2023-12-05 11:04:14,038 : SoundSystem : master_volume in sound_system is deprecated and will be removed in the future.
+2023-12-05 11:04:14,038 : AudioInterface : Enabling audio playback
+2023-12-05 11:04:14,040 : kivy : App: Loading kv </usr/local/lib/python3.8/dist-packages/mpfmc/core/mpfmc.kv>
+2023-12-05 11:04:14,040 : kivy : App: kv </usr/local/lib/python3.8/dist-packages/mpfmc/core/mpfmc.kv> not found
+2023-12-05 11:04:14,040 : kivy : Base: Create provider from mouse,multitouch_on_demand
+2023-12-05 11:04:14,040 : kivy : Base: Create provider from probesysfs
+2023-12-05 11:04:14,273 : kivy : ProbeSysfs: using probesysfs!
+2023-12-05 11:04:14,275 : kivy : ProbeSysfs: found device: ELAN Touchscreen at /dev/input/event12
+2023-12-05 11:04:14,275 : kivy : ProbeSysfs: device match: /dev/input/event12
+2023-12-05 11:04:14,275 : kivy : MTD: Read event from </dev/input/event12>
+2023-12-05 11:04:14,275 : kivy : ProbeSysfs: found device: SynPS/2 Synaptics TouchPad at /dev/input/event4
+2023-12-05 11:04:14,275 : kivy : ProbeSysfs: device match: /dev/input/event4
+2023-12-05 11:04:14,275 : kivy : MTD: Read event from </dev/input/event4>
+2023-12-05 11:04:14,275 : kivy : Base: Start application main loop
+2023-12-05 11:04:14,276 : kivy : MTD: Unable to open device "/dev/input/event12". Please ensure you have the appropriate permissions.
+2023-12-05 11:04:14,277 : EventManager : Event: ======'display_window_initialized'====== Args={}
+2023-12-05 11:04:14,277 : kivy : MTD: Unable to open device "/dev/input/event4". Please ensure you have the appropriate permissions.
+2023-12-05 11:04:14,313 : mpfmc : Display: Setting 'window' as default display
+2023-12-05 11:04:14,330 : mpfmc : ASPECT RATIO MISMATCH: The on-screen window is not the same aspect ratio as the display called 'window'. The logical display will be scaled from 3840x2160 to the window size 2560x1403, and a black bar will make up the difference
+2023-12-05 11:04:14,331 : EventManager : Event: ======'displays_initialized'====== Args={}
+2023-12-05 11:04:14,334 : EventManager : Event: ======'slide_window_blank_created'====== Args={}
+2023-12-05 11:04:14,334 : EventManager : Event: ======'display_window_ready'====== Args={}
+2023-12-05 11:04:14,341 : EventManager : Event: ======'init_phase_1'====== Args={}
+2023-12-05 11:04:14,347 : EventManager : Event: ======'mc_ready'====== Args={}
+2023-12-05 11:04:14,347 : EventManager : Event: ======'init_phase_2'====== Args={}
+2023-12-05 11:04:14,347 : ModeController : Found MPF Mode folders: {'service': 'service', 'high_score': 'high_score', 'game': 'game', 'tilt': 'tilt', 'carousel': 'carousel', 'match': 'match', 'attract': 'attract', 'bonus': 'bonus', 'credits': 'credits'}
+2023-12-05 11:04:14,347 : ModeController : Found Machine-specific Mode folders: {'base': 'base', 'attract': 'attract'}
+2023-12-05 11:04:14,349 : EventManager : Event: ======'init_phase_3'====== Args={}
+2023-12-05 11:04:14,351 : EventManager : Event: ======'init_phase_4'====== Args={}
+2023-12-05 11:04:14,351 : EventManager : Event: ======'init_phase_5'====== Args={}
+2023-12-05 11:04:14,351 : mpfmc : Clearing boot hold init. Holds remaining: {'assets'}
+2023-12-05 11:04:14,352 : kivy : ImageSDL2: Load </home/ohm/projects/embedded/59-Dodgeball/dodgeball/images/field-grass.png>
+2023-12-05 11:04:14,780 : kivy : ImageSDL2: Load </home/ohm/projects/embedded/59-Dodgeball/dodgeball/images/title.png>
+2023-12-05 11:04:15,206 : kivy : GL: NPOT texture support is available
+2023-12-05 11:04:15,242 : EventManager : Event: ======'loading_assets'====== Args={'total': 2, 'loaded': 1, 'remaining': 1, 'percent': 50}
+2023-12-05 11:04:15,243 : AssetManager : Loading assets: 1/2 (50%)
+2023-12-05 11:04:15,323 : EventManager : Event: ======'loading_assets'====== Args={'total': 2, 'loaded': 2, 'remaining': 0, 'percent': 100}
+2023-12-05 11:04:15,323 : AssetManager : Asset loading took: 1.284714937210083
+2023-12-05 11:04:15,323 : EventManager : Event: ======'asset_loading_complete'====== Args={}
+2023-12-05 11:04:15,323 : AssetManager : Loading assets: 2/2 (100%)
+2023-12-05 11:04:15,323 : mpfmc : Clearing boot hold assets. Holds remaining: set()
+2023-12-05 11:04:15,323 : EventManager : Event: ======'init_done'====== Args={}
+2023-12-05 11:04:15,324 : MPF-MC BCP Server : Starting up on localhost port 5050
+2023-12-05 11:04:15,324 : MPF-MC BCP Server : Waiting for a connection...
+2023-12-05 11:04:15,329 : EventManager : Event: ======'client_disconnected'====== Args={'host': '127.0.0.1', 'port': 5050}
+2023-12-05 11:04:17,302 : Keyboard : Processing key stroke for key escape-
+2023-12-05 11:04:17,303 : kivy : Base: Leaving application in progress...
+2023-12-05 11:04:17,371 : mpfmc : Stopping...
+2023-12-05 11:04:17,371 : EventManager : Event: ======'shutdown'====== Args={}
+2023-12-05 11:04:17,372 : AudioInterface : Disabling audio playback
+2023-12-05 11:04:17,372 : Track.0.TrackStandard.music : Stopping all sounds and removing any pending sounds from queue
+2023-12-05 11:04:17,372 : Track.1.TrackStandard.voice : Stopping all sounds and removing any pending sounds from queue
+2023-12-05 11:04:17,372 : Track.2.TrackStandard.sfx : Stopping all sounds and removing any pending sounds from queue
+2023-12-05 11:04:17,419 : mpfmc : Loop rate 47.05 Hz
+2023-12-05 11:04:17,420 : kivy : MC run loop ended.
+2023-12-05 11:04:17,420 : kivy : Stopping child threads... (3 remaining)
+2023-12-05 11:04:18,337 : MPF-MC BCP Server : Stopping BCP sending thread
+2023-12-05 11:04:18,338 : MPF-MC BCP Server : Stopping BCP listener thread
+2023-12-05 11:04:18,427 : kivy : All child threads stopped.

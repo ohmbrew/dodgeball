@@ -1,0 +1,95 @@
+2023-12-05 11:04:12,862 : INFO : root : Loading config.
+2023-12-05 11:04:12,866 : INFO : YamlMultifileConfigLoader : Machine config file #1: config.yaml
+2023-12-05 11:04:12,867 : INFO : ConfigProcessor : Loading config from cache: /tmp/5a3923a48fe959299dd7a8425fffc094.mpf_cache
+2023-12-05 11:04:12,917 : DEBUG : YamlMultifileConfigLoader : Loading mode attract from /usr/local/lib/python3.8/dist-packages/mpf/modes/attract/config/attract.yaml
+2023-12-05 11:04:12,917 : DEBUG : YamlMultifileConfigLoader : Loading mode attract from /usr/local/lib/python3.8/dist-packages/mpf/modes/attract/config/attract.yaml
+2023-12-05 11:04:12,918 : INFO : ConfigProcessor : Loading config from cache: /tmp/edc4d190d9d8f70bc3743826a8ccf986.mpf_cache
+2023-12-05 11:04:12,918 : DEBUG : YamlMultifileConfigLoader : Loading mode game from /usr/local/lib/python3.8/dist-packages/mpf/modes/game/config/game.yaml
+2023-12-05 11:04:12,919 : INFO : ConfigProcessor : Loading config from cache: /tmp/973d4e7a920ce70e84cdae92155661d2.mpf_cache
+2023-12-05 11:04:12,919 : DEBUG : YamlMultifileConfigLoader : Loading mode base from /usr/local/lib/python3.8/dist-packages/mpf/modes/base/config/base.yaml
+2023-12-05 11:04:12,919 : INFO : ConfigProcessor : Loading config from cache: /tmp/08246c3708ae4e12eaf85abdc426b6fd.mpf_cache
+2023-12-05 11:04:12,919 : INFO : ConfigProcessor : Loading config from cache: /tmp/7e847900d30f18bf7c378bcbecf331e4.mpf_cache
+2023-12-05 11:04:12,920 : INFO : Machine : Mission Pinball Framework Core Engine v0.55.0
+2023-12-05 11:04:12,920 : INFO : Machine : Command line arguments: {'no_load_cache': False, 'create_config_cache': True, 'bcp': True, 'configfile': ['config.yaml'], 'force_assets_load': False, 'jsonlogging': False, 'logfile': 'logs/2023-12-05-11-04-12-mpf-dev-lappy.log', 'pause': False, 'production': False, 'text_ui': False, 'loglevel': 10, 'consoleloglevel': 20, 'force_platform': 'virtual', 'syslog_address': None, 'mc_file_name': None, 'no_sound': False}
+2023-12-05 11:04:12,920 : INFO : Machine : MPF path: /usr/local/lib/python3.8/dist-packages/mpf
+2023-12-05 11:04:12,920 : INFO : Machine : Machine path: /home/ohm/projects/embedded/59-Dodgeball/dodgeball
+2023-12-05 11:04:12,920 : INFO : Machine : Platform: linux
+2023-12-05 11:04:12,920 : INFO : Machine : Python executable location: /usr/bin/python3
+2023-12-05 11:04:12,920 : INFO : Machine : Python version: 3.8.10 (64-bit)
+2023-12-05 11:04:12,921 : DEBUG : asyncio : Using selector: EpollSelector
+2023-12-05 11:04:12,921 : INFO : Machine : Initialise MPF.
+2023-12-05 11:04:12,927 : DEBUG : Virtual Platform : Configuring virtual hardware interface.
+2023-12-05 11:04:12,978 : INFO : EventManager : Event: ======'machine_var_credits_string'====== Args={'value': 'FREE PLAY', 'prev_value': None, 'change': True}
+2023-12-05 11:04:13,022 : INFO : EventManager : Event: ======'machine_var_master_volume'====== Args={'value': 0.5, 'prev_value': None, 'change': True}
+2023-12-05 11:04:13,022 : INFO : EventManager : Event: ======'machine_var_mpf_version'====== Args={'value': 'MPF v0.55.0', 'prev_value': None, 'change': True}
+2023-12-05 11:04:13,022 : INFO : EventManager : Event: ======'machine_var_mpf_extended_version'====== Args={'value': 'MPF v0.55.0, Config version:5, Show version: 5, BCP version:1.1', 'prev_value': None, 'change': True}
+2023-12-05 11:04:13,022 : INFO : EventManager : Event: ======'machine_var_python_version'====== Args={'value': '3.8.10', 'prev_value': None, 'change': True}
+2023-12-05 11:04:13,038 : INFO : EventManager : Event: ======'machine_var_platform'====== Args={'value': 'Linux-5.15.0-89-generic-x86_64-with-glibc2.29', 'prev_value': None, 'change': True}
+2023-12-05 11:04:13,038 : INFO : EventManager : Event: ======'machine_var_platform_system'====== Args={'value': 'Linux', 'prev_value': None, 'change': True}
+2023-12-05 11:04:13,038 : INFO : EventManager : Event: ======'machine_var_platform_release'====== Args={'value': '5.15.0-89-generic', 'prev_value': None, 'change': True}
+2023-12-05 11:04:13,038 : INFO : EventManager : Event: ======'machine_var_platform_version'====== Args={'value': '#99~20.04.1-Ubuntu SMP Thu Nov 2 15:16:47 UTC 2023', 'prev_value': None, 'change': True}
+2023-12-05 11:04:13,039 : INFO : EventManager : Event: ======'machine_var_platform_machine'====== Args={'value': 'x86_64', 'prev_value': None, 'change': True}
+2023-12-05 11:04:13,039 : INFO : EventManager : Event: ======'init_phase_1'====== Args={}
+2023-12-05 11:04:13,044 : DEBUG : ModeController : Loaded mode base
+2023-12-05 11:04:13,047 : DEBUG : ModeController : Loaded mode attract
+2023-12-05 11:04:13,052 : DEBUG : ModeController : Loaded mode game
+2023-12-05 11:04:13,063 : DEBUG : ball_device.bd_trough : Configuring device with settings: '{'ball_switches': 's_trougheject_p1', 'eject_coil': 'c_trougheject_p1', 'eject_targets': [<playfield.playfield>], 'tags': ['home', 'trough'], 'mechanical_eject': True, 'eject_timeouts': [2000], 'debug': True, 'label': '%', 'console_log': 'full', 'file_log': 'full', 'entrance_events': {}, 'idle_missing_ball_timeout': 5.0, 'confirm_eject_type': 'target', 'captures_from': <playfield.playfield>, 'ball_missing_timeouts': [], 'ball_missing_target': <playfield.playfield>, 'confirm_eject_switch': None, 'confirm_eject_event': None, 'max_eject_attempts': 0, 'request_ball_events': {}, 'eject_events': {}, 'eject_all_events': {}, 'player_controlled_eject_event': None, 'ball_search_order': 200, 'auto_fire_on_unexpected_ball': True, 'target_on_unexpected_ball': None}'
+2023-12-05 11:04:13,070 : INFO : EventManager : Event: ======'logicblock_has_highscore_updated'====== Args={'value': 0, 'enabled': True}
+2023-12-05 11:04:13,070 : INFO : EventManager : Event: ======'logicblock_has_highscore_updated'====== Args={'value': 0, 'enabled': True}
+2023-12-05 11:04:13,075 : INFO : EventManager : Event: ======'init_phase_2'====== Args={}
+2023-12-05 11:04:13,076 : INFO : SwitchController : Found active switch: ('A0-B0-3', <Platform.Virtual>) <switch.s_trougheject_p1>
+2023-12-05 11:04:13,076 : INFO : SwitchController : Found active switch: ('A0-B1-3', <Platform.Virtual>) <switch.s_trougheject_p2>
+2023-12-05 11:04:13,078 : ERROR : asyncio : Exception in callback EventManager._queue_task_done(<Task finishe...not defined")>)
+handle: <Handle EventManager._queue_task_done(<Task finishe...not defined")>)>
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/asyncio/events.py", line 81, in _run
+    self._context.run(self._callback, *self._args)
+  File "/usr/local/lib/python3.8/dist-packages/mpf/core/events.py", line 728, in _queue_task_done
+    future.result()
+  File "/usr/local/lib/python3.8/dist-packages/mpf/core/events.py", line 645, in _run_handlers_sequential
+    handler.callback(queue=queue, **merged_kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/mpf/core/mode_controller.py", line 107, in initialise_modes
+    mode.initialise_mode()
+  File "/usr/local/lib/python3.8/dist-packages/mpf/core/mode.py", line 548, in initialise_mode
+    self.mode_init()
+  File "/home/ohm/projects/embedded/59-Dodgeball/dodgeball/modes/base/code/base.py", line 5, in mode_init
+    prisnt("[Serial Monitor] Base Mode custom python running.")
+NameError: name 'prisnt' is not defined
+2023-12-05 11:04:13,081 : INFO : Machine : Starting the main run loop.
+2023-12-05 11:04:13,081 : INFO : Machine : Shutting down...
+2023-12-05 11:04:13,081 : INFO : EventManager : Event: ======'shutdown'====== Args={}
+2023-12-05 11:04:13,082 : DEBUG : ball_device.bd_trough : Stopping ball device
+2023-12-05 11:04:13,082 : ERROR : Machine : Runtime Exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/mpf/core/machine.py", line 769, in _run_loop
+    raise self._exception['exception']
+  File "/usr/lib/python3.8/asyncio/events.py", line 81, in _run
+    self._context.run(self._callback, *self._args)
+  File "/usr/local/lib/python3.8/dist-packages/mpf/core/events.py", line 728, in _queue_task_done
+    future.result()
+  File "/usr/local/lib/python3.8/dist-packages/mpf/core/events.py", line 645, in _run_handlers_sequential
+    handler.callback(queue=queue, **merged_kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/mpf/core/mode_controller.py", line 107, in initialise_modes
+    mode.initialise_mode()
+  File "/usr/local/lib/python3.8/dist-packages/mpf/core/mode.py", line 548, in initialise_mode
+    self.mode_init()
+  File "/home/ohm/projects/embedded/59-Dodgeball/dodgeball/modes/base/code/base.py", line 5, in mode_init
+    prisnt("[Serial Monitor] Base Mode custom python running.")
+NameError: name 'prisnt' is not defined
+2023-12-05 11:04:34,552 : ERROR : root : Received second SIGINT. Will exit ungracefully!
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/mpf/core/machine.py", line 769, in _run_loop
+    raise self._exception['exception']
+  File "/usr/lib/python3.8/asyncio/events.py", line 81, in _run
+    self._context.run(self._callback, *self._args)
+  File "/usr/local/lib/python3.8/dist-packages/mpf/core/events.py", line 728, in _queue_task_done
+    future.result()
+  File "/usr/local/lib/python3.8/dist-packages/mpf/core/events.py", line 645, in _run_handlers_sequential
+    handler.callback(queue=queue, **merged_kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/mpf/core/mode_controller.py", line 107, in initialise_modes
+    mode.initialise_mode()
+  File "/usr/local/lib/python3.8/dist-packages/mpf/core/mode.py", line 548, in initialise_mode
+    self.mode_init()
+  File "/home/ohm/projects/embedded/59-Dodgeball/dodgeball/modes/base/code/base.py", line 5, in mode_init
+    print("[Serial Monitor] Base Mode custom python running.")
+NameError: name 'prisnt' is not defined

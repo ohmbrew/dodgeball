@@ -78,7 +78,7 @@
 */
 
 #include <Encoder.h>
-#include <BitBang_I2C.h>
+// #include <BitBang_I2C.h>
 
 #define IS_DEBUG 1
 #define SET_DIR_P1_LEFT digitalWrite(dirPinP1, LOW)
@@ -117,9 +117,9 @@
 #define STATE_TRACKING            9   // paddle is moving toward position target
 
 // Define as -1, -1 to use the Wire library over the default I2C interface
-#define SDA_PIN 20
-#define SCL_PIN 23
-#define BITBANG true
+// #define SDA_PIN 20
+// #define SCL_PIN 23
+// #define BITBANG true
 
 // Player 1 signal pins
 int potPinP1 = A0;        // pot connected to A0 on LattePanda board (Arduino section)
@@ -185,12 +185,12 @@ long update_timeP2 = 0;
 long update_accelerationP2 = 0;
 
 // i2c vars
-BBI2C     bbi2c;
-uint8_t   i2c_map[16];
-char      szTemp[32];
-uint8_t   i;
-int       iDevice, iCount;
-uint32_t  u32Caps;
+// BBI2C     bbi2c;
+// uint8_t   i2c_map[16];
+// char      szTemp[32];
+// uint8_t   i;
+// int       iDevice, iCount;
+// uint32_t  u32Caps;
 
 void setup() {
   pinMode(ledPin, OUTPUT);        // make on-board LED output
@@ -217,12 +217,12 @@ void setup() {
   digitalWrite(pwmPinP2, 0);      // 0 PWM - motor off
   analogWrite(pwmPinP2, 0);       // init Player 2 Motor PWM to 0
 
-  memset(&bbi2c, 0, sizeof(bbi2c));
-  bbi2c.bWire = BITBANG;          // use bit bang, not wire library
-  bbi2c.iSDA = SDA_PIN;
-  bbi2c.iSCL = SCL_PIN;
-  I2CInit(&bbi2c, 100000L);       // SDA=pin 20, SCL=pin 23, 100K clock
-  delay(100);                     // allow devices to power up
+  // memset(&bbi2c, 0, sizeof(bbi2c));
+  // bbi2c.bWire = BITBANG;          // use bit bang, not wire library
+  // bbi2c.iSDA = SDA_PIN;
+  // bbi2c.iSCL = SCL_PIN;
+  // I2CInit(&bbi2c, 100000L);       // SDA=pin 20, SCL=pin 23, 100K clock
+  // delay(100);                     // allow devices to power up
   
   Serial.begin(9600);             // initialize serial communication at 9600 bits per second
 }
@@ -418,7 +418,7 @@ void homePaddles() {
   }
   stateP1 = STATE_STOPPED;
   stateP2 = STATE_STOPPED;
-  update_serial = millis();
+  //update_serial = millis();
 }
 
 // This routine must be called quite periodically for good response!
@@ -603,9 +603,9 @@ void move() {
 }
 
 // sends paddle position data to SBC over i2c
-void sendUpdate() {
+//void sendUpdate() {
   
-}
+//}
 
 void loop() {
   if (isHomedP1 == 0) {
@@ -614,30 +614,30 @@ void loop() {
     Serial.println("Connected to Dodgeball.\nScanning for I2C devices...");
 
     // scan for I2C devices. Looking for SBC
-    I2CScan(&bbi2c, i2c_map); // get bitmap of connected I2C devices
-    if (i2c_map[0] == 0xfe) {
-      // something is wrong with the I2C bus
-      Serial.println("I2C pins are not correct or the bus is being pulled low by a bad device; unable to run scan.");
-    } else {
-      iCount = 0;
-      for (i = 1; i < 128; i++) // skip address 0 (general call address) since more than 1 device can respond
-      {
-        if (i2c_map[i>>3] & (1 << (i & 7))) {
-          // device found, print info about it
-          iCount++;
-          Serial.print("Device found at 0x");
-          Serial.print(i, HEX);
-          iDevice = I2CDiscoverDevice(&bbi2c, i, &u32Caps);
-          Serial.print(", type = ");
-          I2CGetDeviceName(iDevice, szTemp);
-          Serial.print(szTemp); // show the device name as a string
-          Serial.print(", capability bits = 0x");
-          Serial.println(u32Caps, HEX);
-        }
-      }
-      Serial.print(iCount, DEC);
-      Serial.println(" device(s) found");
-    }
+    // I2CScan(&bbi2c, i2c_map); // get bitmap of connected I2C devices
+    // if (i2c_map[0] == 0xfe) {
+    //   // something is wrong with the I2C bus
+    //   Serial.println("I2C pins are not correct or the bus is being pulled low by a bad device; unable to run scan.");
+    // } else {
+    //   iCount = 0;
+    //   for (i = 1; i < 128; i++) // skip address 0 (general call address) since more than 1 device can respond
+    //   {
+    //     if (i2c_map[i>>3] & (1 << (i & 7))) {
+    //       // device found, print info about it
+    //       iCount++;
+    //       Serial.print("Device found at 0x");
+    //       Serial.print(i, HEX);
+    //       iDevice = I2CDiscoverDevice(&bbi2c, i, &u32Caps);
+    //       Serial.print(", type = ");
+    //       I2CGetDeviceName(iDevice, szTemp);
+    //       Serial.print(szTemp); // show the device name as a string
+    //       Serial.print(", capability bits = 0x");
+    //       Serial.println(u32Caps, HEX);
+    //     }
+    //   }
+    //   Serial.print(iCount, DEC);
+    //   Serial.println(" device(s) found");
+    // }
   
     homePaddles();
     update_timeP1 = millis();
