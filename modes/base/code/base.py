@@ -18,9 +18,12 @@ class Base(Mode):
             rec  = ser.read()
             if (rec[0] != 0xd):
                 if (rec[0] == 0xa):
-                    print(inData)       # change this to fire an MPF event with data in its params
-                    paddleParams = {'p1pos': '100'}
-                    self.machine.events.post(event='paddle_update', m1pos=100, m1set=200)
+                    # inData now has a full update. It may look like this: P,S,100,100,T,500,100
+                    parsed = inData.split(sep=",")
+                    if parsed[0] == "P":
+                        # we have a paddle position update (only type of message right now!)
+                        #print(inData)       # change this to fire an MPF event with data in its params
+                        self.machine.events.post(event='paddle_update', p1=parsed[1], p1set=parsed[2], p1pos=parsed[3], p2=parsed[4], p2set=parsed[5], p2pos=parsed[6])
                     inData = ""
                 else:
                     inData += rec.decode('utf-8')
