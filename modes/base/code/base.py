@@ -19,7 +19,8 @@ class Base(Mode):
             if (rec[0] != 0xd):
                 if (rec[0] == 0xa):
                     print(inData)       # change this to fire an MPF event with data in its params
-                    self.machine.events.post(event='paddle_update', {'m1pos': 100, 'm1sp: 200'})
+                    paddleParams = {'p1pos': '100'}
+                    self.machine.events.post(event='paddle_update', **paddleParams)
                     inData = ""
                 else:
                     inData += rec.decode('utf-8')

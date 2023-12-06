@@ -80,7 +80,7 @@
 #include <Encoder.h>
 // #include <BitBang_I2C.h>
 
-#define IS_DEBUG 1
+#define IS_DEBUG 0
 #define SET_DIR_P1_LEFT digitalWrite(dirPinP1, LOW)
 #define SET_DIR_P1_RIGHT digitalWrite(dirPinP1, HIGH)
 #define SET_DIR_P2_LEFT digitalWrite(dirPinP2, LOW)
@@ -246,6 +246,7 @@ void homePaddles() {
   isHomedP2 = 0;
   stateP1 = STATE_STOPPED;
   stateP2 = STATE_STOPPED;
+  Serial.print("X\n"); 
   // loop until both paddles are homed
   while (!isHomedP1 || !isHomedP2) {
     // handle P1 paddle
@@ -411,6 +412,7 @@ void homePaddles() {
         if (IS_DEBUG) Serial.println("\nM2Homed.");
         isHomedP2 = 1;
         stateP2 = STATE_HOMED;
+        Serial.print("H\n"); 
       }
     default:
       break;
@@ -434,23 +436,23 @@ void move() {
   potP2_smoothed = (potFilterParam * potP2) + ((1 - potFilterParam) * potP2_smoothed);
   setPointMotorP2 = map(potP2_smoothed, 0, 1023, settingsPosMinMotorP2, settingsPosMaxMotorP2);   // calculate where pot is wrt motor min and max
   
-  if (IS_DEBUG) {
-    if (millis() - update_serial > UPDATE_SERIAL_TIME) {
-      update_serial = millis();
-      if (stateP1 == STATE_STOPPED) Serial.print("P,S,");       // P = Paddle Update
-      else if (stateP1 == STATE_TRACKING) Serial.print("P,T,");
-      Serial.print(setPointMotorP1);
-      Serial.print(",");
-      Serial.print(posMotorP1);
-      Serial.print(",");
-      if (stateP2 == STATE_STOPPED) Serial.print("S,");
-      else if (stateP1 == STATE_TRACKING) Serial.print("T,");
-      Serial.print(setPointMotorP2);
-      Serial.print(",");
-      Serial.print(posMotorP2);
-      Serial.print(",\n");
-    }
+  
+  if (millis() - update_serial > UPDATE_SERIAL_TIME) {
+    update_serial = millis();
+    if (stateP1 == STATE_STOPPED) Serial.print("P,S,");       // P = Paddle Update
+    else if (stateP1 == STATE_TRACKING) Serial.print("P,T,");
+    Serial.print(setPointMotorP1);
+    Serial.print(",");
+    Serial.print(posMotorP1);
+    Serial.print(",");
+    if (stateP2 == STATE_STOPPED) Serial.print("S,");
+    else if (stateP2 == STATE_TRACKING) Serial.print("T,");
+    Serial.print(setPointMotorP2);
+    Serial.print(",");
+    Serial.print(posMotorP2);
+    Serial.print("\n");
   }
+  
 
   // move M1 with acceleration
   if (stateP1 == STATE_STOPPED) {
@@ -608,9 +610,9 @@ void move() {
 
 void loop() {
   if (isHomedP1 == 0) {
-    delay(2000);
-    Serial.println("");
-    Serial.println("Connected to Dodgeball.\nScanning for I2C devices...");
+    //delay(2000);
+    //Serial.println("");
+    //Serial.println("Connected to Dodgeball.\nScanning for I2C devices...");
 
     // scan for I2C devices. Looking for SBC
     // I2CScan(&bbi2c, i2c_map); // get bitmap of connected I2C devices
