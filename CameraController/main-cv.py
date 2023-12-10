@@ -7,7 +7,7 @@ from utils import *
 
 
 def main():
-    cap = cv2.VideoCapture(2)		# 2 = index of my USB webcam. May change in the future?
+    cap = cv2.VideoCapture(0)		# 2 = index of my USB webcam. May change in the future?
     if not cap.isOpened():
       print("Cannot open camera.")
       exit()
@@ -50,7 +50,7 @@ def main():
 
         # Draw pinball coordinates
         if len(pinball_coordinates) == 1:
-            DisplayUtils.draw_circles(warped_frame, pinball_coordinates, radius=8)
+            DisplayUtils.draw_circles(warped_frame, pinball_coordinates, radius=16)
 
         new_time = time.time()
         fps = f"FPS: {int(1 / (new_time - prev_time))}"

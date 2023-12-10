@@ -37,9 +37,9 @@ CORNER_LOWER_YELLOW = [20, 130, 130]
 """List[int]: lower bound of the yellow color range."""
 CORNER_UPPER_YELLOW = [30, 255, 255]
 """List[int]: upper bound of the yellow color range."""
-CORNER_LOWER_BLUE = [100, 140, 20]
+CORNER_LOWER_BLUE = [210, 100, 100]
 """List[int]: lower bound of the blue color range."""
-CORNER_UPPER_BLUE = [130, 255, 255]
+CORNER_UPPER_BLUE = [240, 255, 255]
 """List[int]: upper bound of the blue color range."""
 
 # HSV color mapping intervals for different pinball colors
@@ -47,14 +47,14 @@ BALL_LOWER_GREEN = [40, 0, 80]
 BALL_UPPER_GREEN = [60, 255, 255]
 BALL_LOWER_ORANGE = [10, 130, 130]
 BALL_UPPER_ORANGE = [25, 255, 255]
-BALL_LOWER_RED = [0, 40, 80]
-BALL_UPPER_RED = [255, 60, 255]
+BALL_LOWER_RED = [0, 120, 20]
+BALL_UPPER_RED = [25, 255, 255]
 BALL_LOWER_BLUE = [0,0,0]
 BALL_UPPER_BLUE = [255,255,255]
 
 
 # Assign pinball color to look for
-PINBALL_COLOR = "GREEN"
+PINBALL_COLOR = "RED"
 """str: the color of the pinball to look for."""
 PINBALL_COLOR_RANGES = {
     "GREEN": [BALL_LOWER_GREEN, BALL_UPPER_GREEN],
@@ -67,11 +67,11 @@ PINBALL_COLOR_RANGES = {
 """List[int]: lower and upper bounds of pinball color to look for."""
 
 # Pinball Detection Tunable Parameters
-PINBALL_CONTOUR_MIN_AREA = 600
+PINBALL_CONTOUR_MIN_AREA = 200
 """int: minimum area of the contour of the pinball."""
-PINBALL_CONTOUR_MAX_AREA = 2000
+PINBALL_CONTOUR_MAX_AREA = 4000
 """int: maximum area of the contour of the pinball."""
-PINBALL_CONTOUR_MAX_PERIMETER = 160
+PINBALL_CONTOUR_MAX_PERIMETER = 2000
 """int: maximum perimeter of the contour of the pinball."""
-PINBALL_CONTOUR_MAX_SIDES = 15
+PINBALL_CONTOUR_MAX_SIDES = 30
 
