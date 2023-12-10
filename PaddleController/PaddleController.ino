@@ -60,7 +60,7 @@
   modified 30 Nov - All physical wiring of P1 and P2 is done. Updating code to move/home paddles simultaneously
   modified 1 Dec - Code updated to home() and move() both paddles simultaneously in real time
   modified 3 Dec - Added info about how to communicate back to MPF. I'll use bit bang i2c, connected to SBC I2C. MPF can read that using "native i2c". Custom python module.
-  
+  modified 6 Dec - Ditched I2C. I just read from serial port which is hooked up to both...
   Notes:
   Using example Analog Serial Monitoring, pot currently reports 0 for full turned one way, 1023 for full turned other way. So use that as scale for
     PWM motor control
