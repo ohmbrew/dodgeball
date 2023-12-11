@@ -4,22 +4,34 @@
 # until it sees a \n. It disregards \r, which can be apparently sent with Arduino's println() method. Once it receives a full message,
 # it posts a custom "paddle_update" event in MPF, with each paddle's state (S=Stopped, T=Tracking) and positions (p1 set point, p1 position,
 # p2 set point, p2 position).
+
 # This can then be acted on by MPF:
 # - track the paddle with a graphic
+# - draw fire trail on ball
+# - make virtual games like Crossfire, etc.
 # - show where the set point is with a graphic
-# TODO: Haven't figured out where the AI will be performed. I don't think it'll be MPF...so I'm not sure how I'm going to communicate back to Arduino
-# when we want to move the AI Player 2 paddle. I think it may also lay in a custom python module for MPF...
+
+# OR
+
+# We run all game logic in here.
+# We create a display, we can draw to the display.
+# MPF can play audio based on events sent from here or we figure out how to play an audio file from here
+# We can do the AI logic here
+# We receive the messages from Arduino about paddle location here
+# We can open the webcam here and use the test script I've been working on (10 Dec)
+# We can send paddle location commanding (for AI player 2) from here
 
 from mpf.core.mode import Mode
 import serial
 import time
 import threading
 
-
+rate = 50     # how many milliseconds between calls to listen()
 ser = serial.Serial("/dev/ttyACM0", 115200)
 inData = ""
 
 class Base(Mode):
+    # self-calling based on timer event firing every x milliseconds
     def listen(self):
         global inData
 
@@ -32,12 +44,12 @@ class Base(Mode):
                     if parsed[0] == "P":
                         # we have a paddle position update (only type of message right now!)
                         #print(inData)       # change this to fire an MPF event with data in its params
-                        self.machine.events.post(event='paddle_update', p1=parsed[1], p1set=parsed[2], p1pos=parsed[3], p2=parsed[4], p2set=parsed[5], p2pos=parsed[6])
+                        self.machine.events.post(event='paddle_update', p1_state=parsed[1], p1_set_point=parsed[2], p1pos=parsed[3], p2_state=parsed[4], p2_set_point=parsed[5], p2_pos=parsed[6])
                     inData = ""
                 else:
                     inData += rec.decode('utf-8')
         if self.active:
-            threading.Timer(1, self.listen).start()     # start new timer of 1 second
+            threading.Timer(0.05, self.listen).start()     # start new timer of 1 second
 
     def mode_start(self, **kwargs):
         print("[Serial Monitor] Base Mode custom python is starting.")
