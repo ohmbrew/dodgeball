@@ -52,7 +52,7 @@ BALL_LOWER_GREEN = [40, 0, 80]
 BALL_UPPER_GREEN = [60, 255, 255]
 BALL_LOWER_ORANGE = [10, 130, 130]
 BALL_UPPER_ORANGE = [25, 255, 255]
-BALL_LOWER_RED = [150, 65, 65]
+BALL_LOWER_RED = [160, 60, 60]
 BALL_UPPER_RED = [180, 255, 255]
 BALL_LOWER_BLUE = [0,0,0]
 BALL_UPPER_BLUE = [255,255,255]
@@ -72,11 +72,11 @@ PINBALL_COLOR_RANGES = {
 """List[int]: lower and upper bounds of pinball color to look for."""
 
 # Pinball Detection Tunable Parameters
-PINBALL_CONTOUR_MIN_AREA = 400
+PINBALL_CONTOUR_MIN_AREA = 200
 """int: minimum area of the contour of the pinball."""
 PINBALL_CONTOUR_MAX_AREA = 2500
 """int: maximum area of the contour of the pinball."""
 PINBALL_CONTOUR_MAX_PERIMETER = 2000
 """int: maximum perimeter of the contour of the pinball."""
-PINBALL_CONTOUR_MAX_SIDES = 15
+PINBALL_CONTOUR_MAX_SIDES = 255
 

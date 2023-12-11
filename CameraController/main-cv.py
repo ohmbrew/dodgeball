@@ -50,7 +50,7 @@ def main():
 
         # Draw pinball coordinates
         if len(pinball_coordinates) == 1:
-            DisplayUtils.draw_circles(warped_frame, pinball_coordinates, radius=16)
+            DisplayUtils.draw_circles(warped_frame, pinball_coordinates, radius=20)
 
         new_time = time.time()
         fps = f"FPS: {int(1 / (new_time - prev_time))}"
