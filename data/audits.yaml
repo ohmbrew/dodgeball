@@ -1,6 +1,6 @@
 events:
   game_ended: 0
-  game_started: 42
+  game_started: 46
 player:
   score:
     average: 0
@@ -9,12 +9,12 @@ player:
 shots:
   catch_p1: 9
   catch_p2: 1
-  sling_p1: 17
+  sling_p1: 19
   sling_p2: 1
 switches:
   s_catch_p1: 9
   s_catch_p2: 1
-  s_sling_p1: 17
+  s_sling_p1: 19
   s_sling_p2: 1
   s_start_p1: 1
   s_start_p2: 0

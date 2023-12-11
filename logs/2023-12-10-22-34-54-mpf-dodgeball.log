@@ -1,0 +1,134 @@
+2023-12-10 22:34:54,224 : INFO : root : Loading config.
+2023-12-10 22:34:54,333 : INFO : ConfigProcessor : Config spec file cache created: /tmp/config_spec.mpf_cache
+2023-12-10 22:34:54,333 : INFO : YamlMultifileConfigLoader : Machine config file #1: config.yaml
+2023-12-10 22:34:54,334 : INFO : ConfigProcessor : Loading config from file /home/ohm/.local/lib/python3.10/site-packages/mpf/mpfconfig.yaml.
+2023-12-10 22:34:54,383 : INFO : ConfigProcessor : Loading config: /home/ohm/.local/lib/python3.10/site-packages/mpf/mpfconfig.yaml
+2023-12-10 22:34:54,384 : INFO : ConfigProcessor : Loading config from file /home/ohm/dodgeball/config/config.yaml.
+2023-12-10 22:34:54,393 : INFO : ConfigProcessor : Loading config: /home/ohm/dodgeball/config/config.yaml
+2023-12-10 22:34:54,395 : INFO : ConfigProcessor : Loading config: /home/ohm/dodgeball/config/lights.yaml
+2023-12-10 22:34:54,399 : INFO : ConfigProcessor : Loading config: /home/ohm/dodgeball/config/coils.yaml
+2023-12-10 22:34:54,402 : INFO : ConfigProcessor : Loading config: /home/ohm/dodgeball/config/switches.yaml
+2023-12-10 22:34:54,404 : INFO : ConfigProcessor : Loading config: /home/ohm/dodgeball/config/playervars.yaml
+2023-12-10 22:34:54,407 : INFO : ConfigProcessor : Config file cache created: /tmp/bf38e15644d30ba1eb87297a18d33bd2.mpf_cache
+2023-12-10 22:34:54,537 : INFO : ConfigProcessor : Loading config from file /home/ohm/.local/lib/python3.10/site-packages/mpf/modes/attract/config/attract.yaml.
+2023-12-10 22:34:54,539 : INFO : ConfigProcessor : Loading config: /home/ohm/.local/lib/python3.10/site-packages/mpf/modes/attract/config/attract.yaml
+2023-12-10 22:34:54,539 : INFO : ConfigProcessor : Loading config from file /home/ohm/dodgeball/modes/attract/config/attract.yaml.
+2023-12-10 22:34:54,540 : INFO : ConfigProcessor : Loading config: /home/ohm/dodgeball/modes/attract/config/attract.yaml
+2023-12-10 22:34:54,541 : INFO : ConfigProcessor : Config file cache created: /tmp/ecc2466debc0cbb894d1a2fba8912b38.mpf_cache
+2023-12-10 22:34:54,542 : INFO : ConfigProcessor : Loading config from file /home/ohm/.local/lib/python3.10/site-packages/mpf/modes/game/config/game.yaml.
+2023-12-10 22:34:54,543 : INFO : ConfigProcessor : Loading config: /home/ohm/.local/lib/python3.10/site-packages/mpf/modes/game/config/game.yaml
+2023-12-10 22:34:54,543 : INFO : ConfigProcessor : Config file cache created: /tmp/32cc0edc83e6cd7fce5d5a48c9d631d2.mpf_cache
+2023-12-10 22:34:54,544 : INFO : ConfigProcessor : Loading config from file /home/ohm/dodgeball/modes/base/config/base.yaml.
+2023-12-10 22:34:54,546 : INFO : ConfigProcessor : Loading config: /home/ohm/dodgeball/modes/base/config/base.yaml
+2023-12-10 22:34:54,548 : INFO : ConfigProcessor : Loading config: /home/ohm/dodgeball/modes/base/config/shots.yaml
+2023-12-10 22:34:54,548 : INFO : ConfigProcessor : Config file cache created: /tmp/0fe63fd00a83faf3a344d3dd33ac8b6e.mpf_cache
+2023-12-10 22:34:54,549 : INFO : ConfigProcessor : Loading config from file /home/ohm/dodgeball/modes/attract/shows/./attract_display_loop.yaml.
+2023-12-10 22:34:54,552 : INFO : ConfigProcessor : Loading config: /home/ohm/dodgeball/modes/attract/shows/./attract_display_loop.yaml
+2023-12-10 22:34:54,552 : INFO : ConfigProcessor : Config file cache created: /tmp/4923a60b897e22ae41d9973250e86152.mpf_cache
+2023-12-10 22:34:54,553 : INFO : Machine : Mission Pinball Framework Core Engine v0.57.0.dev32
+2023-12-10 22:34:54,553 : INFO : Machine : Command line arguments: {'no_load_cache': False, 'create_config_cache': True, 'bcp': True, 'configfile': ['config.yaml'], 'force_assets_load': False, 'jsonlogging': False, 'logfile': 'logs/2023-12-10-22-34-54-mpf-dodgeball.log', 'pause': False, 'production': False, 'text_ui': True, 'loglevel': 15, 'consoleloglevel': 20, 'force_platform': None, 'syslog_address': None, 'mc_file_name': None, 'no_sound': False}
+2023-12-10 22:34:54,553 : INFO : Machine : MPF path: /home/ohm/.local/lib/python3.10/site-packages/mpf
+2023-12-10 22:34:54,553 : INFO : Machine : Machine path: /home/ohm/dodgeball
+2023-12-10 22:34:54,553 : INFO : Machine : Platform: linux
+2023-12-10 22:34:54,553 : INFO : Machine : Python executable location: /usr/bin/python3
+2023-12-10 22:34:54,553 : INFO : Machine : Python version: 3.10.12 (64-bit)
+2023-12-10 22:34:54,571 : INFO : Machine : Initializing MPF...
+2023-12-10 22:34:54,702 : INFO : P-Roc : Connecting to P-ROC
+2023-12-10 22:34:54,975 : INFO : P-Roc : Successfully connected to P-ROC/P3-ROC. Firmware Version: 2. Firmware Revision: 18. Hardware Board ID: 3
+2023-12-10 22:34:54,989 : INFO : EventManager : Event: ======'machine_var_p_roc_version'====== Args={'value': 2, 'prev_value': None, 'change': True}
+2023-12-10 22:34:54,989 : INFO : EventManager : Event: ======'machine_var_p_roc_revision'====== Args={'value': 18, 'prev_value': None, 'change': True}
+2023-12-10 22:34:54,990 : INFO : EventManager : Event: ======'machine_var_p_roc_hardware_version'====== Args={'value': 3, 'prev_value': None, 'change': True}
+2023-12-10 22:34:54,990 : INFO : EventManager : Event: ======'machine_var_credits_string'====== Args={'value': 'FREE PLAY', 'prev_value': None, 'change': True}
+2023-12-10 22:34:55,064 : INFO : EventManager : Event: ======'machine_var_master_volume'====== Args={'value': 0.5, 'prev_value': None, 'change': True}
+2023-12-10 22:34:55,064 : INFO : EventManager : Event: ======'machine_var_mpf_version'====== Args={'value': 'Mission Pinball Framework v0.57.0.dev32', 'prev_value': None, 'change': True}
+2023-12-10 22:34:55,064 : INFO : EventManager : Event: ======'machine_var_mpf_extended_version'====== Args={'value': 'Mission Pinball Framework v0.57.0.dev32, Config version:6, Show version: 6, BCP version:1.1', 'prev_value': None, 'change': True}
+2023-12-10 22:34:55,064 : INFO : EventManager : Event: ======'machine_var_python_version'====== Args={'value': '3.10.12', 'prev_value': None, 'change': True}
+2023-12-10 22:34:55,067 : INFO : EventManager : Event: ======'machine_var_platform'====== Args={'value': 'Linux-6.2.0-37-generic-x86_64-with-glibc2.35', 'prev_value': None, 'change': True}
+2023-12-10 22:34:55,067 : INFO : EventManager : Event: ======'machine_var_platform_system'====== Args={'value': 'Linux', 'prev_value': None, 'change': True}
+2023-12-10 22:34:55,067 : INFO : EventManager : Event: ======'machine_var_platform_release'====== Args={'value': '6.2.0-37-generic', 'prev_value': None, 'change': True}
+2023-12-10 22:34:55,067 : INFO : EventManager : Event: ======'machine_var_platform_version'====== Args={'value': '#38~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Nov  2 18:01:13 UTC 2', 'prev_value': None, 'change': True}
+2023-12-10 22:34:55,068 : INFO : EventManager : Event: ======'machine_var_platform_machine'====== Args={'value': 'x86_64', 'prev_value': None, 'change': True}
+2023-12-10 22:34:55,068 : INFO : EventManager : Event: ======'init_phase_1'====== Args={}
+2023-12-10 22:34:55,421 : ERROR : asyncio : Exception in callback functools.partial(<function EventManager._async_handler_done at 0x7f5dd291e8c0>, <QueuedEvent>)
+handle: <Handle functools.partial(<function EventManager._async_handler_done at 0x7f5dd291e8c0>, <QueuedEvent>)>
+Traceback (most recent call last):
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/mode_controller.py", line 133, in _load_mode_code
+    return Util.string_to_class(code_path)
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/utility_functions.py", line 641, in string_to_class
+    m = importlib.import_module(module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'base'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "uvloop/cbhandles.pyx", line 63, in uvloop.loop.Handle._run
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/events.py", line 127, in _async_handler_done
+    future.result()
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/mode_controller.py", line 119, in load_modes
+    self.machine.modes[mode] = self._load_mode(mode)
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/mode_controller.py", line 157, in _load_mode
+    mode_class = self._load_mode_code(mode_string, config['mode']['code'])
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/mode_controller.py", line 135, in _load_mode_code
+    return Util.string_to_class("modes.{}.code.{}".format(mode_string, code_path))
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/utility_functions.py", line 641, in string_to_class
+    m = importlib.import_module(module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/ohm/dodgeball/modes/base/code/base.py", line 30, in <module>
+    from utils import *
+ModuleNotFoundError: No module named 'utils'
+2023-12-10 22:34:55,428 : INFO : Machine : Starting the main run loop.
+2023-12-10 22:34:55,429 : INFO : Machine : Shutting down...
+2023-12-10 22:34:55,429 : INFO : EventManager : Event: ======'shutdown'====== Args={}
+2023-12-10 22:34:56,432 : ERROR : Machine : Runtime Exception
+Traceback (most recent call last):
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/mode_controller.py", line 133, in _load_mode_code
+    return Util.string_to_class(code_path)
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/utility_functions.py", line 641, in string_to_class
+    m = importlib.import_module(module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'base'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/machine.py", line 788, in _run_loop
+    raise self._exception['exception']
+  File "uvloop/cbhandles.pyx", line 63, in uvloop.loop.Handle._run
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/events.py", line 127, in _async_handler_done
+    future.result()
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/mode_controller.py", line 119, in load_modes
+    self.machine.modes[mode] = self._load_mode(mode)
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/mode_controller.py", line 157, in _load_mode
+    mode_class = self._load_mode_code(mode_string, config['mode']['code'])
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/mode_controller.py", line 135, in _load_mode_code
+    return Util.string_to_class("modes.{}.code.{}".format(mode_string, code_path))
+  File "/home/ohm/.local/lib/python3.10/site-packages/mpf/core/utility_functions.py", line 641, in string_to_class
+    m = importlib.import_module(module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/ohm/dodgeball/modes/base/code/base.py", line 30, in <module>
+    from utils import *
+ModuleNotFoundError: No module named 'utils'
+2023-12-10 22:35:06,203 : INFO : root : MPF run loop ended.
