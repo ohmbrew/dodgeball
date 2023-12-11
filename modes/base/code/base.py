@@ -25,9 +25,12 @@ from mpf.core.mode import Mode
 import serial
 import time
 import threading
+import cv2
+
+from utils import *
 
 rate = 50     # how many milliseconds between calls to listen()
-ser = serial.Serial("/dev/ttyACM0", 115200)
+ser = serial.Serial("/dev/tty2", 115200)
 inData = ""
 
 class Base(Mode):
@@ -41,6 +44,7 @@ class Base(Mode):
                 if (rec[0] == 0xa):
                     # inData now has a full update. It may look like this: P,S,100,100,T,500,100
                     parsed = inData.split(sep=",")
+                    print(inData)
                     if parsed[0] == "P":
                         # we have a paddle position update (only type of message right now!)
                         #print(inData)       # change this to fire an MPF event with data in its params
@@ -49,12 +53,30 @@ class Base(Mode):
                 else:
                     inData += rec.decode('utf-8')
         if self.active:
-            threading.Timer(0.05, self.listen).start()     # start new timer of 1 second
+            threading.Timer(1, self.listen).start()     # start new timer of 1 second
 
     def mode_start(self, **kwargs):
         print("[Serial Monitor] Base Mode custom python is starting.")
         inData = ""
         self.active = True
+
+        # try CV2 stuff
+        cap = cv2.VideoCapture(2)		# 2 = index of my USB webcam. May change in the future?
+        if not cap.isOpened():
+            print("Cannot open camera.")
+            exit()
+        else:
+            print("Video capture initialized.")
+
+        prev_time = 0
+        new_time = 0
+        fond = cv2.FONT_HERSHEY_DUPLEX
+        playfield_corners = None
+        prev_frame = None
+        runs = 0
+
+
+
         self.listen()
 
             
