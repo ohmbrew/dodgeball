@@ -39,6 +39,7 @@ def main():
 
         # Recalculate playfield corner coordinates every 30 frames
         if runs % 30 == 0 or playfield_corners is None:
+            cv2.imwrite('output.jpg', rotated_frame)
             playfield_corners_temp = PinballUtils.get_playfield_corners(rotated_frame)
             if len(playfield_corners_temp) == 4:
                 print(f"Playfield corners found - Run: {runs}")
