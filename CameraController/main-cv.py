@@ -14,6 +14,13 @@ def main():
     else:
       print("Video capture initialized.")
 
+    # check field of view params
+    # print(cap.get(cv2.CAP_PROP_FRAME_WIDTH), cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+    # 12 Dec: the print() command printed 640x480. Let's try updating those values.
+    #           success! Just writing the following values makes the camera zoom out a bit
+    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920/3)
+    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080/3)
+
     prev_time = 0
     new_time = 0
     fond = cv2.FONT_HERSHEY_DUPLEX
