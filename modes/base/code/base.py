@@ -21,6 +21,8 @@
 # We can open the webcam here and use the test script I've been working on (10 Dec)
 # We can send paddle location commanding (for AI player 2) from here
 
+# updated 10 Dec 11PM. listen() is being called once a sec (can speed that up) listening for messages over serial port (arduino) and sends events to MPF construct
+#                      planned: will add ALL game logic in here. Only use MPF to read switch states and auto-fire coils. etc. All graphics will be here!
 from mpf.core.mode import Mode
 import serial
 import time

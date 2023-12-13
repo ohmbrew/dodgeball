@@ -8,7 +8,7 @@
   modified 1 Dec - Code updated to home() and move() both paddles simultaneously in real time
   modified 3 Dec - Added info about how to communicate back to MPF. I'll use bit bang i2c, connected to SBC I2C. MPF can read that using "native i2c". Custom python module.
   modified 6 Dec - Ditched I2C. I just read from serial port which is hooked up to both...
-
+  updated 10 Dec - Cleaned out references to I2C. 
   Arduino connected to SBC over USB-to-serial connection / provides monitor
 
   The circuit:
@@ -386,7 +386,7 @@ void homePaddles() {
         if (IS_DEBUG) Serial.println("\nM2Homed.");
         isHomedP2 = 1;
         stateP2 = STATE_HOMED;
-        Serial.print("H\n"); 
+        Serial.print("H\n");    // we want to send this no matter what
       }
     default:
       break;
