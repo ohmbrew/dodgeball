@@ -7,7 +7,8 @@ from utils import *
 
 
 def main():
-    cap = cv2.VideoCapture(2)		# 2 = index of my USB webcam. May change in the future?
+    #cap = cv2.VideoCapture(2)		# 0 = index of my USB webcam
+    cap = cv2.VideoCapture("redball-13DEC23.jpg")		# use still frame from webcam on pin
     if not cap.isOpened():
       print("Cannot open camera.")
       exit()

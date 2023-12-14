@@ -7,7 +7,6 @@ from utils import *
 
 
 def main():
-    # cap = cv2.VideoCapture(0)		# 0 = index of USB webcam on actual pin
     cap = cv2.VideoCapture(0)		# 0 = index of USB webcam on actual pin
     if not cap.isOpened():
       print("Cannot open camera.")
@@ -22,6 +21,11 @@ def main():
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920/3)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080/3)
 
+
+    # testing with still image
+    # img = cv2.imread('redball.jpg')
+    #hsv_img = cv2.cvtColor(img,cv2.COLOR_BGR2HSV)
+
     prev_time = 0
     new_time = 0
     fond = cv2.FONT_HERSHEY_DUPLEX
@@ -32,15 +36,15 @@ def main():
         # Read frame
         ok, curr_frame = cap.read()
         if not ok:
-            print("Error reading frame")
-            break
+           print("Error reading frame")
+           break
 
         # Rotate frame
         rotated_frame = DisplayUtils.rotate_frame_counterclockwise(frame=curr_frame)
+        #rotated_frame = DisplayUtils.rotate_frame_counterclockwise(frame=img)
 
         # Recalculate playfield corner coordinates every 30 frames
         if runs % 30 == 0 or playfield_corners is None:
-            cv2.imwrite('output.jpg', rotated_frame)
             playfield_corners_temp = PinballUtils.get_playfield_corners(rotated_frame)
             if len(playfield_corners_temp) == 4:
                 print(f"Playfield corners found - Run: {runs}")
@@ -54,12 +58,12 @@ def main():
 
         # Pinball detection
         if runs == 0:
-            print(f"Looking for {config.PINBALL_COLOR} pinball")
+            print("Looking for {config.PINBALL_COLOR} pinball")
         pinball_coordinates = PinballUtils.get_pinball_coordinates(warped_frame, prev_frame)
 
         # Draw pinball coordinates
-        if len(pinball_coordinates) == 1:
-            DisplayUtils.draw_circles(warped_frame, pinball_coordinates, radius=20)
+        # if len(pinball_coordinates) == 1:
+        DisplayUtils.draw_circles(warped_frame, pinball_coordinates, radius=15)
 
         new_time = time.time()
         fps = f"FPS: {int(1 / (new_time - prev_time))}"
