@@ -37,9 +37,9 @@ CORNER_LOWER_YELLOW = [20, 130, 130]
 """List[int]: lower bound of the yellow color range."""
 CORNER_UPPER_YELLOW = [30, 255, 255]
 """List[int]: upper bound of the yellow color range."""
-CORNER_LOWER_BLUE = [210, 100, 100]
+CORNER_LOWER_BLUE = [95, 100, 100]
 """List[int]: lower bound of the blue color range."""
-CORNER_UPPER_BLUE = [240, 255, 255]
+CORNER_UPPER_BLUE = [130, 255, 255]
 """List[int]: upper bound of the blue color range."""
 
 # From test.py, this range of red DEFINITELY covers the pinball. but has extra stuff. But let's start here

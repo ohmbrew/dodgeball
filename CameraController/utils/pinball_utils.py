@@ -39,10 +39,10 @@ class PinballUtils:
 
         # Color threshold masks (top of playfield has yellow corner markers and bottom of playfield has blue corner
         # markers)
-        yellow_mask = cv2.inRange(top, np.array(config.CORNER_LOWER_YELLOW), np.array(config.CORNER_UPPER_YELLOW))
-        blue_mask = cv2.inRange(bottom, np.array(config.CORNER_LOWER_BLUE), np.array(config.CORNER_UPPER_BLUE))
+        blue_top_mask = cv2.inRange(top, np.array(config.CORNER_LOWER_BLUE), np.array(config.CORNER_UPPER_BLUE))
+        blue_bottom_mask = cv2.inRange(bottom, np.array(config.CORNER_LOWER_BLUE), np.array(config.CORNER_UPPER_BLUE))
         # Combining masks to retrieve full frame mask
-        mask = np.vstack((yellow_mask, blue_mask))
+        mask = np.vstack((blue_top_mask, blue_bottom_mask))
 
         # Extract targeted colors from original frame in grayscale
         extracted_colors = cv2.bitwise_and(blurred_frame, blurred_frame, mask=mask)
